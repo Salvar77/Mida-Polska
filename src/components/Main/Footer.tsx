@@ -6,7 +6,11 @@ import Logo from "../Nav/Logo";
 import GoogleMap from "./GoogleMap";
 import styles from "./Footer.module.scss";
 
-const Footer = () => {
+interface FooterProps {
+  variant?: "default" | "simple";
+}
+
+const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
@@ -16,6 +20,7 @@ const Footer = () => {
     { label: "Nasza Oferta", href: "#offer" },
     { label: "O nas", href: "#about" },
     { label: "Kontakt", href: "#contact" },
+    { label: "Polityka Prywatności", href: "/polityka-prywatnosci" },
   ];
 
   const fadeInUp = {
@@ -26,7 +31,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={styles.footerWrapper}>
+    <footer className={`${styles.footerWrapper} ${variant === "simple" ? styles.simple : ""}`}>
       <div className={styles.googleMapSection}>
         <GoogleMap />
       </div>
@@ -165,8 +170,8 @@ const Footer = () => {
                 </div>
                 <div className={styles.info}>
                   <h4>E-mail</h4>
-                  <a href="mailto:biuro@mida-polska.com">
-                    biuro@mida-polska.com
+                  <a href="mailto:biuro@mida-polska.pl">
+                    biuro@mida-polska.pl
                   </a>
                 </div>
               </div>

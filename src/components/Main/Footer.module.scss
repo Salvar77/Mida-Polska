@@ -32,6 +32,12 @@
     transform: translateY(4.5rem) rotate(-2deg); // Match the Contact section bottom angle
     transform-origin: left;
   }
+
+  &.simple {
+    &::before {
+      display: none;
+    }
+  }
 }
 
 .googleMapSection {

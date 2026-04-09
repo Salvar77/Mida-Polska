@@ -1,0 +1,135 @@
+.wrapper {
+  background-color: var(--color-background);
+  min-height: 100vh;
+  padding-top: 100px; /* Dodatkowe miejsce na stały Navbar */
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+  }
+}
+
+.title {
+  color: var(--color-text-primary);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+
+  span {
+    color: var(--color-primary);
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.content {
+  color: var(--color-text-secondary);
+  font-size: 1.25rem; /* Zwiększony font */
+  line-height: 1.9;
+
+  section {
+    margin-bottom: var(--spacing-2xl);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: calc(var(--spacing-2xl) * 1.5); /* Zwiększony padding w oknach */
+    backdrop-filter: blur(10px);
+  }
+
+  h2 {
+    color: var(--color-text-primary);
+    font-size: 1.7rem; /* Zwiększony nagłówek */
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-primary);
+      border-radius: 50%;
+    }
+  }
+
+  p {
+    margin-bottom: var(--spacing-md);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xl);
+
+    li {
+      margin-bottom: var(--spacing-xs);
+      position: relative;
+
+      &::marker {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #ff7b33;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .wrapper {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+
+    section {
+      padding: 1.5rem 1rem;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}
