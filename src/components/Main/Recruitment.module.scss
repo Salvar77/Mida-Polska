@@ -1,0 +1,191 @@
+@import "../../styles/_variables.scss";
+
+.wrapper {
+  padding: 15rem 0;
+  background-color: #030303;
+  color: $white-100;
+  position: relative;
+  overflow: hidden;
+
+  // Diagonal Transition
+  clip-path: polygon(0 0, 100% 5rem, 100% 100%, 0 calc(100% - 5rem));
+  margin: -5rem 0;
+  z-index: 5;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 86, 0, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 86, 0, 0.03) 1px, transparent 1px);
+    background-size: 25px 25px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    pointer-events: none;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  .subtitle {
+    color: $brand-orange;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background-color: $brand-orange;
+      opacity: 0.6;
+    }
+  }
+
+  .title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    
+    span {
+      color: $brand-orange;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 4.8rem;
+    }
+  }
+
+  .divider {
+    width: 80px;
+    height: 4px;
+    background-color: $brand-orange;
+    margin: 2rem auto 0;
+  }
+}
+
+.citiesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 8rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cityTag {
+    background: rgba(255, 86, 0, 0.05);
+    border: 1px solid rgba(255, 86, 0, 0.2);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $white-smooth;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $brand-orange;
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 86, 0, 0.3);
+    }
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 8rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stepCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4rem 3rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  @include transition-standard;
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 86, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.number {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: $brand-orange;
+  opacity: 0.6;
+}
+
+.stepTitle {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $white-100;
+}
+
+.stepDescription {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: $white-smooth;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.ctaBottom {
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+}
+
+.ctaSubtext {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}

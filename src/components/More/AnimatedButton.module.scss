@@ -1,0 +1,95 @@
+@import "../../styles/_variables.scss";
+
+.btn31,
+.btn31 *,
+.btn31 :after,
+.btn31 :before,
+.btn31:after,
+.btn31:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn31 {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  -webkit-appearance: button;
+  background-color: $brand-orange;
+  background-image: none;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+
+  mask-image: radial-gradient(circle, #000 0%, #fff 100%);
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  border: none;
+  padding: 1.2rem 3.5rem;
+  position: relative;
+  text-transform: uppercase;
+  clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
+}
+
+.btn31:disabled {
+  cursor: default;
+}
+
+.btn31:-moz-focusring {
+  outline: auto;
+}
+
+.btn31:before {
+  --progress: 100%;
+  content: "";
+  inset: 0;
+  position: absolute;
+  background: white;
+  clip-path: polygon(
+    100% 0,
+    var(--progress) var(--progress),
+    0 100%,
+    100% 100%
+  );
+  transition: clip-path 0.3s ease;
+}
+
+.btn31:hover:before {
+  --progress: 0%;
+}
+
+.btn31 .textContainer {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.text {
+  display: block;
+  font-weight: 900;
+  color: white;
+  position: relative;
+}
+
+.btn31:hover .text {
+  animation: move-up-alternate 0.3s ease forwards;
+  color: $brand-orange;
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(110%);
+  }
+  51% {
+    transform: translateY(-110%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

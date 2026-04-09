@@ -1,0 +1,105 @@
+@import "../../styles/_variables.scss";
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 2;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.content {
+  max-width: 800px;
+  text-align: left;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: $white-100;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+
+  span {
+    color: $brand-orange;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 5.5rem;
+  }
+}
+
+.description {
+  font-size: 1.6rem;
+  color: $white-smooth;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  max-width: 600px;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.ctaWrapper {
+  display: flex;
+  margin-bottom: 6rem;
+}
+
+.partners {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0.8;
+  flex-wrap: wrap;
+
+  .partnerItem {
+    @include flex-center;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    img {
+      filter: brightness(0) invert(1); // Standard for dark hero section
+      object-fit: contain;
+    }
+  }
+}

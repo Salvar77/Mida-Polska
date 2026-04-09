@@ -1,0 +1,238 @@
+@import "../../styles/_variables.scss";
+
+.wrapper {
+  padding: 15rem 0;
+  background-color: #050505;
+  color: $white-100;
+  position: relative;
+  overflow: hidden;
+  
+  // Diagonal Slant
+  clip-path: polygon(0 5rem, 100% 0, 100% calc(100% - 5rem), 0 100%);
+  margin: -5rem 0;
+  z-index: 4;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(
+      circle,
+      rgba(227, 30, 36, 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    filter: blur(40px);
+  }
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+
+  @media (max-width: 1024px) {
+    gap: 6rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    gap: 8rem;
+  }
+}
+
+.images {
+  flex: 1.2;
+  position: relative;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    min-height: 350px;
+    width: 100%;
+    transform: scale(0.9); // Scale down the whole group for mobile
+  }
+}
+
+.imageMain {
+  position: relative;
+  width: 440px;
+  z-index: 5;
+  margin-right: 5rem;
+
+  @media (max-width: 1024px) {
+    width: 350px;
+    margin-right: 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+    margin: 0 auto;
+    z-index: 5;
+  }
+
+  .img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+  }
+
+  .frame {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 200px;
+    height: 200px;
+    background-color: $brand-orange;
+    border-radius: 12px;
+    z-index: -1;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+      top: -10px;
+      left: -10px;
+    }
+  }
+}
+
+.imageSecondary {
+  position: absolute;
+  bottom: -60px;
+  right: -20px;
+  width: 340px;
+  aspect-ratio: 400 / 500;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  z-index: 10;
+
+  @media (max-width: 1024px) {
+    width: 260px;
+    bottom: -40px;
+    right: -10px;
+  }
+
+  @media (max-width: 768px) {
+    width: 200px;
+    bottom: -40px;
+    right: 5px;
+    transform: rotate(3deg);
+  }
+
+  .img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 4px solid $new-black;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .frameAlt {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, $brand-orange 0%, #ff8c00 100%);
+    clip-path: polygon(0 15px, 100% 0, 100% 100%, 15px 100%); // Speed slant
+    border-radius: 4px; // Sharper look
+    z-index: -1;
+
+    @media (max-width: 768px) {
+      width: 100px;
+      height: 100px;
+      bottom: -10px;
+      right: -10px;
+    }
+  }
+}
+
+.text {
+  flex: 1;
+
+  .label {
+    text-transform: uppercase;
+    color: $brand-orange;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    color: $white-100;
+
+    @media (max-width: 768px) {
+      font-size: 3.2rem;
+    }
+
+    span {
+      color: $brand-orange;
+    }
+  }
+
+  .description {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+    color: $white-smooth;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba($brand-orange, 0.1);
+    border: 1px solid rgba($brand-orange, 0.2);
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $brand-orange;
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .featureText {
+    h4 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $white-100;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: $white-smooth;
+      font-size: 1.4rem;
+      line-height: 1.6;
+    }
+  }
+}

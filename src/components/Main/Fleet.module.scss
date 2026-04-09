@@ -1,0 +1,262 @@
+@import "../../styles/_variables.scss";
+
+.wrapper {
+  padding: 10rem 0 12rem;
+  background-color: #000;
+  color: $white-100;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  @media (min-width: 1024px) {
+    padding-top: 15rem;
+  }
+
+  // Top Rim Lighting
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    z-index: 5;
+  }
+}
+
+.container {
+  @include container;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+
+  .subtitle {
+    color: $brand-orange;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+
+    span {
+      color: $brand-orange;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 5.5rem;
+    }
+  }
+
+  .description {
+    font-size: 1.8rem;
+    color: $white-smooth-3;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/* --- THE STRICT GEOMETRIC SHOWCASE (V8) --- */
+
+.showcase {
+  position: relative;
+  width: 100%;
+  max-width: 1200px; // Mandatory boundary to keep Suzuki/Toyota on screen
+  margin: 0 auto;
+
+  /* Mobile: Clean Vertical Stack */
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+
+  /* Desktop: Absolute Positioned Orbit */
+  @media (min-width: 1024px) {
+    height: 950px; // Compacted for better composition
+    display: block;
+  }
+}
+
+/* Central Decorative Orb (Fixed base) */
+.orbDecor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 550px;
+  border: 1px solid rgba(255, 86, 0, 0.25);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
+  .glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 86, 0, 0.1) 0%,
+      transparent 70%
+    );
+  }
+}
+
+.carShard {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  @include transition-standard;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+    width: 480px;
+
+    &:hover {
+      z-index: 50;
+      transform: translateY(-10px);
+    }
+  }
+
+  /* ABSOLUTE GEOMETRIC POSITIONS (SCREEN-SAFE) */
+  &.fabia {
+    @media (min-width: 1024px) {
+      top: 50px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: none;
+
+      // Ensure image container keeps standard width
+      .imageContainer {
+        width: 480px;
+      }
+    }
+  }
+
+  &.swace {
+    @media (min-width: 1024px) {
+      top: 50%; // Final ultra-tight alignment
+      right: 0px;
+    }
+  }
+
+  &.corolla {
+    @media (min-width: 1024px) {
+      top: 50%; // Final ultra-tight alignment
+      left: 0px;
+    }
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  background: #111;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.05); // High-premium border
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  @include transition-standard;
+
+  @media (min-width: 1024px) {
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    border-radius: 0;
+    aspect-ratio: 16/10;
+  }
+
+  @media (max-width: 1023px) {
+    border-radius: 20px;
+    aspect-ratio: 16/9;
+  }
+
+  .carImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+}
+
+.label {
+  padding: 2.5rem 0;
+  text-align: center; // Anchored under the car for stability
+
+  .carName {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: $brand-orange;
+      margin: 10px auto 0;
+    }
+  }
+
+  .specsList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+
+    li {
+      font-size: 1.3rem;
+      color: $white-smooth-3;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.footer {
+  margin-top: 5rem;
+  text-align: center;
+  p {
+    font-size: 1.6rem;
+    color: $white-smooth-3;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+  }
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+}

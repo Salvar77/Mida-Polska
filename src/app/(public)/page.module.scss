@@ -1,0 +1,9 @@
+@import "../../styles/_variables.scss";
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $new-black;
+  position: relative;
+  overflow: hidden;
+}

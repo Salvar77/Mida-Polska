@@ -1,0 +1,106 @@
+@import "../../styles/_variables.scss";
+
+.hamburger {
+  padding: 15px 15px;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburgerContainer {
+  display: flex;
+  align-items: center;
+  z-index: 1800;
+}
+
+.hamburger:hover {
+  opacity: 0.8;
+}
+
+.hamburgerBox {
+  width: 30px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburgerInner,
+.hamburgerInner::before,
+.hamburgerInner::after {
+  position: absolute;
+  left: 0;
+  height: 3px;
+  background-color: $brand-orange;
+  border-radius: 4px;
+  transition: transform 0.15s ease, width 0.15s ease;
+}
+
+.hamburgerInner {
+  width: 30px;
+  top: 50%;
+  margin-top: -1.5px;
+}
+
+.hamburgerInner::before {
+  content: "";
+  width: 30px;
+  top: -8px;
+}
+
+.hamburgerInner::after {
+  content: "";
+  width: 15px; // Signature Mida/2K look
+  top: 8px;
+}
+
+// Spring variant from 2kdetailing
+.hamburger__spring .hamburgerInner {
+  top: 2px;
+  transition: background-color 0s 0.13s linear;
+}
+.hamburger__spring .hamburgerInner::before {
+  top: 8px;
+  transition:
+    top 0.1s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+    transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.hamburger__spring .hamburgerInner::after {
+  top: 16px;
+  transition:
+    top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+    transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.isActive .hamburgerInner {
+  transition-delay: 0.22s;
+  background-color: transparent !important;
+}
+.isActive .hamburgerInner::before {
+  top: 0;
+  transition:
+    top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+    transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 8px, 0) rotate(45deg);
+  width: 30px !important;
+}
+.isActive .hamburgerInner::after {
+  top: 0;
+  transition:
+    top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+    transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: translate3d(0, 8px, 0) rotate(-45deg);
+  width: 30px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .hamburger {
+    display: none;
+  }
+}
