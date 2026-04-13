@@ -1,11 +1,40 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import IndustrialButton from "../More/IndustrialButton";
 import clsx from "clsx";
 import styles from "./Fleet.module.scss";
+
+// --- Animacje wzorowane na 2K Detailing ---
+const textVariant = (delay: number): Variants => ({
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "tween", ease: "easeOut", duration: 0.8, delay },
+  },
+});
+
+const fadeIn = (
+  direction: "up" | "down" | "left" | "right",
+  type: string,
+  delay: number,
+  duration: number,
+): Variants => ({
+  hidden: {
+    x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
+    y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: { type: type as any, duration, delay, ease: "easeOut" },
+  },
+});
 
 const fleet = [
   {
@@ -36,18 +65,44 @@ const Fleet = () => {
 
   return (
     <section id="flota" className={styles.wrapper}>
-      <div className={styles.container}>
+      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.subtitle}>NASZA FLOTA</span>
-          <h2 className={styles.title}>
+          <motion.span 
+            className={styles.subtitle}
+            {...(shouldAnimate && {
+              variants: textVariant(0.1),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true, amount: 0.2 },
+            })}
+          >
+            NASZA FLOTA
+          </motion.span>
+          <motion.h2 
+            className={styles.title}
+            {...(shouldAnimate && {
+              variants: textVariant(0.2),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true, amount: 0.2 },
+            })}
+          >
             To Twoje <span>narzędzie pracy</span>
-          </h2>
-          <p className={styles.description}>
+          </motion.h2>
+          <motion.p 
+            className={styles.description}
+            {...(shouldAnimate && {
+              variants: fadeIn("up", "tween", 0.3, 0.6),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true },
+            })}
+          >
             Stawiamy na komfort naszych kierowców i pasażerów. Kierowcy mają do
             dyspozycji nowoczesne i komfortowe pojazdy. Każdy samochód
             wyposażony jest w klimatyzację, poduszki powietrzne, aktywne i
             bierne systemy bezpieczeństwa!
-          </p>
+          </motion.p>
         </div>
 
         <div className={styles.showcase}>
@@ -64,10 +119,10 @@ const Fleet = () => {
                 key={car.id}
                 className={clsx(styles.carShard, styles[carKey])}
                 {...(shouldAnimate && {
-                  initial: { opacity: 0, scale: 0.95 },
-                  whileInView: { opacity: 1, scale: 1 },
-                  viewport: { once: true },
-                  transition: { duration: 0.6, delay: index * 0.1 },
+                  variants: fadeIn("up", "tween", 0.5 + index * 0.15, 0.7),
+                  initial: "hidden",
+                  whileInView: "show",
+                  viewport: { once: true, amount: 0.2 },
                 })}
               >
                 <div className={styles.imageContainer}>
@@ -96,19 +151,34 @@ const Fleet = () => {
         </div>
 
         <div className={styles.footer}>
-          <p>
+          <motion.p
+            {...(shouldAnimate && {
+              variants: fadeIn("up", "tween", 1.0, 0.6),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true },
+            })}
+          >
             Oprócz tego nasze pojazdy są w pełni przystosowane do wykonywania
             usług taxi. Każdy posiada wypis z licencji taxi, numer boczny i
             niezbędne oznakowanie.
-          </p>
-          <div className={styles.cta}>
+          </motion.p>
+          <motion.div 
+            className={styles.cta}
+            {...(shouldAnimate && {
+              variants: fadeIn("up", "tween", 1.2, 0.6),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true },
+            })}
+          >
             <IndustrialButton 
               variant="uber"
               href="tel:+48787611115"
             >
               Więcej informacji pod telefonem
             </IndustrialButton>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

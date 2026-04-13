@@ -1,52 +1,123 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import IndustrialButton from "../More/IndustrialButton";
 import styles from "./EarningsChart.module.scss";
+
+// --- Animacje wzorowane na 2K Detailing ---
+const textVariant = (delay: number): Variants => ({
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "tween", ease: "easeOut", duration: 0.8, delay },
+  },
+});
+
+const fadeIn = (
+  direction: "up" | "down" | "left" | "right",
+  type: string,
+  delay: number,
+  duration: number,
+): Variants => ({
+  hidden: {
+    x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
+    y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: { type: type as any, duration, delay, ease: "easeOut" },
+  },
+});
 
 const EarningsChart = () => {
   const shouldAnimate = useShouldAnimate();
 
   return (
     <section id="zarobki" className={styles.wrapper}>
-      <div className={styles.container}>
+      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
         <div className={styles.content}>
-          <motion.div
-            className={styles.left}
-            {...(shouldAnimate && {
-              initial: { opacity: 0, x: -50 },
-              whileInView: { opacity: 1, x: 0 },
-              viewport: { once: true },
-              transition: { duration: 0.8 },
-            })}
-          >
-            <span className={styles.subtitle}>MAKSYMALIZUJ ZYSKI</span>
-            <h2 className={styles.title}>
+          <div className={styles.left}>
+            <motion.span 
+              className={styles.subtitle}
+              {...(shouldAnimate && {
+                variants: textVariant(0.1),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true, amount: 0.2 },
+              })}
+            >
+              MAKSYMALIZUJ ZYSKI
+            </motion.span>
+            <motion.h2 
+              className={styles.title}
+              {...(shouldAnimate && {
+                variants: textVariant(0.2),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true, amount: 0.2 },
+              })}
+            >
               Pracując z nami <span>zarabiasz więcej</span>
-            </h2>
-            <p className={styles.description}>
+            </motion.h2>
+            <motion.p 
+              className={styles.description}
+              {...(shouldAnimate && {
+                variants: fadeIn("right", "tween", 0.3, 0.6),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true },
+              })}
+            >
               Nasi kierowcy to prawdziwi profesjonaliści! Cechują się wysoką
               kulturą osobistą i świetnymi umiejętnościami prowadzenia pojazdów.
-            </p>
-            <p className={styles.description}>
+            </motion.p>
+            <motion.p 
+              className={styles.description}
+              {...(shouldAnimate && {
+                variants: fadeIn("right", "tween", 0.4, 0.6),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true },
+              })}
+            >
               <strong>To proste:</strong> Im więcej jeździsz i im wyższą masz
               ocenę w aplikacji Bolt/Uber, tym lepsze i częstsze zlecenia
               otrzymujesz. Stała aktywność to Twoja droga do maksymalnych
               zarobków każdego dnia!
-            </p>
+            </motion.p>
 
-            <div className={styles.cta}>
+            <motion.div 
+              className={styles.cta}
+              {...(shouldAnimate && {
+                variants: fadeIn("up", "tween", 0.8, 0.6),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true },
+              })}
+            >
               <IndustrialButton 
                 variant="bolt"
                 href="tel:+48787611115"
               >
                 Masz pytanie? Zadzwoń
               </IndustrialButton>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          <div className={styles.right}>
+          <motion.div 
+            className={styles.right}
+            {...(shouldAnimate && {
+              variants: fadeIn("left", "tween", 0.5, 0.8),
+              initial: "hidden",
+              whileInView: "show",
+              viewport: { once: true },
+            })}
+          >
             <div className={styles.chartWrapper}>
               <div className={styles.chartHeader}>
                 <div className={styles.indicator}>
@@ -144,7 +215,7 @@ const EarningsChart = () => {
                 <span>Twoje Wynagrodzenie</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

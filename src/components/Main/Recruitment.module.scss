@@ -120,18 +120,11 @@
 }
 
 .steps {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
   margin-bottom: 8rem;
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .stepCard {
@@ -139,7 +132,16 @@
   padding: 4rem 3rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%; // Default mobile: 1 col
   @include transition-standard;
+
+  @media (min-width: 768px) {
+    width: calc(50% - 1.5rem); // Tablet: 2 cols
+  }
+
+  @media (min-width: 1024px) {
+    width: calc(33.333% - 2rem); // Desktop: 3 cols (4th & 5th will naturally center!)
+  }
 
   &:hover {
     transform: translateY(-10px);
