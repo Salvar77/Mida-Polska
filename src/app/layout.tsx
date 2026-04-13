@@ -10,8 +10,20 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mida-polska.pl"),
   title: "Mida Polska - Autoryzowany Partner Flotowy | Lublin i cała Polska",
   description: "Zarabiaj jako kierowca z Mida Polska. Oficjalny autoryzowany partner flotowy najpopularniejszych aplikacji transportowych: Uber, Bolt, FreeNow.",
+  openGraph: {
+    title: "Mida Polska - Autoryzowany Partner Flotowy",
+    description: "Zarabiaj jako kierowca z Mida Polska. Dołącz do najlepszej floty na rynku.",
+    url: "https://www.mida-polska.pl",
+    siteName: "Mida Polska",
+    locale: "pl_PL",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -23,8 +35,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mida Polska",
-    "image": "https://mida-polska.pl/images/herobg.png",
-    "url": "https://mida-polska.pl",
+    "image": "https://www.mida-polska.pl/images/herobg.png",
+    "url": "https://www.mida-polska.pl",
     "telephone": "+48787611115",
     "email": "biuro@mida-polska.pl",
     "address": {
