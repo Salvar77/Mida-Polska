@@ -3,6 +3,8 @@ import connectToDatabase from "@/lib/mongoose";
 import WebsiteContent from "@/models/WebsiteContent";
 import { auth } from "@/auth";
 
+export const dynamic = "force-dynamic";
+
 // POBIERANIE TREŚCI
 export async function GET(req: Request) {
   try {

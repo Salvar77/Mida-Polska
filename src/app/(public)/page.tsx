@@ -12,6 +12,8 @@ import connectToDatabase from "@/lib/mongoose";
 import WebsiteContent from "@/models/WebsiteContent";
 import styles from "./page.module.scss";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   await connectToDatabase();
   const heroContent = await WebsiteContent.findOne({ sectionId: "hero" });
