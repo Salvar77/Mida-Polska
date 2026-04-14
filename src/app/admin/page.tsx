@@ -7,6 +7,7 @@ import FleetEditor from "./components/FleetEditor";
 import RecruitmentEditor from "./components/RecruitmentEditor";
 import PartnerEditor from "./components/PartnerEditor";
 import ContactEditor from "./components/ContactEditor";
+import AccountSettings from "./components/AccountSettings";
 import styles from "./page.module.scss";
 
 export default function AdminDashboard() {
@@ -81,7 +82,7 @@ export default function AdminDashboard() {
           {activeTab === "recruitment" && <RecruitmentEditor />}
           {activeTab === "partner" && <PartnerEditor />}
           {activeTab === "contact" && <ContactEditor />}
-          {activeTab === "settings" && <h2>Ustawienia Panelu (Wkrótce)</h2>}
+          {activeTab === "settings" && <AccountSettings />}
         </section>
       </main>
     </div>

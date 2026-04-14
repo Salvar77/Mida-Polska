@@ -1,0 +1,99 @@
+.container {
+  max-width: 500px;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.footer {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.saveBtn {
+  padding: 1rem 2.5rem;
+  background-color: #ff5600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-family: inherit;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    background-color: #555;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #e64d00;
+  }
+}
+
+.successMessage {
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 1rem;
+}
+
+.errorMessage {
+  font-weight: bold;
+  color: #ff4444;
+  font-size: 1rem;
+}
+
+.infoBox {
+  margin-top: 3rem;
+  padding: 1.2rem;
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #777;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  strong {
+    color: #aaa;
+  }
+}
