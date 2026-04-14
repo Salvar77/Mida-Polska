@@ -18,7 +18,9 @@ export default async function Home() {
   await connectToDatabase();
   const heroContent = await WebsiteContent.findOne({ sectionId: "hero" });
   const fleetContent = await WebsiteContent.findOne({ sectionId: "fleet" });
-  const recruitmentContent = await WebsiteContent.findOne({ sectionId: "recruitment" });
+  const recruitmentContent = await WebsiteContent.findOne({
+    sectionId: "recruitment",
+  });
   const partnerContent = await WebsiteContent.findOne({ sectionId: "partner" });
   const contactContent = await WebsiteContent.findOne({ sectionId: "contact" });
 
@@ -32,7 +34,10 @@ export default async function Home() {
       <Flexibility />
       <EarningsChart />
       <Fleet data={fleetContent?.data?.cars} />
-      <ContactMap data={contactContent?.data} cities={recruitmentContent?.data?.cities} />
+      <ContactMap
+        data={contactContent?.data}
+        cities={recruitmentContent?.data?.cities}
+      />
       <Footer />
     </main>
   );

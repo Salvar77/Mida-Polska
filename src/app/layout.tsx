@@ -20,9 +20,23 @@ export const metadata: Metadata = {
     siteName: "Mida Polska",
     locale: "pl_PL",
     type: "website",
+    images: [
+      {
+        url: "https://www.mida-polska.pl/images/herobg.png",
+        width: 1200,
+        height: 630,
+        alt: "Mida Polska - Praca jako kierowca Uber, Bolt, FreeNow",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mida Polska - Autoryzowany Partner Flotowy",
+    description: "Zarabiaj jako kierowca z Mida Polska. Dołącz do najlepszej floty na rynku.",
+    images: ["https://www.mida-polska.pl/images/herobg.png"],
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.mida-polska.pl",
   },
 };
 

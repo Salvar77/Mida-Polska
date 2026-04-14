@@ -30,7 +30,6 @@ const RecruitmentEditor = () => {
         if (json && json.data && Array.isArray(json.data.steps)) {
           setData(json.data);
         } else {
-          // Fallback do twardych danych na start
           setData({
             steps: [
               { id: 1, title: "Skontaktuj się z nami", description: "Wypełnij krótki formularz na stronie lub zadzwoń bezpośrednio do nas." },
@@ -39,7 +38,11 @@ const RecruitmentEditor = () => {
               { id: 4, title: "Odbierz wypis z licencji", description: "Przekażemy Ci wypis z licencji taxi na Twój samochód." },
               { id: 5, title: "Zacznij zarabiać!", description: "Możesz już zalogować się do aplikacji i zacząć zarabiać." },
             ],
-            cities: ["Lublin", "Białystok", "Bydgoszcz", "Częstochowa", "Opole", "Wałbrzych"],
+            cities: [
+              "Opole", "Wałbrzych", "Kędzierzyn Koźle", "Leszno",
+              "Białystok", "Zielona Góra", "Bydgoszcz", "Nysa",
+              "Lublin", "Częstochowa"
+            ],
           });
         }
         setLoading(false);
@@ -74,9 +77,28 @@ const RecruitmentEditor = () => {
     });
   };
 
+  const addStep = () => {
+    const nextId = data.steps.length > 0
+      ? Math.max(...data.steps.map((s) => s.id)) + 1
+      : 1;
+    setData({
+      ...data,
+      steps: [
+        ...data.steps,
+        { id: nextId, title: "Nowy krok", description: "Opis nowego kroku rekrutacji." },
+      ],
+    });
+  };
+
+  const removeStep = (id: number) => {
+    const filtered = data.steps.filter((s) => s.id !== id);
+    const reindexed = filtered.map((s, i) => ({ ...s, id: i + 1 }));
+    setData({ ...data, steps: reindexed });
+  };
+
   const addCity = () => {
-    if (newCity && !data.cities.includes(newCity)) {
-      setData({ ...data, cities: [...data.cities, newCity] });
+    if (newCity.trim() && !data.cities.includes(newCity.trim())) {
+      setData({ ...data, cities: [...data.cities, newCity.trim()] });
       setNewCity("");
     }
   };
@@ -95,7 +117,12 @@ const RecruitmentEditor = () => {
         
         {/* LEWA KOLUMNA: KROKI */}
         <div className={styles.stepsColumn}>
-          <h3 className={styles.sectionLabel}>Kroki Rekrutacji</h3>
+          <div className={styles.stepsHeader}>
+            <h3 className={styles.sectionLabel}>Kroki Rekrutacji</h3>
+            <button onClick={addStep} className={styles.addStepBtn}>
+              + Dodaj krok
+            </button>
+          </div>
           {data.steps.map((step) => (
             <div key={step.id} className={styles.stepCard}>
               <div className={styles.stepHeader}>
@@ -106,6 +133,13 @@ const RecruitmentEditor = () => {
                   onChange={(e) => updateStep(step.id, "title", e.target.value)}
                   className={styles.stepTitleInput}
                 />
+                <button
+                  onClick={() => removeStep(step.id)}
+                  className={styles.removeStepBtn}
+                  title="Usuń krok"
+                >
+                  ×
+                </button>
               </div>
               <textarea 
                 rows={2}
