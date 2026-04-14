@@ -35,14 +35,42 @@ const fadeIn = (
   },
 });
 
-const ContactMap = () => {
+const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
   const shouldAnimate = useShouldAnimate();
+
+  const contact = {
+    address1: data?.addressLine1 || "ul. Nałęczowska 30 lok. 12",
+    address2: data?.addressLine2 || "20-701 Lublin",
+    phone: data?.phone || "+48 787 611 115",
+    hoursTitle: data?.hoursTitle || "Poniedziałek - Piątek",
+    hoursRange: data?.hoursRange || "10:00 - 18:00",
+    formLink: data?.formLink || "https://forms.gle/2jpFc7AEk1HAcufA6",
+  };
+
+  const displayCities =
+    cities && cities.length > 0
+      ? cities
+      : [
+          "Opole",
+          "Wałbrzych",
+          "Kędzierzyn Koźle",
+          "Leszno",
+          "Białystok",
+          "Zielona Góra",
+          "Bydgoszcz",
+          "Nysa",
+          "Lublin",
+          "Częstochowa",
+        ];
 
   return (
     <section id="kontakt" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.content}>
-          <motion.div 
+          <motion.div
             className={styles.left}
             {...(shouldAnimate && {
               variants: fadeIn("right", "tween", 0.1, 0.8),
@@ -52,9 +80,9 @@ const ContactMap = () => {
             })}
           >
             <div className={styles.mapWrapper}>
-              <img 
-                src="/images/mapa.svg" 
-                alt="Mapa zasięgu Mida Polska" 
+              <img
+                src="/images/mapa.svg"
+                alt="Mapa zasięgu Mida Polska"
                 className={styles.mapSvg}
               />
               <div className={styles.mapOverlay}>
@@ -64,7 +92,7 @@ const ContactMap = () => {
           </motion.div>
 
           <div className={styles.right}>
-            <motion.span 
+            <motion.span
               className={styles.subtitle}
               {...(shouldAnimate && {
                 variants: textVariant(0.1),
@@ -75,7 +103,7 @@ const ContactMap = () => {
             >
               KONTAKT
             </motion.span>
-            <motion.h2 
+            <motion.h2
               className={styles.title}
               {...(shouldAnimate && {
                 variants: textVariant(0.2),
@@ -86,8 +114,8 @@ const ContactMap = () => {
             >
               Jesteśmy <span>blisko Ciebie</span>
             </motion.h2>
-            
-            <motion.div 
+
+            <motion.div
               className={styles.infoBlock}
               {...(shouldAnimate && {
                 variants: fadeIn("left", "tween", 0.3, 0.6),
@@ -98,23 +126,28 @@ const ContactMap = () => {
             >
               <div className={styles.infoItem}>
                 <h3>Biuro Centralne:</h3>
-                <p>ul. Nałęczowska 30 lok. 12</p>
-                <p>20-701 Lublin</p>
+                <p>{contact.address1}</p>
+                <p>{contact.address2}</p>
               </div>
 
               <div className={styles.infoItem}>
                 <h3>Telefon:</h3>
-                <a href="tel:+48787611115" className={styles.link}>+48 787 611 115</a>
+                <a
+                  href={`tel:${contact.phone?.replace(/\s/g, "")}`}
+                  className={styles.link}
+                >
+                  {contact.phone}
+                </a>
               </div>
 
               <div className={styles.infoItem}>
                 <h3>Godziny otwarcia:</h3>
-                <p>Poniedziałek - Piątek</p>
-                <p>10:00 - 18:00</p>
+                <p>{contact.hoursTitle}</p>
+                <p>{contact.hoursRange}</p>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.cities}
               {...(shouldAnimate && {
                 variants: fadeIn("up", "tween", 0.5, 0.6),
@@ -125,13 +158,15 @@ const ContactMap = () => {
             >
               <h3>Gdzie jeździmy?</h3>
               <div className={styles.cityGrid}>
-                {citiesList.map((city, index) => (
-                  <span key={index} className={styles.cityTag}>{city}</span>
+                {displayCities.map((city, index) => (
+                  <span key={index} className={styles.cityTag}>
+                    {city}
+                  </span>
                 ))}
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className={styles.cta}
               {...(shouldAnimate && {
                 variants: fadeIn("up", "tween", 0.7, 0.6),
@@ -140,10 +175,7 @@ const ContactMap = () => {
                 viewport: { once: true },
               })}
             >
-              <SecondaryButton 
-                variant="default"
-                href="https://forms.gle/2jpFc7AEk1HAcufA6"
-              >
+              <SecondaryButton variant="default" href={contact.formLink}>
                 Wyślij wiadomość
               </SecondaryButton>
             </motion.div>

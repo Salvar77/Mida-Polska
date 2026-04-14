@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
-import { recruitmentSteps, citiesList } from "@/constants";
+import { recruitmentSteps as defaultSteps, citiesList as defaultCities } from "@/constants";
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./Recruitment.module.scss";
 
@@ -35,9 +35,12 @@ const fadeIn = (
   },
 });
 
-const Recruitment = () => {
+const Recruitment = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();
   const formLink = "https://forms.gle/2jpFc7AEk1HAcufA6";
+
+  const displaySteps = data?.steps && data.steps.length > 0 ? data.steps : defaultSteps;
+  const displayCities = data?.cities && data.cities.length > 0 ? data.cities : defaultCities;
 
   return (
     <section id="rekrutacja" className={styles.wrapper}>
@@ -78,7 +81,7 @@ const Recruitment = () => {
 
         {/* CITIES LIST */}
         <div className={styles.citiesWrapper}>
-          {citiesList.map((city, index) => (
+          {displayCities.map((city: string, index: number) => (
             <motion.span
               key={city}
               className={styles.cityTag}
@@ -95,7 +98,7 @@ const Recruitment = () => {
         </div>
 
         <div className={styles.steps}>
-          {recruitmentSteps.map((step, index) => (
+          {displaySteps.map((step: any, index: number) => (
             <motion.div
               key={step.id}
               className={styles.stepCard}

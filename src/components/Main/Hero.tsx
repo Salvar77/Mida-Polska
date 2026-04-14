@@ -6,8 +6,24 @@ import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import styles from "./Hero.module.scss";
 import AnimatedButton from "../More/AnimatedButton";
 
-const Hero = () => {
+interface HeroProps {
+  data?: {
+    title?: string;
+    titleSpan?: string;
+    description?: string;
+    buttonText?: string;
+  };
+}
+
+const Hero = ({ data }: HeroProps) => {
   const shouldAnimate = useShouldAnimate();
+
+  const content = {
+    title: data?.title || "Dołącz do grona",
+    titleSpan: data?.titleSpan || "zadowolonych kierowców",
+    description: data?.description || "Nie czekaj, zacznij zarabiać już dziś. Współpracuj z oficjalnym partnerem flotowym.",
+    buttonText: data?.buttonText || "Aplikuj teraz",
+  };
 
   return (
     <section className={styles.hero}>
@@ -34,13 +50,12 @@ const Hero = () => {
           })}
         >
           <h1 className={styles.title}>
-            Dołącz do grona <br />
-            <span>zadowolonych kierowców</span>
+            {content.title} <br />
+            <span>{content.titleSpan}</span>
           </h1>
           
           <p className={styles.description}>
-            Nie czekaj, zacznij zarabiać już dziś. <br />
-            Współpracuj z oficjalnym partnerem flotowym.
+            {content.description}
           </p>
 
           <div className={styles.ctaWrapper}>
@@ -48,7 +63,7 @@ const Hero = () => {
               href="https://forms.gle/2jpFc7AEk1HAcufA6"
               className={styles.mainCta}
             >
-              Aplikuj teraz
+              {content.buttonText}
             </AnimatedButton>
           </div>
 

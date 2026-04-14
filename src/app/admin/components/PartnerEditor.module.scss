@@ -1,0 +1,148 @@
+.container {
+  max-width: 800px;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.benefitsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.benefitsLabel {
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.addPointBtn {
+  font-size: 1.1rem;
+  color: #00ff00;
+  background: none;
+  border: 1px solid #00ff00;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+  }
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.benefitItem {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.checkIcon {
+  color: #ff5600;
+  flex-shrink: 0;
+}
+
+.benefitInput {
+  flex: 1;
+  padding: 0.6rem;
+  background-color: #111;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.removeBtn {
+  color: #ff0000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+
+  &:hover {
+    color: #ff4d4d;
+  }
+}
+
+.footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.saveBtn {
+  padding: 1rem 2.5rem;
+  background-color: #ff5600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    background-color: #555;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #e64d00;
+  }
+}
+
+.statusMessage {
+  font-weight: bold;
+  color: #00ff00;
+}

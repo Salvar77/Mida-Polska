@@ -26,12 +26,15 @@ export const metadata: Metadata = {
   },
 };
 
+import { Providers } from "@/components/More/Providers";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const jsonLd = {
+    // ... (rest of jsonld)
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mida Polska",
@@ -61,7 +64,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

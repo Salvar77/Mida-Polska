@@ -168,7 +168,7 @@ const HowToStart = () => {
           })}
         >
           <GlassButton variant="bolt" href="https://forms.gle/2jpFc7AEk1HAcufA6">
-            Zadaj pytanie / Zadzwoń
+            Zadaj pytanie
           </GlassButton>
         </motion.div>
       </div>

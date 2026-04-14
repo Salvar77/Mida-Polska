@@ -1,0 +1,85 @@
+.container {
+  max-width: 800px;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.footer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.saveBtn {
+  padding: 1rem 2.5rem;
+  background-color: #ff5600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    background-color: #555;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #e64d00;
+  }
+}
+
+.statusMessage {
+  font-weight: bold;
+  color: #00ff00;
+}

@@ -1,0 +1,96 @@
+.container {
+  max-width: 800px;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: block;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 1.1rem;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: #ff5600;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submitBtn {
+  padding: 1rem 2rem;
+  background-color: #ff5600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:disabled {
+    background-color: #555;
+    cursor: default;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #e64d00;
+  }
+}
+
+.successMessage {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.errorMessage {
+  color: #ff0000;
+  font-weight: bold;
+}

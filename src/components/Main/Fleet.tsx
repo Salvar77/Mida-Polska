@@ -36,7 +36,7 @@ const fadeIn = (
   },
 });
 
-const fleet = [
+const defaultFleet = [
   {
     id: 1,
     name: "Skoda Fabia",
@@ -47,27 +47,35 @@ const fleet = [
   {
     id: 2,
     name: "Suzuki Swace",
-    year: "2024",
+    year: "2022",
     image: "/images/fleet_suzuki.png",
     specs: ["Wersja Kombi", "Pełna Hybryda", "Wysoki komfort"],
   },
   {
     id: 3,
     name: "Toyota Corolla",
-    year: "2024",
+    year: "2022",
     image: "/images/fleet_toyota.png",
     specs: ["Najwyższy standard", "Hybryda 5 Gen", "Bezpieczeństwo"],
   },
 ];
 
-const Fleet = () => {
+interface FleetProps {
+  data?: any[];
+}
+
+const Fleet = ({ data }: FleetProps) => {
   const shouldAnimate = useShouldAnimate();
+  const displayFleet = data && data.length > 0 ? data : defaultFleet;
 
   return (
     <section id="flota" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.header}>
-          <motion.span 
+          <motion.span
             className={styles.subtitle}
             {...(shouldAnimate && {
               variants: textVariant(0.1),
@@ -78,7 +86,7 @@ const Fleet = () => {
           >
             NASZA FLOTA
           </motion.span>
-          <motion.h2 
+          <motion.h2
             className={styles.title}
             {...(shouldAnimate && {
               variants: textVariant(0.2),
@@ -89,7 +97,7 @@ const Fleet = () => {
           >
             To Twoje <span>narzędzie pracy</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className={styles.description}
             {...(shouldAnimate && {
               variants: fadeIn("up", "tween", 0.3, 0.6),
@@ -111,8 +119,9 @@ const Fleet = () => {
             <div className={styles.glow}></div>
           </div>
 
-          {fleet.map((car, index) => {
-            const carKey = car.name.split(" ")[1].toLowerCase(); // fabia, swace, corolla
+          {displayFleet.map((car, index) => {
+            const carKey =
+              (car.name || "car").split(" ")[1]?.toLowerCase() || "car"; // fabia, swace, corolla
 
             return (
               <motion.div
@@ -127,8 +136,8 @@ const Fleet = () => {
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={car.image}
-                    alt={car.name}
+                    src={car.image || "/images/fleet_skoda.png"}
+                    alt={car.name || "Auto"}
                     width={600}
                     height={400}
                     className={styles.carImg}
@@ -137,12 +146,16 @@ const Fleet = () => {
 
                 {/* Clean Label underneath image for spatial stability */}
                 <div className={styles.label}>
-                  <h3 className={styles.carName}>{car.name}</h3>
+                  <h3 className={styles.carName}>
+                    {car.name || "Nowy pojazd"}
+                  </h3>
                   <ul className={styles.specsList}>
-                    <li>{car.year}</li>
-                    {car.specs.slice(1).map((spec, i) => (
-                      <li key={i}>{spec}</li>
-                    ))}
+                    <li>{car.year || "2022"}</li>
+                    {(car.specs || [])
+                      .slice(1)
+                      .map((spec: string, i: number) => (
+                        <li key={i}>{spec}</li>
+                      ))}
                   </ul>
                 </div>
               </motion.div>
@@ -163,7 +176,7 @@ const Fleet = () => {
             usług taxi. Każdy posiada wypis z licencji taxi, numer boczny i
             niezbędne oznakowanie.
           </motion.p>
-          <motion.div 
+          <motion.div
             className={styles.cta}
             {...(shouldAnimate && {
               variants: fadeIn("up", "tween", 1.2, 0.6),
@@ -172,10 +185,7 @@ const Fleet = () => {
               viewport: { once: true },
             })}
           >
-            <IndustrialButton 
-              variant="uber"
-              href="tel:+48787611115"
-            >
+            <IndustrialButton variant="uber" href="tel:+48787611115">
               Więcej informacji pod telefonem
             </IndustrialButton>
           </motion.div>

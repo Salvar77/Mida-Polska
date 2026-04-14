@@ -6,8 +6,15 @@ import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import AnimatedButton from "../More/AnimatedButton";
 import styles from "./PartnerBanner.module.scss";
 
-const PartnerBanner = () => {
+const PartnerBanner = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();
+
+  const title = data?.title || "Szukasz pracy jako KIEROWCA?";
+  const benefits = data?.benefits && data.benefits.length > 0 ? data.benefits : [
+    "Wypłaty co 2 tygodnie — stały zastrzyk gotówki.",
+    "Nowoczesna flota — komfortowe i oszczędne hybrydy.",
+    "Pełne wsparcie — karta paliwowa i opieka 24/7."
+  ];
 
   return (
     <div className={styles.wrapper}>
@@ -31,13 +38,13 @@ const PartnerBanner = () => {
         <div className={styles.content}>
           <div className={styles.badge}>OFICJALNY PARTNER FLOTOWY 🛡️</div>
           <h2 className={styles.title}>
-            Szukasz pracy jako <span>KIEROWCA?</span>
+            {title}
           </h2>
           
           <ul className={styles.benefits}>
-            <li>✔️ <strong>Wypłaty co 2 tygodnie</strong> — stały zastrzyk gotówki.</li>
-            <li>✔️ <strong>Nowoczesna flota</strong> — komfortowe i oszczędne hybrydy.</li>
-            <li>✔️ <strong>Pełne wsparcie</strong> — karta paliwowa i opieka 24/7.</li>
+            {benefits.map((benefit: string, index: number) => (
+              <li key={index}>✔️ {benefit}</li>
+            ))}
           </ul>
 
           <div className={styles.ctaWrapper}>
