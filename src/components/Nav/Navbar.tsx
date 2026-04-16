@@ -28,12 +28,12 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    
+
     // Body scroll lock
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     // Initial check
@@ -42,26 +42,28 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
   const navItems = [
-    { label: "Zacznij zarabiać", href: "#start" },
-    { label: "Godziny pracy", href: "#hours" },
-    { label: "Zarobki", href: "#earnings" },
-    { label: "Nasza Oferta", href: "#offer" },
-    { label: "O nas", href: "#about" },
-    { label: "Kontakt", href: "#contact" },
+    { label: "Zacznij zarabiać", href: "#rekrutacja" },
+    { label: "Jak zacząć?", href: "#jak-zaczac" },
+    { label: "O nas", href: "#elastycznosc" },
+    { label: "Zarobki", href: "#zarobki" },
+    { label: "Nasza Flota", href: "#flota" },
+    { label: "Kontakt", href: "#kontakt" },
   ];
 
   const isSubpage = pathname !== "/";
-  
+
   return (
-    <nav className={clsx(
-      classes.navbar,
-      (scrolled || isSubpage || isOpen) && classes.scrolled
-    )}>
+    <nav
+      className={clsx(
+        classes.navbar,
+        (scrolled || isSubpage || isOpen) && classes.scrolled,
+      )}
+    >
       <div className={classes.container}>
         <Logo />
 
@@ -75,9 +77,9 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          
+
           <div className={classes.buttonWrapper}>
-            <AnimatedButton 
+            <AnimatedButton
               href="tel:+48787611115"
               aria-label="Zadzwoń do Mida Polska – tel. 787 611 115"
             >
@@ -86,7 +88,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        <BurgerMenu isOpen={isOpen} handleOpen={toggleNav} scrolled={scrolled} />
+        <BurgerMenu
+          isOpen={isOpen}
+          handleOpen={toggleNav}
+          scrolled={scrolled}
+        />
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -94,8 +100,8 @@ const Navbar = () => {
         <ul className={classes.mobileLinks}>
           {navItems.map((item) => (
             <li key={item.label}>
-              <Link 
-                href={item.href} 
+              <Link
+                href={item.href}
                 className={classes.mobileLink}
                 onClick={() => setIsOpen(false)}
               >
@@ -104,7 +110,7 @@ const Navbar = () => {
             </li>
           ))}
           <li className={classes.mobileCta}>
-             <AnimatedButton 
+            <AnimatedButton
               href="tel:+48787611115"
               onClick={() => setIsOpen(false)}
             >

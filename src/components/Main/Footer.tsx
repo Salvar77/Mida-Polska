@@ -14,12 +14,12 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
-    { label: "Zacznij Zarabiać", href: "#start" },
-    { label: "Godziny pracy", href: "#hours" },
-    { label: "Zarobki", href: "#earnings" },
-    { label: "Nasza Oferta", href: "#offer" },
-    { label: "O nas", href: "#about" },
-    { label: "Kontakt", href: "#contact" },
+    { label: "Zacznij Zarabiać", href: "#rekrutacja" },
+    { label: "Jak zacząć?", href: "#jak-zaczac" },
+    { label: "O nas", href: "#elastycznosc" },
+    { label: "Zarobki", href: "#zarobki" },
+    { label: "Nasza Flota", href: "#flota" },
+    { label: "Kontakt", href: "#kontakt" },
     { label: "Polityka Prywatności", href: "/polityka-prywatnosci" },
   ];
 
@@ -31,7 +31,12 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
   };
 
   return (
-    <footer className={`${styles.footerWrapper} ${variant === "simple" ? styles.simple : ""}`}>
+    <footer
+      className={`${styles.footerWrapper} ${variant === "simple" ? styles.simple : ""}`}
+      itemScope
+      itemType="https://schema.org/LocalBusiness"
+      aria-label="Stopka strony Mida Polska"
+    >
       <div className={styles.googleMapSection}>
         <GoogleMap />
       </div>
@@ -91,7 +96,9 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                 </div>
                 <div className={styles.info}>
                   <h4>Telefon</h4>
-                  <a href="tel:+48787611115">787 611 115</a>
+                  <a href="tel:+48787611115" itemProp="telephone">
+                    787 611 115
+                  </a>
                 </div>
               </div>
 
@@ -113,11 +120,17 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                 </div>
                 <div className={styles.info}>
                   <h4>Adres</h4>
-                  <p>
-                    ul. Nałęczowska 30/12
+                  <address
+                    itemProp="address"
+                    itemScope
+                    itemType="https://schema.org/PostalAddress"
+                    style={{ fontStyle: "normal" }}
+                  >
+                    <span itemProp="streetAddress">ul. Nałęczowska 30/12</span>
                     <br />
-                    20-701 Lublin
-                  </p>
+                    <span itemProp="postalCode">20-701</span>{" "}
+                    <span itemProp="addressLocality">Lublin</span>
+                  </address>
                 </div>
               </div>
             </motion.div>
@@ -170,9 +183,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                 </div>
                 <div className={styles.info}>
                   <h4>E-mail</h4>
-                  <a href="mailto:biuro@mida-polska.pl">
-                    biuro@mida-polska.pl
-                  </a>
+                  <a href="mailto:biuro@mida-polska.pl">biuro@mida-polska.pl</a>
                 </div>
               </div>
             </motion.div>
