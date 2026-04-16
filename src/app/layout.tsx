@@ -13,7 +13,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.mida-polska.pl"),
 
   // ─── Tytuł: fraza główna + USP + lokalizacja (do 60 znaków) ───
-  title: "Partner Flotowy Uber, Bolt, FreeNow | Mida Polska – Lublin",
+  title: {
+    default: "Partner Flotowy Uber, Bolt, FreeNow | Mida Polska – Lublin",
+    template: "%s | Mida Polska",
+  },
 
   // ─── Description: kluczowe frazy + call-to-action (do 155 znaków) ───
   description:
@@ -227,6 +230,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
+          id="mida-polska-jsonld"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
