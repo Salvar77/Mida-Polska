@@ -12,17 +12,22 @@ import connectToDatabase from "@/lib/mongoose";
 import WebsiteContent from "@/models/WebsiteContent";
 import styles from "./page.module.scss";
 
-export const dynamic = "force-dynamic";
+// ISR: strona jest cache'owana i odświeżana w tle co 60 sekund.
+// Eliminuje opóźnienie MongoDB przy każdym wejściu na stronę.
+export const revalidate = 60;
 
 export default async function Home() {
   await connectToDatabase();
-  const heroContent = await WebsiteContent.findOne({ sectionId: "hero" });
-  const fleetContent = await WebsiteContent.findOne({ sectionId: "fleet" });
-  const recruitmentContent = await WebsiteContent.findOne({
-    sectionId: "recruitment",
-  });
-  const partnerContent = await WebsiteContent.findOne({ sectionId: "partner" });
-  const contactContent = await WebsiteContent.findOne({ sectionId: "contact" });
+
+  // Wszystkie zapytania równolegle – ~4x szybciej niż sekwencyjne await
+  const [heroContent, fleetContent, recruitmentContent, partnerContent, contactContent] =
+    await Promise.all([
+      WebsiteContent.findOne({ sectionId: "hero" }),
+      WebsiteContent.findOne({ sectionId: "fleet" }),
+      WebsiteContent.findOne({ sectionId: "recruitment" }),
+      WebsiteContent.findOne({ sectionId: "partner" }),
+      WebsiteContent.findOne({ sectionId: "contact" }),
+    ]);
 
   return (
     <main className={styles.main}>
