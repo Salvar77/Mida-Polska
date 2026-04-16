@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import connectToDatabase from "@/lib/mongoose";
 import WebsiteContent from "@/models/WebsiteContent";
 import { auth } from "@/auth";
@@ -42,6 +43,9 @@ export async function POST(req: Request) {
       { sectionId, data },
       { upsert: true, new: true }
     );
+
+    // Natychmiastowe unieważnienie cache strony głównej po zapisie w adminie
+    revalidatePath("/");
 
     return NextResponse.json(updatedContent);
   } catch (error: any) {
