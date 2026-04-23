@@ -13,7 +13,8 @@ const HeroEditor = () => {
   const [data, setData] = useState<HeroData>({
     title: "Dołącz do grona",
     titleSpan: "zadowolonych kierowców",
-    description: "Nie czekaj, zacznij zarabiać już dziś. Współpracuj z oficjalnym partnerem flotowym.",
+    description:
+      "Nie czekaj, zacznij zarabiać już dziś. Współpracuj z oficjalnym partnerem flotowym.",
     buttonText: "Aplikuj teraz",
   });
   const [loading, setLoading] = useState(true);
@@ -63,13 +64,13 @@ const HeroEditor = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Edycja Sekcji Hero</h2>
-      
+
       <form onSubmit={handleSave} className={styles.form}>
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Nagłówek (Główna część):</label>
-          <input 
-            type="text" 
-            value={data.title} 
+          <input
+            type="text"
+            value={data.title}
             onChange={(e) => setData({ ...data, title: e.target.value })}
             className={styles.input}
           />
@@ -77,9 +78,9 @@ const HeroEditor = () => {
 
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Nagłówek (Zaznaczony kolor):</label>
-          <input 
-            type="text" 
-            value={data.titleSpan} 
+          <input
+            type="text"
+            value={data.titleSpan}
             onChange={(e) => setData({ ...data, titleSpan: e.target.value })}
             className={styles.input}
           />
@@ -87,9 +88,9 @@ const HeroEditor = () => {
 
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Opis:</label>
-          <textarea 
+          <textarea
             rows={3}
-            value={data.description} 
+            value={data.description}
             onChange={(e) => setData({ ...data, description: e.target.value })}
             className={styles.textarea}
           />
@@ -97,24 +98,26 @@ const HeroEditor = () => {
 
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Tekst przycisku (CTA):</label>
-          <input 
-            type="text" 
-            value={data.buttonText} 
+          <input
+            type="text"
+            value={data.buttonText}
             onChange={(e) => setData({ ...data, buttonText: e.target.value })}
             className={styles.input}
           />
         </div>
 
         <div className={styles.footer}>
-          <button 
-            type="submit" 
-            disabled={saving}
-            className={styles.submitBtn}
-          >
+          <button type="submit" disabled={saving} className={styles.submitBtn}>
             {saving ? "Zapisywanie..." : "Zapisz zmiany"}
           </button>
           {message && (
-            <span className={message.includes("✅") ? styles.successMessage : styles.errorMessage}>
+            <span
+              className={
+                message.includes("✅")
+                  ? styles.successMessage
+                  : styles.errorMessage
+              }
+            >
               {message}
             </span>
           )}
@@ -123,6 +126,5 @@ const HeroEditor = () => {
     </div>
   );
 };
-
 
 export default HeroEditor;

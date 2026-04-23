@@ -110,7 +110,7 @@ export default function RootLayout({
         "email": "biuro@mida-polska.pl",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "ul. Nałęczowska 30/12",
+          "streetAddress": "Nałęczowska 30 lok 12, Piętro I",
           "addressLocality": "Lublin",
           "postalCode": "20-701",
           "addressCountry": "PL"
