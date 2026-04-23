@@ -13,7 +13,7 @@ interface ContactData {
 
 const ContactEditor = () => {
   const [data, setData] = useState<ContactData>({
-    addressLine1: "ul. Nałęczowska 30 lok. 12",
+    addressLine1: "Nałęczowska 30 lok 12, Piętro I",
     addressLine2: "20-701 Lublin",
     phone: "+48 787 611 115",
     hoursTitle: "Poniedziałek - Piątek",

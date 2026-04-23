@@ -126,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                     itemType="https://schema.org/PostalAddress"
                     style={{ fontStyle: "normal" }}
                   >
-                    <span itemProp="streetAddress">ul. Nałęczowska 30/12</span>
+                    <span itemProp="streetAddress">Nałęczowska 30 lok 12, Piętro I</span>
                     <br />
                     <span itemProp="postalCode">20-701</span>{" "}
                     <span itemProp="addressLocality">Lublin</span>
