@@ -52,6 +52,7 @@ const Navbar = () => {
     { label: "O nas", href: "#elastycznosc" },
     { label: "Zarobki", href: "#zarobki" },
     { label: "Nasza Flota", href: "#flota" },
+    { label: "Twoja Reklama", href: "#reklama" },
     { label: "Kontakt", href: "#kontakt" },
   ];
 
@@ -112,6 +113,7 @@ const Navbar = () => {
           <li className={classes.mobileCta}>
             <AnimatedButton
               href="tel:+48787611115"
+              className={classes.mobileCtaBtn}
               onClick={() => setIsOpen(false)}
             >
               787 611 115

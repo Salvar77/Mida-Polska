@@ -20,6 +20,7 @@
 
 .container {
   @include container;
+  max-width: 1280px; // Compact and tight
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +34,6 @@
 }
 
 .navGroup {
-  // We keep navGroup for mobile/general structure but use display: contents for desktop alignment
   @media (min-width: 992px) {
     display: contents;
   }
@@ -41,39 +41,25 @@
 
 .links {
   display: none; // Hidden on mobile
-  gap: 3rem;
+  gap: 2.2rem; // Tight and compact
   align-items: center;
   white-space: nowrap;
   grid-column: 2; // Center column
-  margin-left: 1.5rem; // Subtle nudge to the right to clear the Logo properly
+  margin-left: -4rem; // Very close to logo
 
   @media (min-width: 992px) {
     display: flex;
-  }
-
-  @media (min-width: 1100px) {
-    gap: 3rem;
-  }
-
-  @media (max-width: 1100px) and (min-width: 992px) {
-    gap: 1.5rem;
-    margin-left: 0.5rem;
   }
 }
 
 .buttonWrapper {
   display: none; // Hidden on mobile
   justify-self: end;
-  margin-right: 5rem; // Shift slightly to the left from the extreme edge
   white-space: nowrap;
   grid-column: 3; // Right column
 
   @media (min-width: 992px) {
     display: flex;
-  }
-
-  @media (max-width: 1100px) and (min-width: 992px) {
-    margin-right: 2rem;
   }
 }
 
@@ -158,4 +144,9 @@
 
 .mobileCta {
   margin-top: 2rem;
+}
+
+.mobileMenu .mobileCtaBtn {
+  font-size: 2rem;
+  padding: 1.5rem 4.5rem;
 }

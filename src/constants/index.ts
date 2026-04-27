@@ -32,8 +32,8 @@ export const recruitmentSteps = [
 ];
 
 export const citiesList = [
-  "Opole", "Wałbrzych", "Kędzierzyn Koźle", "Leszno", "Białystok", 
-  "Zielona Góra", "Bydgoszcz", "Nysa", "Lublin", "Częstochowa"
+  "Opole", "Wałbrzych", "Kędzierzyn-Koźle", "Leszno", "Białystok",
+  "Zielona Góra", "Bydgoszcz", "Nysa", "Lublin", "Częstochowa", "Grudziądz"
 ];
 
 export const bonusInfo = {

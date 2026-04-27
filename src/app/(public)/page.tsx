@@ -5,6 +5,7 @@ import HowToStart from "@/components/Main/HowToStart";
 import Flexibility from "@/components/Main/Flexibility";
 import EarningsChart from "@/components/Main/EarningsChart";
 import Fleet from "@/components/Main/Fleet";
+import AdOnCar from "@/components/Main/AdOnCar";
 import ContactMap from "@/components/Main/ContactMap";
 import Recruitment from "@/components/Main/Recruitment";
 import Footer from "@/components/Main/Footer";
@@ -39,6 +40,7 @@ export default async function Home() {
       <Flexibility />
       <EarningsChart />
       <Fleet data={fleetContent?.data?.cars} />
+      <AdOnCar />
       <ContactMap
         data={contactContent?.data}
         cities={recruitmentContent?.data?.cities}

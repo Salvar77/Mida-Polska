@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 
   // ─── Tytuł: fraza główna + USP + lokalizacja (do 60 znaków) ───
   title: {
-    default: "Partner Flotowy Uber, Bolt, FreeNow | Mida Polska – Lublin",
-    template: "%s | Mida Polska",
+    default: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber | Lublin",
+    template: "%s | MIDA",
   },
 
   // ─── Description: kluczowe frazy + call-to-action (do 155 znaków) ───
   description:
-    "Mida Polska – oficjalny partner flotowy Uber, Bolt i FreeNow. Zacznij zarabiać jako kierowca: szkolenie, wsparcie 7 dni w tygodniu, najlepsza flota. Lublin i cała Polska.",
+    "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce. Oferujemy współpracę na trzech płaszczyznach: auta firmowe, wynajem i własne auto.",
 
   // ─── Keywords (pomocnicze dla innych wyszukiwarek niż Google) ───
   keywords: [
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
 
   // ─── Open Graph (FB, LinkedIn, Messenger) ───
   openGraph: {
-    title: "Mida Polska – Oficjalny Partner Flotowy Uber, Bolt & FreeNow",
+    title: "MIDA – Autoryzowany Partner Flotowy Bolt, Uber & FreeNow",
     description:
-      "Zacznij zarabiać jako kierowca. Szkolenie gratis, wsparcie 7/7, najlepsza flota w mieście. Aplikuj online – odpiszemy w kilka godzin!",
+      "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Zarabiaj jako kierowca – wsparcie 7/7, najlepsza flota, legalne rozliczenia.",
     url: "https://www.mida-polska.pl",
     siteName: "Mida Polska",
     locale: "pl_PL",
@@ -87,6 +87,7 @@ export const metadata: Metadata = {
 };
 
 import { Providers } from "@/components/More/Providers";
+import WhatsAppButton from "@/components/More/WhatsAppButton";
 
 export default function RootLayout({
   children,
@@ -99,130 +100,135 @@ export default function RootLayout({
     "@graph": [
       // 1. LocalBusiness – podstawa SEO lokalnego
       {
-        "@type": ["LocalBusiness", "EmploymentAgency"],
+        "@type": ["LocalBusiness", "EmploymentAgency", "TaxiService"],
         "@id": "https://www.mida-polska.pl/#business",
-        "name": "Mida Polska",
-        "description": "Oficjalny autoryzowany partner flotowy Uber, Bolt i FreeNow. Szkolimy i wspieramy kierowców na terenie całej Polski.",
-        "image": "https://www.mida-polska.pl/images/herobg.png",
-        "logo": "https://www.mida-polska.pl/images/logo.png",
-        "url": "https://www.mida-polska.pl",
-        "telephone": "+48787611115",
-        "email": "biuro@mida-polska.pl",
-        "address": {
+        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber",
+        description:
+          "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce. Zatrudniamy kierowców na nasze auta, wynajmujemy auta w pełni wyposażone oraz rozliczamy kierowców jeżdżących własnymi autami.",
+        image: "https://www.mida-polska.pl/images/herobg.png",
+        logo: "https://www.mida-polska.pl/images/logo.png",
+        url: "https://www.mida-polska.pl",
+        telephone: "+48787611115",
+        email: "biuro@mida-polska.pl",
+        address: {
           "@type": "PostalAddress",
-          "streetAddress": "Nałęczowska 30 lok 12, Piętro I",
-          "addressLocality": "Lublin",
-          "postalCode": "20-701",
-          "addressCountry": "PL"
+          streetAddress: "Nałęczowska 30, lok 12, Piętro I",
+          addressLocality: "Lublin",
+          postalCode: "20-701",
+          addressCountry: "PL",
         },
-        "geo": {
+        geo: {
           "@type": "GeoCoordinates",
-          "latitude": 51.2224,
-          "longitude": 22.5556
+          latitude: 51.2224,
+          longitude: 22.5556,
         },
-        "openingHoursSpecification": [
+        openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-            "opens": "10:00",
-            "closes": "18:00"
-          }
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "16:30",
+          },
         ],
-        "areaServed": [
-          { "@type": "City", "name": "Lublin" },
-          { "@type": "City", "name": "Białystok" },
-          { "@type": "City", "name": "Opole" },
-          { "@type": "City", "name": "Wałbrzych" },
-          { "@type": "City", "name": "Kędzierzyn-Koźle" },
-          { "@type": "City", "name": "Leszno" },
-          { "@type": "City", "name": "Zielona Góra" },
-          { "@type": "City", "name": "Bydgoszcz" },
-          { "@type": "City", "name": "Nysa" },
-          { "@type": "City", "name": "Częstochowa" }
+        areaServed: [
+          { "@type": "City", name: "Lublin" },
+          { "@type": "City", name: "Białystok" },
+          { "@type": "City", name: "Opole" },
+          { "@type": "City", name: "Wałbrzych" },
+          { "@type": "City", name: "Kędzierzyn-Koźle" },
+          { "@type": "City", name: "Leszno" },
+          { "@type": "City", name: "Zielona Góra" },
+          { "@type": "City", name: "Bydgoszcz" },
+          { "@type": "City", name: "Nysa" },
+          { "@type": "City", name: "Częstochowa" },
+          { "@type": "City", name: "Grudziądz" },
         ],
-        "sameAs": [
-          "https://www.facebook.com/midapolska",
-          "https://www.instagram.com/midapolska"
+        sameAs: [
+          "https://www.facebook.com/midapartnerbolt",
+          "https://www.instagram.com/mida.polska/",
         ],
-        "hasOfferCatalog": {
+        hasOfferCatalog: {
           "@type": "OfferCatalog",
-          "name": "Oferta Partnera Flotowego",
-          "itemListElement": [
+          name: "Oferta Partnera Flotowego",
+          itemListElement: [
             {
               "@type": "Offer",
-              "name": "Współpraca z Uber",
-              "description": "Zostań kierowcą Uber z Mida Polska. Szkolenie, wsparcie i najlepsza flota."
+              name: "Współpraca z Uber",
+              description:
+                "Zostań kierowcą Uber z Mida Polska. Szkolenie, wsparcie i najlepsza flota.",
             },
             {
               "@type": "Offer",
-              "name": "Współpraca z Bolt",
-              "description": "Dołącz do Bolt jako kierowca. Partner flotowy Bolt w Polsce."
+              name: "Współpraca z Bolt",
+              description:
+                "Dołącz do Bolt jako kierowca. Partner flotowy Bolt w Polsce.",
             },
             {
               "@type": "Offer",
-              "name": "Współpraca z FreeNow",
-              "description": "Zarejestruj się jako kierowca FreeNow. Wsparcie Mida Polska."
-            }
-          ]
-        }
+              name: "Współpraca z FreeNow",
+              description:
+                "Zarejestruj się jako kierowca FreeNow. Wsparcie Mida Polska.",
+            },
+          ],
+        },
       },
       // 2. FAQPage – zajmuje dodatkowe miejsce w Google (rich snippet)
       {
         "@type": "FAQPage",
         "@id": "https://www.mida-polska.pl/#faq",
-        "mainEntity": [
+        mainEntity: [
           {
             "@type": "Question",
-            "name": "Czy potrzebuję własnej działalności, żeby pracować jako kierowca Uber lub Bolt?",
-            "acceptedAnswer": {
+            name: "Czy potrzebuję własnej działalności, żeby pracować jako kierowca Uber lub Bolt?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Nie, brak własnej działalności to nie problem. Mida Polska oferuje kompleksowe wsparcie formalne i rozliczeń dla wszystkich kierowców."
-            }
+              text: "Nie, brak własnej działalności to nie problem. Mida Polska oferuje kompleksowe wsparcie formalne i rozliczeń dla wszystkich kierowców.",
+            },
           },
           {
             "@type": "Question",
-            "name": "Ile można zarobić jako kierowca Bolt lub Uber w Lublinie?",
-            "acceptedAnswer": {
+            name: "Ile można zarobić jako kierowca Bolt lub Uber w Lublinie?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Zarobki zależą od aktywności i oceny w aplikacji. Nasi najlepsi kierowcy zarabiają powyżej 7000 zł miesięcznie. Im wyższa ocena, tym lepsze zlecenia."
-            }
+              text: "Zarobki zależą od aktywności i oceny w aplikacji. Nasi najlepsi kierowcy zarabiają powyżej 7000 zł miesięcznie. Im wyższa ocena, tym lepsze zlecenia.",
+            },
           },
           {
             "@type": "Question",
-            "name": "Jak zacząć pracę jako kierowca Uber lub Bolt z Mida Polska?",
-            "acceptedAnswer": {
+            name: "Jak zacząć pracę jako kierowca Uber lub Bolt z Mida Polska?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Wystarczy wypełnić formularz rekrutacyjny online. Skontaktujemy się z Tobą w kilka godzin, przeprowadzimy przez szkolenie i pomożemy wystartować."
-            }
+              text: "Wystarczy wypełnić formularz rekrutacyjny online. Skontaktujemy się z Tobą w kilka godzin, przeprowadzimy przez szkolenie i pomożemy wystartować.",
+            },
           },
           {
             "@type": "Question",
-            "name": "W jakich miastach działa Mida Polska?",
-            "acceptedAnswer": {
+            name: "W jakich miastach działa Mida Polska?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Działamy w Lublinie, Białymstoku, Opolu, Wałbrzychu, Bydgoszczy, Zielonej Górze, Częstochowie, Lesznie i wielu innych miastach w Polsce."
-            }
+              text: "Działamy w Lublinie, Białymstoku, Opolu, Wałbrzychu, Bydgoszczy, Zielonej Górze, Częstochowie, Lesznie, Grudziądzu i wielu innych miastach w Polsce.",
+            },
           },
           {
             "@type": "Question",
-            "name": "Czy Mida Polska oferuje szkolenie dla nowych kierowców?",
-            "acceptedAnswer": {
+            name: "Czy Mida Polska oferuje szkolenie dla nowych kierowców?",
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": "Tak, każdy nowy kierowca przechodzi bezpłatne szkolenie z obsługi aplikacji Uber, Bolt i FreeNow. Wsparcie dostępne 7 dni w tygodniu."
-            }
-          }
-        ]
+              text: "Tak, każdy nowy kierowca przechodzi bezpłatne szkolenie z obsługi aplikacji Uber, Bolt i FreeNow. Wsparcie dostępne 7 dni w tygodniu.",
+            },
+          },
+        ],
       },
       // 3. WebSite – umożliwia SearchAction (pole wyszukiwania w SERP)
       {
         "@type": "WebSite",
         "@id": "https://www.mida-polska.pl/#website",
-        "url": "https://www.mida-polska.pl",
-        "name": "Mida Polska",
-        "description": "Oficjalny partner flotowy Uber, Bolt i FreeNow w Polsce",
-        "inLanguage": "pl-PL"
-      }
-    ]
+        url: "https://www.mida-polska.pl",
+        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber",
+        description: "Oficjalny partner flotowy Uber, Bolt i FreeNow w Polsce",
+        inLanguage: "pl-PL",
+      },
+    ],
   };
 
   return (
@@ -237,6 +243,7 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}>
         <Providers>
           {children}
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

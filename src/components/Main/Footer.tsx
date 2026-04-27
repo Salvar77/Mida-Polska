@@ -19,6 +19,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
     { label: "O nas", href: "#elastycznosc" },
     { label: "Zarobki", href: "#zarobki" },
     { label: "Nasza Flota", href: "#flota" },
+    { label: "Twoja Reklama", href: "#reklama" },
     { label: "Kontakt", href: "#kontakt" },
     { label: "Polityka Prywatności", href: "/polityka-prywatnosci" },
   ];
@@ -34,9 +35,11 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
     <footer
       className={`${styles.footerWrapper} ${variant === "simple" ? styles.simple : ""}`}
       itemScope
-      itemType="https://schema.org/LocalBusiness"
+      itemType="https://schema.org/LocalBusiness https://schema.org/TaxiService"
       aria-label="Stopka strony Mida Polska"
     >
+      <meta itemProp="name" content="MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber" />
+      <meta itemProp="description" content="Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce." />
       <div className={styles.googleMapSection}>
         <GoogleMap />
       </div>
@@ -126,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                     itemType="https://schema.org/PostalAddress"
                     style={{ fontStyle: "normal" }}
                   >
-                    <span itemProp="streetAddress">Nałęczowska 30 lok 12, Piętro I</span>
+                    <span itemProp="streetAddress">Nałęczowska 30, lok 12, Piętro I</span>
                     <br />
                     <span itemProp="postalCode">20-701</span>{" "}
                     <span itemProp="addressLocality">Lublin</span>
@@ -161,7 +164,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                 </div>
                 <div className={styles.info}>
                   <h4>Biuro otwarte</h4>
-                  <p>Pon. - Pt.: 10:00 - 18:00</p>
+                  <p>Pon. - Pt.: 09:00 - 16:30</p>
                 </div>
               </div>
 

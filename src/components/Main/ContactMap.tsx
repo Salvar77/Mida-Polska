@@ -39,11 +39,11 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
   const shouldAnimate = useShouldAnimate();
 
   const contact = {
-    address1: data?.addressLine1 || "Nałęczowska 30 lok 12, Piętro I",
+    address1: data?.addressLine1 || "Nałęczowska 30, lok 12, Piętro I",
     address2: data?.addressLine2 || "20-701 Lublin",
     phone: data?.phone || "+48 787 611 115",
     hoursTitle: data?.hoursTitle || "Poniedziałek - Piątek",
-    hoursRange: data?.hoursRange || "10:00 - 18:00",
+    hoursRange: data?.hoursRange || "09:00 - 16:30",
     formLink: data?.formLink || "https://forms.gle/2jpFc7AEk1HAcufA6",
   };
 
@@ -53,7 +53,7 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
       : [
           "Opole",
           "Wałbrzych",
-          "Kędzierzyn Koźle",
+          "Kędzierzyn-Koźle",
           "Leszno",
           "Białystok",
           "Zielona Góra",
@@ -61,6 +61,7 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
           "Nysa",
           "Lublin",
           "Częstochowa",
+          "Grudziądz",
         ];
 
   return (

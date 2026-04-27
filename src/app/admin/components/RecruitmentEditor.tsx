@@ -41,7 +41,7 @@ const RecruitmentEditor = () => {
             cities: [
               "Opole", "Wałbrzych", "Kędzierzyn Koźle", "Leszno",
               "Białystok", "Zielona Góra", "Bydgoszcz", "Nysa",
-              "Lublin", "Częstochowa"
+              "Lublin", "Częstochowa", "Grudziądz"
             ],
           });
         }
