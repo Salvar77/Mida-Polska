@@ -47,14 +47,14 @@ const defaultFleet = [
   {
     id: 2,
     name: "Suzuki Swace",
-    year: "2022",
+    year: "2022+",
     image: "/images/fleet_suzuki.png",
     specs: ["Wersja Kombi", "Pełna Hybryda", "Wysoki komfort"],
   },
   {
     id: 3,
     name: "Toyota Corolla",
-    year: "2022",
+    year: "2022+",
     image: "/images/fleet_toyota.png",
     specs: ["Najwyższy standard", "Hybryda 5 Gen", "Bezpieczeństwo"],
   },

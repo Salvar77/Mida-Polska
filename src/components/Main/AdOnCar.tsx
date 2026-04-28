@@ -1,20 +1,52 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { FiClock, FiMapPin, FiEye, FiTarget, FiBriefcase, FiArrowRight } from "react-icons/fi";
-import { BsCheckCircleFill } from "react-icons/bs";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FiClock,
+  FiMapPin,
+  FiEye,
+  FiTarget,
+  FiBriefcase,
+  FiArrowRight,
+} from "react-icons/fi";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import styles from "./AdOnCar.module.scss";
 
+// Warianty wejścia
 const fadeIn = (delay: number) => ({
   hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { type: "tween" as const, ease: "easeOut" as const, duration: 0.7, delay },
+    transition: {
+      type: "tween" as const,
+      ease: "easeOut" as const,
+      duration: 0.7,
+      delay,
+    },
   },
 });
+
+const carImageVariants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+  exit: { opacity: 0, scale: 1.05, transition: { duration: 0.2 } },
+};
+
+const badgeVariants = {
+  hidden: { scale: 0, opacity: 0 },
+  show: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      delay: 0.8,
+      type: "spring" as const,
+      stiffness: 200,
+      damping: 15,
+    },
+  },
+};
 
 const cars = [
   {
@@ -45,7 +77,7 @@ const usp = [
 type FormState = "idle" | "loading" | "success" | "error";
 
 export default function AdOnCar() {
-  const shouldAnimate = useShouldAnimate();
+  const shouldAnimate = useShouldAnimate(); // Prawda tylko na desktop (>= 768px)
   const [activeCarIdx, setActiveCarIdx] = useState(0);
   const [form, setForm] = useState({
     firstName: "",
@@ -71,7 +103,13 @@ export default function AdOnCar() {
       });
       if (res.ok) {
         setStatus("success");
-        setForm({ firstName: "", lastName: "", company: "", city: "", phone: "" });
+        setForm({
+          firstName: "",
+          lastName: "",
+          company: "",
+          city: "",
+          phone: "",
+        });
       } else {
         setStatus("error");
       }
@@ -82,17 +120,18 @@ export default function AdOnCar() {
 
   return (
     <section id="reklama" className={styles.wrapper}>
-      <div className={styles.container}>
-
-        {/* ─── HEADER ─── */}
+      {/* KEY FIX: Wymusza przeładowanie sekcji po hydratacji flagi shouldAnimate */}
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
+        {/* HEADER */}
         <motion.div
           className={styles.header}
-          {...(shouldAnimate && {
-            variants: fadeIn(0),
-            initial: "hidden",
-            whileInView: "show",
-            viewport: { once: true, amount: 0.2 },
-          })}
+          variants={fadeIn(0)}
+          initial={shouldAnimate ? "hidden" : "show"}
+          whileInView={shouldAnimate ? "show" : "show"}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <span className={styles.label}>REKLAMA MOBILNA</span>
           <h2 className={styles.title}>
@@ -100,40 +139,53 @@ export default function AdOnCar() {
           </h2>
           <p className={styles.subtitle}>
             Umieść wizytówkę swojej firmy na tylnej szybie naszych pojazdów.
-            Corolly i Fabie pokonują dziesiątki kilometrów dziennie –
-            Twoja reklama jest tam, gdzie są Twoi klienci.
+            Corolly i Fabie pokonują dziesiątki kilometrów dziennie – Twoja
+            reklama jest tam, gdzie są Twoi klienci.
           </p>
         </motion.div>
 
-        {/* ─── MAIN GRID ─── */}
         <div className={styles.grid}>
-
           {/* LEFT – car showcase */}
           <motion.div
             className={styles.carShowcase}
-            {...(shouldAnimate && {
-              variants: fadeIn(0.2),
-              initial: "hidden",
-              whileInView: "show",
-              viewport: { once: true, amount: 0.2 },
-            })}
+            variants={fadeIn(0.2)}
+            initial={shouldAnimate ? "hidden" : "show"}
+            whileInView={shouldAnimate ? "show" : "show"}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className={styles.carImageWrapper}>
               <div className={styles.highlight} />
-              <Image
-                src={cars[activeCarIdx].src}
-                alt={cars[activeCarIdx].alt}
-                width={600}
-                height={400}
-                className={styles.carImage}
-                priority
-              />
-              <div className={styles.windowBadge}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCarIdx}
+                  className={styles.motionImageWrapper}
+                  variants={carImageVariants}
+                  initial={shouldAnimate ? "initial" : "animate"}
+                  animate={shouldAnimate ? "animate" : "animate"}
+                  exit={shouldAnimate ? "exit" : "animate"}
+                >
+                  <Image
+                    src={cars[activeCarIdx].src}
+                    alt={cars[activeCarIdx].alt}
+                    width={600}
+                    height={400}
+                    className={styles.carImage}
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+
+              <motion.div
+                className={styles.windowBadge}
+                variants={badgeVariants}
+                initial={shouldAnimate ? "hidden" : "show"}
+                whileInView={shouldAnimate ? "show" : "show"}
+                viewport={{ once: true }}
+              >
                 <span>Tu Twoja reklama</span>
-              </div>
+              </motion.div>
             </div>
 
-            {/* car switcher */}
             <div className={styles.carTabs}>
               {cars.map((car, i) => (
                 <button
@@ -147,18 +199,15 @@ export default function AdOnCar() {
               ))}
             </div>
 
-            {/* USP list */}
             <ul className={styles.uspList}>
               {usp.map((item, i) => (
                 <motion.li
                   key={i}
                   className={styles.uspItem}
-                  {...(shouldAnimate && {
-                    variants: fadeIn(0.3 + i * 0.08),
-                    initial: "hidden",
-                    whileInView: "show",
-                    viewport: { once: true, amount: 0.1 },
-                  })}
+                  variants={fadeIn(0.3 + i * 0.08)}
+                  initial={shouldAnimate ? "hidden" : "show"}
+                  whileInView={shouldAnimate ? "show" : "show"}
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <span className={styles.uspIcon}>{item.icon}</span>
                   <span>{item.text}</span>
@@ -167,28 +216,26 @@ export default function AdOnCar() {
             </ul>
           </motion.div>
 
-          {/* RIGHT – business card form */}
+          {/* RIGHT – form card */}
           <motion.div
             className={styles.cardWrapper}
-            {...(shouldAnimate && {
-              variants: fadeIn(0.35),
-              initial: "hidden",
-              whileInView: "show",
-              viewport: { once: true, amount: 0.2 },
-            })}
+            variants={fadeIn(0.35)}
+            initial={shouldAnimate ? "hidden" : "show"}
+            whileInView={shouldAnimate ? "show" : "show"}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className={styles.card}>
-              {/* card header */}
               <div className={styles.cardHeader}>
                 <div className={styles.cardDots}>
                   <div className={styles.dot}></div>
                   <div className={styles.dot}></div>
                   <div className={styles.dot}></div>
                 </div>
-                <p className={styles.cardHeaderTitle}>Poproś o indywidualną ofertę</p>
+                <p className={styles.cardHeaderTitle}>
+                  Poproś o indywidualną ofertę
+                </p>
               </div>
 
-              {/* card body */}
               <div className={styles.cardBody}>
                 <div className={styles.cardLogo}>
                   <Image
@@ -200,7 +247,8 @@ export default function AdOnCar() {
                   />
                 </div>
                 <p className={styles.cardTagline}>
-                  Zostaw swoje dane – oddzwonimy z ofertą skrojoną pod Twoją firmę.
+                  Zostaw swoje dane – oddzwonimy z ofertą skrojoną pod Twoją
+                  firmę.
                 </p>
 
                 {status === "success" ? (
@@ -209,8 +257,18 @@ export default function AdOnCar() {
                     <p>Wysłano! Skontaktujemy się wkrótce.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className={styles.form} noValidate>
-                    <div className={styles.row}>
+                  <form
+                    onSubmit={handleSubmit}
+                    className={styles.form}
+                    noValidate
+                  >
+                    <motion.div
+                      className={styles.row}
+                      variants={fadeIn(0.4)}
+                      initial={shouldAnimate ? "hidden" : "show"}
+                      whileInView={shouldAnimate ? "show" : "show"}
+                      viewport={{ once: true }}
+                    >
                       <div className={styles.field}>
                         <label htmlFor="ad-firstName">Imię</label>
                         <input
@@ -221,7 +279,6 @@ export default function AdOnCar() {
                           value={form.firstName}
                           onChange={handleChange}
                           required
-                          autoComplete="given-name"
                         />
                       </div>
                       <div className={styles.field}>
@@ -234,12 +291,17 @@ export default function AdOnCar() {
                           value={form.lastName}
                           onChange={handleChange}
                           required
-                          autoComplete="family-name"
                         />
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.field}>
+                    <motion.div
+                      className={styles.field}
+                      variants={fadeIn(0.5)}
+                      initial={shouldAnimate ? "hidden" : "show"}
+                      whileInView={shouldAnimate ? "show" : "show"}
+                      viewport={{ once: true }}
+                    >
                       <label htmlFor="ad-company">Nazwa firmy</label>
                       <input
                         id="ad-company"
@@ -249,11 +311,16 @@ export default function AdOnCar() {
                         value={form.company}
                         onChange={handleChange}
                         required
-                        autoComplete="organization"
                       />
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.row}>
+                    <motion.div
+                      className={styles.row}
+                      variants={fadeIn(0.6)}
+                      initial={shouldAnimate ? "hidden" : "show"}
+                      whileInView={shouldAnimate ? "show" : "show"}
+                      viewport={{ once: true }}
+                    >
                       <div className={styles.field}>
                         <label htmlFor="ad-city">Miasto</label>
                         <input
@@ -264,7 +331,6 @@ export default function AdOnCar() {
                           value={form.city}
                           onChange={handleChange}
                           required
-                          autoComplete="address-level2"
                         />
                       </div>
                       <div className={styles.field}>
@@ -277,14 +343,14 @@ export default function AdOnCar() {
                           value={form.phone}
                           onChange={handleChange}
                           required
-                          autoComplete="tel"
                         />
                       </div>
-                    </div>
+                    </motion.div>
 
                     {status === "error" && (
                       <p className={styles.errorMsg}>
-                        Coś poszło nie tak. Spróbuj ponownie lub zadzwoń: 787 611 115
+                        Coś poszło nie tak. Spróbuj ponownie lub zadzwoń: 787
+                        611 115
                       </p>
                     )}
 
@@ -292,16 +358,16 @@ export default function AdOnCar() {
                       type="submit"
                       className={styles.submitBtn}
                       disabled={status === "loading"}
-                      id="ad-inquiry-submit"
                     >
-                      <span>{status === "loading" ? "Wysyłanie..." : "Wyślij zapytanie"}</span>
-                      {status !== "loading" && <FiArrowRight className={styles.btnIcon} />}
+                      <span>
+                        {status === "loading"
+                          ? "Wysyłanie..."
+                          : "Wyślij zapytanie"}
+                      </span>
+                      {status !== "loading" && (
+                        <FiArrowRight className={styles.btnIcon} />
+                      )}
                     </button>
-
-                    <p className={styles.disclaimer}>
-                      Dane przetwarzamy zgodnie z{" "}
-                      <a href="/polityka-prywatnosci">Polityką Prywatności</a>.
-                    </p>
                   </form>
                 )}
               </div>

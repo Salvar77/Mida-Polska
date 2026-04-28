@@ -157,14 +157,6 @@ const EarningsChart = () => {
                   className={styles.gridLine}
                 />
 
-                {/* Labels */}
-                <text x="10" y="270" className={styles.label}>
-                  Start
-                </text>
-                <text x="440" y="270" className={styles.label}>
-                  Pro
-                </text>
-
                 {/* Standard Line */}
                 <motion.path
                   d="M 0 280 L 150 240 L 300 220 L 500 200"
@@ -207,6 +199,14 @@ const EarningsChart = () => {
                     transition: { delay: 2.5, type: "spring" },
                   })}
                 />
+
+                {/* Labels - moved to end to be on top */}
+                <text x="15" y="265" className={styles.label}>
+                  START
+                </text>
+                <text x="440" y="270" className={styles.label}>
+                  PRO
+                </text>
               </svg>
 
               <div className={styles.chartFooter}>

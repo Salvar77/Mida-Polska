@@ -167,7 +167,7 @@ const HowToStart = () => {
             viewport: { once: true, amount: 0.2 },
           })}
         >
-          <GlassButton variant="bolt" href="https://forms.gle/2jpFc7AEk1HAcufA6">
+          <GlassButton variant="bolt" href="https://forms.gle/2jpFc7AEk1HAcufA6" className={styles.ctaButton}>
             Zadaj pytanie
           </GlassButton>
         </motion.div>

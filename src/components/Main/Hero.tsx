@@ -20,7 +20,7 @@ const Hero = ({ data }: HeroProps) => {
 
   const content = {
     title: data?.title || "Oficjalny Partner Flotowy",
-    titleSpan: data?.titleSpan || "Uber, Bolt i FreeNow",
+    titleSpan: data?.titleSpan || "Uber, Bolt i FREENOW",
     description:
       data?.description ||
       "Zacznij zarabiać jako kierowca – szkolenie gratis, wsparcie 7 dni w tygodniu, najlepsza flota w Twoim mieście. Lublin i cała Polska.",
@@ -33,7 +33,7 @@ const Hero = ({ data }: HeroProps) => {
       <div className={styles.imageWrapper}>
         <Image
           src="/images/herobg.png"
-          alt="Mida Polska - Praca jako kierowca Bolt, Uber, FreeNow"
+          alt="Mida Polska - Praca jako kierowca Bolt, Uber, FREENOW"
           fill
           priority
           style={{ objectFit: "cover", objectPosition: "center" }}

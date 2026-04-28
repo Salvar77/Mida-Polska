@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
               </p>
               <ul>
                 <li>Obsługi zapytań i zgłoszeń przesyłanych przez formularze kontaktowe i rekrutacyjne.</li>
-                <li>Prowadzenia procesów rekrutacyjnych dla kierowców współpracujących z aplikacjami Bolt, Uber i FreeNow.</li>
+                <li>Prowadzenia procesów rekrutacyjnych dla kierowców współpracujących z aplikacjami Bolt, Uber i FREENOW.</li>
                 <li>Bieżącej komunikacji z Użytkownikiem.</li>
               </ul>
             </section>
@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2>4. Udostępnianie danych</h2>
               <p>
-                Dane podlegają udostępnieniu podmiotom zewnętrznym wyłącznie w granicach prawnie dozwolonych. W procesie rekrutacji dane mogą być przekazywane operatorom aplikacji (Uber, Bolt, FreeNow) w celu weryfikacji kierowcy.
+                Dane podlegają udostępnieniu podmiotom zewnętrznym wyłącznie w granicach prawnie dozwolonych. W procesie rekrutacji dane mogą być przekazywane operatorom aplikacji (Uber, Bolt, FREENOW) w celu weryfikacji kierowcy.
               </p>
             </section>
 

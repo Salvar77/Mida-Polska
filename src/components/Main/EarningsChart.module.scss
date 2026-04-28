@@ -153,10 +153,11 @@
 }
 
 .label {
-  fill: $white-smooth-3;
-  font-size: 14px;
-  font-weight: 600;
+  fill: $white-100;
+  font-size: 16px;
+  font-weight: 900;
   text-transform: uppercase;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
 }
 
 .glowLine {

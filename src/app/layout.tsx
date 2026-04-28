@@ -14,13 +14,13 @@ export const metadata: Metadata = {
 
   // ─── Tytuł: fraza główna + USP + lokalizacja (do 60 znaków) ───
   title: {
-    default: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber | Lublin",
+    default: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW | Lublin",
     template: "%s | MIDA",
   },
 
   // ─── Description: kluczowe frazy + call-to-action (do 155 znaków) ───
   description:
-    "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce. Oferujemy współpracę na trzech płaszczyznach: auta firmowe, wynajem i własne auto.",
+    "Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy m.in. w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy.",
 
   // ─── Keywords (pomocnicze dla innych wyszukiwarek niż Google) ───
   keywords: [
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
 
   // ─── Open Graph (FB, LinkedIn, Messenger) ───
   openGraph: {
-    title: "MIDA – Autoryzowany Partner Flotowy Bolt, Uber & FreeNow",
+    title: "MIDA – Autoryzowany Partner Flotowy Bolt, Uber & FREENOW",
     description:
-      "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Zarabiaj jako kierowca – wsparcie 7/7, najlepsza flota, legalne rozliczenia.",
+      "Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz Free Now. Działamy m.in. w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy.",
     url: "https://www.mida-polska.pl",
     siteName: "Mida Polska",
     locale: "pl_PL",
@@ -102,9 +102,9 @@ export default function RootLayout({
       {
         "@type": ["LocalBusiness", "EmploymentAgency", "TaxiService"],
         "@id": "https://www.mida-polska.pl/#business",
-        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber",
+        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW",
         description:
-          "Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce. Zatrudniamy kierowców na nasze auta, wynajmujemy auta w pełni wyposażone oraz rozliczamy kierowców jeżdżących własnymi autami.",
+          "Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy. Oferujemy zatrudnienie na autach firmowych, wynajem samochodów pod taxi oraz rzetelne rozliczenia dla kierowców z własnym pojazdem. Zapewniamy pełne wsparcie i terminowe wypłaty. Zapraszamy do kontaktu!",
         image: "https://www.mida-polska.pl/images/herobg.png",
         logo: "https://www.mida-polska.pl/images/logo.png",
         url: "https://www.mida-polska.pl",
@@ -224,8 +224,8 @@ export default function RootLayout({
         "@type": "WebSite",
         "@id": "https://www.mida-polska.pl/#website",
         url: "https://www.mida-polska.pl",
-        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber",
-        description: "Oficjalny partner flotowy Uber, Bolt i FreeNow w Polsce",
+        name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW",
+        description: "Oficjalny partner flotowy Uber, Bolt i FREENOW w Polsce",
         inLanguage: "pl-PL",
       },
     ],

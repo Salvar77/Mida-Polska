@@ -54,7 +54,7 @@ export const Layout = ({ previewText, children }: LayoutProps) => {
             </Text>
             <Text style={footerText}>
               © {currentYear} Mida Polska – Autoryzowany Partner Flotowy Bolt,
-              Uber, FreeNow
+              Uber, FREENOW
             </Text>
           </Section>
         </Container>

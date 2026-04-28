@@ -6,6 +6,7 @@ import {
   Hr,
   Row,
   Column,
+  Img,
 } from "@react-email/components";
 import { Layout } from "./components/Layout";
 
@@ -65,7 +66,16 @@ export const AdInquiryEmail = ({
         <Column style={{ width: "50%", paddingLeft: "6px" }}>
           <Section style={dataCard}>
             <Text style={dataLabel}>TELEFON</Text>
-            <Text style={dataValue}>📞 {phone}</Text>
+            <Text style={dataValue}>
+              <Img
+                src="https://img.icons8.com/ios-filled/32/000000/phone-receiver.png"
+                width="16"
+                height="16"
+                alt="phone"
+                style={{ display: "inline-block", verticalAlign: "middle", marginRight: "4px" }}
+              />
+              {phone}
+            </Text>
           </Section>
         </Column>
       </Row>
@@ -74,7 +84,14 @@ export const AdInquiryEmail = ({
 
       <Section style={buttonContainer}>
         <Button style={button} href={`tel:${phone}`}>
-          📞 Zadzwoń do klienta
+          <Img
+            src="https://img.icons8.com/ios-filled/32/ffffff/phone-receiver.png"
+            width="16"
+            height="16"
+            alt="phone"
+            style={{ display: "inline-block", verticalAlign: "middle", marginRight: "8px" }}
+          />
+          Zadzwoń do klienta
         </Button>
       </Section>
     </Layout>

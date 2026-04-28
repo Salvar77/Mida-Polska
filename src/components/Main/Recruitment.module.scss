@@ -184,6 +184,12 @@
     flex-direction: column;
     text-align: center;
     gap: 2rem;
+
+    .ctaButton {
+        font-size: 1.6rem;
+        padding: 1.6rem 3.5rem;
+        height: auto;
+    }
 }
 
 .ctaSubtext {

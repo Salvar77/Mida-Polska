@@ -127,7 +127,11 @@ const Recruitment = ({ data }: { data?: any }) => {
             viewport: { once: true, amount: 0.2 },
           })}
         >
-          <SecondaryButton variant="default" href={formLink}>
+          <SecondaryButton 
+            variant="default" 
+            href={formLink}
+            className={styles.ctaButton}
+          >
             Złóż wniosek online
           </SecondaryButton>
           <p className={styles.ctaSubtext}>

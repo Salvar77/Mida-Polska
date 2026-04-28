@@ -10,7 +10,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Mida Polska | Autoryzowany partner flotowy Bolt, Uber, FreeNow",
+  title: "Mida Polska | Autoryzowany partner flotowy Bolt, Uber, FREENOW",
   description: "Dołącz do grona zadowolonych kierowców. Pracuj z najlepszym partnerem flotowym w Polsce.",
 };
 

@@ -38,8 +38,8 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
       itemType="https://schema.org/LocalBusiness https://schema.org/TaxiService"
       aria-label="Stopka strony Mida Polska"
     >
-      <meta itemProp="name" content="MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, FreeNow, Uber" />
-      <meta itemProp="description" content="Jesteśmy Partnerem największych aplikacji taxi jak Bolt, Uber i FREE NOW. Działamy w kilku miastach w całej Polsce." />
+      <meta itemProp="name" content="MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW" />
+      <meta itemProp="description" content="Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy." />
       <div className={styles.googleMapSection}>
         <GoogleMap />
       </div>
@@ -51,8 +51,8 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
             <motion.div className={styles.logoSection} {...fadeInUp}>
               <Logo />
               <p className={styles.tagline}>
-                Autoryzowany partner flotowy Bolt, Uber i FreeNow. Najwyższe
-                zarobki i pełne wsparcie dla kierowców w Twoim mieście.
+                Autoryzowany partner flotowy Bolt, Uber i FREENOW. Najwyższe
+                zarobki i pełne wsparcie dla kierowców v Twoim mieście.
               </p>
             </motion.div>
 

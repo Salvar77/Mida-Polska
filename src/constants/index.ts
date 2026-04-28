@@ -26,7 +26,7 @@ export const recruitmentSteps = [
   {
     id: 5,
     title: "Zacznij zarabiać!",
-    description: "To wszystko! Możesz już zalogować się do aplikacji Uber, Bolt lub FreeNow i zacząć zarabiać realne pieniądze.",
+    description: "To wszystko! Możesz już zalogować się do aplikacji Uber, Bolt lub Free Now i zacząć zarabiać realne pieniądze.",
     icon: "dollar-sign",
   },
 ];
