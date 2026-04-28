@@ -68,7 +68,7 @@ export const AdInquiryEmail = ({
             <Text style={dataLabel}>TELEFON</Text>
             <Text style={dataValue}>
               <Img
-                src="https://img.icons8.com/ios-filled/32/000000/phone-receiver.png"
+                src="https://img.icons8.com/ios-filled/50/000000/phone.png"
                 width="16"
                 height="16"
                 alt="phone"
@@ -85,7 +85,7 @@ export const AdInquiryEmail = ({
       <Section style={buttonContainer}>
         <Button style={button} href={`tel:${phone}`}>
           <Img
-            src="https://img.icons8.com/ios-filled/32/ffffff/phone-receiver.png"
+            src="https://img.icons8.com/ios-filled/50/ffffff/phone.png"
             width="16"
             height="16"
             alt="phone"
