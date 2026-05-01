@@ -146,7 +146,9 @@ export default function RootLayout({
         sameAs: [
           "https://www.facebook.com/midapartnerbolt",
           "https://www.instagram.com/mida.polska/",
+          "https://www.google.com/search?q=MIDA+AUTORYZOWANY+PARTNER+FLOTOWY+Bolt,+FreeNow,+Uber",
         ],
+        hasMap: "https://www.google.com/search?q=MIDA+AUTORYZOWANY+PARTNER+FLOTOWY+Bolt,+FreeNow,+Uber",
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Oferta Partnera Flotowego",

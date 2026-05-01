@@ -1,18 +1,16 @@
 @import "../../styles/_variables.scss";
 
 .footerWrapper {
-  padding-top: 15rem; // Space for the diagonal cut
+  padding-top: 15rem;
   background-color: #030303;
   color: $white-smooth;
   position: relative;
-  overflow: visible; // To show the light blade glow
-  
-  // Symmetric Diagonal Cut (Top)
+  overflow: visible;
+
   clip-path: polygon(0 9rem, 100% 0, 100% 100%, 0 100%);
   margin-top: -9rem;
-  z-index: 15; // Slides OVER the Contact section bottom
+  z-index: 15;
 
-  // Bottom Light Blade - Transitioning from white section
   &::before {
     content: "";
     position: absolute;
@@ -29,7 +27,7 @@
     box-shadow: 0 0 25px white;
     z-index: 20;
     pointer-events: none;
-    transform: translateY(4.5rem) rotate(-2deg); // Match the Contact section bottom angle
+    transform: translateY(4.5rem) rotate(-2deg);
     transform-origin: left;
   }
 
@@ -45,7 +43,7 @@
   height: 300px;
   overflow: hidden;
   opacity: 0.8;
-  filter: contrast(1.1) brightness(0.9); // More premium look for the map
+  filter: contrast(1.1) brightness(0.9);
   @include transition-standard;
 
   &:hover {
@@ -164,7 +162,8 @@
       font-weight: 700;
     }
 
-    p, a {
+    p,
+    a {
       font-size: 1.4rem;
       color: $white-smooth;
       line-height: 1.6;
@@ -199,7 +198,7 @@
   .copyright {
     font-size: 1.3rem;
     color: rgba(255, 255, 255, 0.4);
-    
+
     strong {
       color: $brand-orange;
       font-weight: 800;
