@@ -1,16 +1,11 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import IndustrialButton from "../More/IndustrialButton";
 import clsx from "clsx";
 import styles from "./Fleet.module.scss";
-
-
-
-
-
 
 const defaultFleet = [
   {
@@ -112,7 +107,10 @@ const Fleet = ({ data }: FleetProps) => {
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={car.image || "/images/wynajem-aut-pod-taxi-skoda-fabia-lpg.webp"}
+                    src={
+                      car.image ||
+                      "/images/wynajem-aut-pod-taxi-skoda-fabia-lpg.webp"
+                    }
                     alt={car.name || "Auto"}
                     width={600}
                     height={400}
