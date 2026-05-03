@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { fadeIn, textVariant } from '@/lib/animations';
 import Logo from "../Nav/Logo";
 import GoogleMap from "./GoogleMap";
 import styles from "./Footer.module.scss";

@@ -1,39 +1,15 @@
 "use client";
-import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from '@/lib/animations';
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import { recruitmentSteps as defaultSteps, citiesList as defaultCities } from "@/constants";
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./Recruitment.module.scss";
 
-// --- Animacje wzorowane na 2K Detailing ---
-const textVariant = (delay: number): Variants => ({
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "tween", ease: "easeOut", duration: 0.8, delay },
-  },
-});
 
-const fadeIn = (
-  direction: "up" | "down" | "left" | "right",
-  type: string,
-  delay: number,
-  duration: number,
-): Variants => ({
-  hidden: {
-    x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-    y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: { type: type as any, duration, delay, ease: "easeOut" },
-  },
-});
+
+
+
 
 const Recruitment = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();

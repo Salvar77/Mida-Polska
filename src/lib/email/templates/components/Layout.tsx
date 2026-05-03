@@ -29,7 +29,7 @@ export const Layout = ({ previewText, children }: LayoutProps) => {
           {/* HEADER */}
           <Section style={header}>
             <Img
-              src="https://www.mida-polska.pl/images/logo.png"
+              src="https://www.mida-polska.pl/images/logo-mida-polska.webp"
               width="120"
               alt="Mida Polska"
               style={logo}

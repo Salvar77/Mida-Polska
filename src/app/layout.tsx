@@ -12,11 +12,11 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mida-polska.pl"),
 
-  // ─── Tytuł: fraza główna + USP + lokalizacja (do 60 znaków) ───
   title: {
     default: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW | Lublin",
     template: "%s | MIDA",
   },
+  publisher: "Mida Polska",
 
   // ─── Description: kluczowe frazy + call-to-action (do 155 znaków) ───
   description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.mida-polska.pl/images/herobg.png",
+        url: "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
         width: 1200,
         height: 630,
         alt: "Mida Polska – Praca jako kierowca Uber, Bolt, FreeNow w Lublinie",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "Mida Polska – Partner Flotowy Uber, Bolt, FreeNow",
     description:
       "Zacznij zarabiać jako kierowca. Szkolenie gratis, wsparcie 7/7, najlepsza flota w mieście!",
-    images: ["https://www.mida-polska.pl/images/herobg.png"],
+    images: ["https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp"],
   },
 
   // ─── Canonical ───
@@ -105,8 +105,8 @@ export default function RootLayout({
         name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW",
         description:
           "Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy. Oferujemy zatrudnienie na autach firmowych, wynajem samochodów pod taxi oraz rzetelne rozliczenia dla kierowców z własnym pojazdem. Zapewniamy pełne wsparcie i terminowe wypłaty. Zapraszamy do kontaktu!",
-        image: "https://www.mida-polska.pl/images/herobg.png",
-        logo: "https://www.mida-polska.pl/images/logo.png",
+        image: "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
+        logo: "https://www.mida-polska.pl/images/logo-mida-polska.webp",
         url: "https://www.mida-polska.pl",
         telephone: "+48787611115",
         email: "biuro@mida-polska.pl",

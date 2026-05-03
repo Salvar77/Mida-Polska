@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { fadeIn, textVariant } from '@/lib/animations';
 import {
   FiClock,
   FiMapPin,
@@ -13,20 +14,8 @@ import {
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import styles from "./AdOnCar.module.scss";
 
-// Warianty wejścia
-const fadeIn = (delay: number) => ({
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "tween" as const,
-      ease: "easeOut" as const,
-      duration: 0.7,
-      delay,
-    },
-  },
-});
+
+
 
 const carImageVariants = {
   initial: { opacity: 0, scale: 0.95 },
@@ -50,17 +39,17 @@ const badgeVariants = {
 
 const cars = [
   {
-    src: "/images/corolla_white_v4_ad.png",
+    src: "/images/skuteczna-mobilna-reklama-na-samochodach-taxi.webp",
     alt: "Toyota Corolla Touring Sports – wizualizacja reklamy na tylnej szybie",
     label: "Toyota Corolla",
   },
   {
-    src: "/images/swace_pl_ad.png",
+    src: "/images/reklama-na-autach-bolt-uber-kampanie-mobilne.webp",
     alt: "Suzuki Swace – wizualizacja reklamy na tylnej szybie",
     label: "Suzuki Swace",
   },
   {
-    src: "/images/fabia_ad.png",
+    src: "/images/oklejanie-samochodow-taxi-reklama-zewnetrzna.webp",
     alt: "Skoda Fabia – wizualizacja reklamy na tylnej szybie",
     label: "Škoda Fabia",
   },
@@ -128,7 +117,7 @@ export default function AdOnCar() {
         {/* HEADER */}
         <motion.div
           className={styles.header}
-          variants={fadeIn(0)}
+          variants={fadeIn("up", "tween", 0, 0.7)}
           initial={shouldAnimate ? "hidden" : "show"}
           whileInView={shouldAnimate ? "show" : "show"}
           viewport={{ once: true, amount: 0.2 }}
@@ -148,7 +137,7 @@ export default function AdOnCar() {
           {/* LEFT – car showcase */}
           <motion.div
             className={styles.carShowcase}
-            variants={fadeIn(0.2)}
+            variants={fadeIn("up", "tween", 0.2, 0.7)}
             initial={shouldAnimate ? "hidden" : "show"}
             whileInView={shouldAnimate ? "show" : "show"}
             viewport={{ once: true, amount: 0.2 }}
@@ -204,7 +193,7 @@ export default function AdOnCar() {
                 <motion.li
                   key={i}
                   className={styles.uspItem}
-                  variants={fadeIn(0.3 + i * 0.08)}
+                  variants={fadeIn("up", "tween", 0.3 + i * 0.08, 0.7)}
                   initial={shouldAnimate ? "hidden" : "show"}
                   whileInView={shouldAnimate ? "show" : "show"}
                   viewport={{ once: true, amount: 0.1 }}
@@ -219,7 +208,7 @@ export default function AdOnCar() {
           {/* RIGHT – form card */}
           <motion.div
             className={styles.cardWrapper}
-            variants={fadeIn(0.35)}
+            variants={fadeIn("up", "tween", 0.35, 0.7)}
             initial={shouldAnimate ? "hidden" : "show"}
             whileInView={shouldAnimate ? "show" : "show"}
             viewport={{ once: true, amount: 0.2 }}
@@ -239,7 +228,7 @@ export default function AdOnCar() {
               <div className={styles.cardBody}>
                 <div className={styles.cardLogo}>
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logo-mida-polska.webp"
                     alt="Mida Polska logo"
                     width={80}
                     height={40}
@@ -264,7 +253,7 @@ export default function AdOnCar() {
                   >
                     <motion.div
                       className={styles.row}
-                      variants={fadeIn(0.4)}
+                      variants={fadeIn("up", "tween", 0.4, 0.7)}
                       initial={shouldAnimate ? "hidden" : "show"}
                       whileInView={shouldAnimate ? "show" : "show"}
                       viewport={{ once: true }}
@@ -297,7 +286,7 @@ export default function AdOnCar() {
 
                     <motion.div
                       className={styles.field}
-                      variants={fadeIn(0.5)}
+                      variants={fadeIn("up", "tween", 0.5, 0.7)}
                       initial={shouldAnimate ? "hidden" : "show"}
                       whileInView={shouldAnimate ? "show" : "show"}
                       viewport={{ once: true }}
@@ -316,7 +305,7 @@ export default function AdOnCar() {
 
                     <motion.div
                       className={styles.row}
-                      variants={fadeIn(0.6)}
+                      variants={fadeIn("up", "tween", 0.6, 0.7)}
                       initial={shouldAnimate ? "hidden" : "show"}
                       whileInView={shouldAnimate ? "show" : "show"}
                       viewport={{ once: true }}

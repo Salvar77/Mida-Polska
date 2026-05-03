@@ -1,61 +1,37 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from '@/lib/animations';
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import IndustrialButton from "../More/IndustrialButton";
 import clsx from "clsx";
 import styles from "./Fleet.module.scss";
 
-// --- Animacje wzorowane na 2K Detailing ---
-const textVariant = (delay: number): Variants => ({
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "tween", ease: "easeOut", duration: 0.8, delay },
-  },
-});
 
-const fadeIn = (
-  direction: "up" | "down" | "left" | "right",
-  type: string,
-  delay: number,
-  duration: number,
-): Variants => ({
-  hidden: {
-    x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-    y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-    opacity: 0,
-  },
-  show: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: { type: type as any, duration, delay, ease: "easeOut" },
-  },
-});
+
+
+
 
 const defaultFleet = [
   {
     id: 1,
     name: "Skoda Fabia",
     year: "2021+",
-    image: "/images/fleet_skoda.png",
+    image: "/images/wynajem-aut-pod-taxi-skoda-fabia-lpg.webp",
     specs: ["Klimatyzacja", "Hybryda / LPG", "Niskie spalanie"],
   },
   {
     id: 2,
     name: "Suzuki Swace",
     year: "2022+",
-    image: "/images/fleet_suzuki.png",
+    image: "/images/wynajem-samochodow-taxi-suzuki-swace-kombi.webp",
     specs: ["Wersja Kombi", "Pełna Hybryda", "Wysoki komfort"],
   },
   {
     id: 3,
     name: "Toyota Corolla",
     year: "2022+",
-    image: "/images/fleet_toyota.png",
+    image: "/images/wynajem-samochodow-na-taxi-bolt-uber-toyota-corolla.webp",
     specs: ["Najwyższy standard", "Hybryda 5 Gen", "Bezpieczeństwo"],
   },
 ];
@@ -136,7 +112,7 @@ const Fleet = ({ data }: FleetProps) => {
               >
                 <div className={styles.imageContainer}>
                   <Image
-                    src={car.image || "/images/fleet_skoda.png"}
+                    src={car.image || "/images/wynajem-aut-pod-taxi-skoda-fabia-lpg.webp"}
                     alt={car.name || "Auto"}
                     width={600}
                     height={400}

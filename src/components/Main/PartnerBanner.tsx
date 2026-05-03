@@ -28,7 +28,7 @@ const PartnerBanner = ({ data }: { data?: any }) => {
         })}
       >
         <Image
-          src="/images/fleet_banner_pl_v2.png"
+          src="/images/najtansze-rozliczenia-kierowcow-bolt-uber-partner-mida.webp"
           alt="Nowoczesna flota Mida Polska - Uber, Bolt, FreeNow"
           fill
           className={styles.bgImage}

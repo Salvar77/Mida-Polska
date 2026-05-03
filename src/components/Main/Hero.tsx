@@ -32,7 +32,7 @@ const Hero = ({ data }: HeroProps) => {
       {/* Background Image - Local */}
       <div className={styles.imageWrapper}>
         <Image
-          src="/images/herobg.png"
+          src="/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp"
           alt="Mida Polska - Praca jako kierowca Bolt, Uber, FREENOW"
           fill
           priority
@@ -78,7 +78,7 @@ const Hero = ({ data }: HeroProps) => {
           >
             <div className={styles.partnerItem}>
               <Image
-                src="/images/bolt.png"
+                src="/images/bolt-logo.webp"
                 alt="Bolt Logo"
                 width={80}
                 height={40}
@@ -86,7 +86,7 @@ const Hero = ({ data }: HeroProps) => {
             </div>
             <div className={styles.partnerItem}>
               <Image
-                src="/images/freenow.png"
+                src="/images/freenow-logo.webp"
                 alt="FreeNow Logo"
                 width={100}
                 height={40}
@@ -94,7 +94,7 @@ const Hero = ({ data }: HeroProps) => {
             </div>
             <div className={styles.partnerItem}>
               <Image
-                src="/images/uber.png"
+                src="/images/uber-logo.webp"
                 alt="Uber Logo"
                 width={80}
                 height={40}
