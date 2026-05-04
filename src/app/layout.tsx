@@ -68,7 +68,9 @@ export const metadata: Metadata = {
     title: "Mida Polska – Partner Flotowy Uber, Bolt, FREENOW",
     description:
       "Zacznij zarabiać jako kierowca. Szkolenie gratis, wsparcie 7/7, najlepsza flota w mieście!",
-    images: ["https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp"],
+    images: [
+      "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
+    ],
   },
 
   // ─── Canonical ───
@@ -90,9 +92,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { Providers } from "@/components/More/Providers";
-import WhatsAppButton from "@/components/More/WhatsAppButton";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -109,23 +108,25 @@ export default function RootLayout({
         name: "MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW",
         description:
           "Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy. Oferujemy zatrudnienie na autach firmowych, wynajem samochodów pod taxi oraz rzetelne rozliczenia dla kierowców z własnym pojazdem. Zapewniamy pełne wsparcie i terminowe wypłaty. Zapraszamy do kontaktu!",
-        image: "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
+        image:
+          "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
         logo: "https://www.mida-polska.pl/images/logo-mida-polska.webp",
         url: "https://www.mida-polska.pl",
         telephone: "+48787611115",
         email: "biuro@mida-polska.pl",
-        "aggregateRating": {
+        aggregateRating: {
           "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "124"
+          ratingValue: "4.9",
+          reviewCount: "124",
         },
-        "review": [
+        review: [
           {
             "@type": "Review",
-            "author": { "@type": "Person", "name": "Kamil Kowalski" },
-            "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-            "reviewBody": "Świetny partner, rzetelne rozliczenia i bardzo pomocna obsługa. Polecam każdemu kierowcy."
-          }
+            author: { "@type": "Person", name: "Kamil Kowalski" },
+            reviewRating: { "@type": "Rating", ratingValue: "5" },
+            reviewBody:
+              "Świetny partner, rzetelne rozliczenia i bardzo pomocna obsługa. Polecam każdemu kierowcy.",
+          },
         ],
         address: {
           "@type": "PostalAddress",
@@ -143,8 +144,8 @@ export default function RootLayout({
           {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "16:30",
+            opens: "09:00",
+            closes: "16:30",
           },
         ],
         areaServed: [
@@ -163,7 +164,7 @@ export default function RootLayout({
         sameAs: [
           "https://www.facebook.com/midapartnerbolt",
           "https://www.instagram.com/mida.polska/",
-          "https://share.google/yLOmKNkh9sSli75e4"
+          "https://share.google/yLOmKNkh9sSli75e4",
         ],
         hasMap: "https://share.google/yLOmKNkh9sSli75e4",
         hasOfferCatalog: {
