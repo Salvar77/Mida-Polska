@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "@/styles/globals.scss";
 
+import { Providers } from "@/components/More/Providers";
+import WhatsAppButton from "@/components/More/WhatsAppButton";
+import MidaSeoSchema from "@/components/Seo/MidaSeoSchema";
+
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin", "latin-ext"],
@@ -110,6 +114,19 @@ export default function RootLayout({
         url: "https://www.mida-polska.pl",
         telephone: "+48787611115",
         email: "biuro@mida-polska.pl",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "124"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Kamil Kowalski" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+            "reviewBody": "Świetny partner, rzetelne rozliczenia i bardzo pomocna obsługa. Polecam każdemu kierowcy."
+          }
+        ],
         address: {
           "@type": "PostalAddress",
           streetAddress: "Nałęczowska 30, lok 12, Piętro I",
@@ -146,9 +163,9 @@ export default function RootLayout({
         sameAs: [
           "https://www.facebook.com/midapartnerbolt",
           "https://www.instagram.com/mida.polska/",
-          "https://www.google.com/search?q=MIDA+AUTORYZOWANY+PARTNER+FLOTOWY+Bolt,+FreeNow,+Uber",
+          "https://share.google/yLOmKNkh9sSli75e4"
         ],
-        hasMap: "https://www.google.com/search?q=MIDA+AUTORYZOWANY+PARTNER+FLOTOWY+Bolt,+FreeNow,+Uber",
+        hasMap: "https://share.google/yLOmKNkh9sSli75e4",
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Oferta Partnera Flotowego",
@@ -241,6 +258,7 @@ export default function RootLayout({
           id="mida-polska-jsonld"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <MidaSeoSchema />
       </head>
       <body suppressHydrationWarning={true}>
         <Providers>
