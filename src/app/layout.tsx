@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: "https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp",
         width: 1200,
         height: 630,
-        alt: "Mida Polska – Praca jako kierowca Uber, Bolt, FreeNow w Lublinie",
+        alt: "Mida Polska – Praca jako kierowca Uber, Bolt, FREENOW w Lublinie",
       },
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   // ─── Twitter Card ───
   twitter: {
     card: "summary_large_image",
-    title: "Mida Polska – Partner Flotowy Uber, Bolt, FreeNow",
+    title: "Mida Polska – Partner Flotowy Uber, Bolt, FREENOW",
     description:
       "Zacznij zarabiać jako kierowca. Szkolenie gratis, wsparcie 7/7, najlepsza flota w mieście!",
     images: ["https://www.mida-polska.pl/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp"],
@@ -184,9 +184,9 @@ export default function RootLayout({
             },
             {
               "@type": "Offer",
-              name: "Współpraca z FreeNow",
+              name: "Współpraca z FREENOW",
               description:
-                "Zarejestruj się jako kierowca FreeNow. Wsparcie Mida Polska.",
+                "Zarejestruj się jako kierowca FREENOW. Wsparcie Mida Polska.",
             },
           ],
         },
@@ -233,7 +233,7 @@ export default function RootLayout({
             name: "Czy Mida Polska oferuje szkolenie dla nowych kierowców?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Tak, każdy nowy kierowca przechodzi bezpłatne szkolenie z obsługi aplikacji Uber, Bolt i FreeNow. Wsparcie dostępne 7 dni w tygodniu.",
+              text: "Tak, każdy nowy kierowca przechodzi bezpłatne szkolenie z obsługi aplikacji Uber, Bolt i FREENOW. Wsparcie dostępne 7 dni w tygodniu.",
             },
           },
         ],

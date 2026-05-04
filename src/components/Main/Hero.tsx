@@ -87,7 +87,7 @@ const Hero = ({ data }: HeroProps) => {
             <div className={styles.partnerItem}>
               <Image
                 src="/images/freenow-logo.webp"
-                alt="FreeNow Logo"
+                alt="FREENOW Logo"
                 width={100}
                 height={40}
               />

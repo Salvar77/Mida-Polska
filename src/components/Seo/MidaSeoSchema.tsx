@@ -29,7 +29,7 @@ const MidaSeoSchema = () => {
       {
         "@type": "ListItem",
         "position": 4,
-        "name": "Partner FreeNow",
+        "name": "Partner FREENOW",
         "item": `${domain}/#freenow`
       },
       {
@@ -45,8 +45,8 @@ const MidaSeoSchema = () => {
   const jobPostingSchema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
-    "title": "Kierowca Taxi - Uber, Bolt, FreeNow",
-    "description": "Dołącz do Mida Polska jako kierowca Uber, Bolt lub FreeNow. Oferujemy nowoczesną flotę (Toyota, Skoda, Suzuki), pełne wsparcie rozliczeń, szkolenia i atrakcyjne zarobki powyżej 7000 zł miesięcznie.",
+    "title": "Kierowca Taxi - Uber, Bolt, FREENOW",
+    "description": "Dołącz do Mida Polska jako kierowca Uber, Bolt lub FREENOW. Oferujemy nowoczesną flotę (Toyota, Skoda, Suzuki), pełne wsparcie rozliczeń, szkolenia i atrakcyjne zarobki powyżej 7000 zł miesięcznie.",
     "datePosted": "2026-05-01",
     "validThrough": "2026-12-31",
     "employmentType": "CONTRACTOR",
@@ -83,7 +83,7 @@ const MidaSeoSchema = () => {
       "@type": "Product",
       "name": "Wynajem Skoda Fabia pod Taxi",
       "image": `${domain}/images/wynajem-aut-pod-taxi-skoda-fabia-lpg.webp`,
-      "description": "Wynajem nowoczesnej Skody Fabia (2021+) z LPG pod Uber, Bolt i FreeNow.",
+      "description": "Wynajem nowoczesnej Skody Fabia (2021+) z LPG pod Uber, Bolt i FREENOW.",
       "brand": { "@type": "Brand", "name": "Skoda" },
       "offers": {
         "@type": "Offer",
@@ -98,7 +98,7 @@ const MidaSeoSchema = () => {
       "@type": "Product",
       "name": "Wynajem Toyota Corolla pod Taxi",
       "image": `${domain}/images/wynajem-samochodow-na-taxi-bolt-uber-toyota-corolla.webp`,
-      "description": "Najwyższy standard - Toyota Corolla Hybrid (2022+) pod Uber, Bolt i FreeNow.",
+      "description": "Najwyższy standard - Toyota Corolla Hybrid (2022+) pod Uber, Bolt i FREENOW.",
       "brand": { "@type": "Brand", "name": "Toyota" },
       "offers": {
         "@type": "Offer",
