@@ -2,7 +2,7 @@
 
 .wrapper {
   padding: 18rem 0 10rem; // Balanced safety buffer
-  background-color: $white-smooth;
+  background-color: #ffffff;
   color: $new-black;
   position: relative;
   overflow: visible;
@@ -68,13 +68,18 @@
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2rem auto;
+  overflow: visible;
+  z-index: 1;
 }
 
 .mapSvg {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 15px rgba(255, 86, 0, 0.1));
+  object-fit: contain;
+  transform: scale(1.25);
+  transform-origin: center;
+  filter: none;
 }
 
 .city {

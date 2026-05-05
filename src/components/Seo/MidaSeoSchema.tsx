@@ -46,7 +46,7 @@ const MidaSeoSchema = () => {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     "title": "Kierowca Taxi - Uber, Bolt, FREENOW",
-    "description": "Dołącz do Mida Polska jako kierowca Uber, Bolt lub FREENOW. Oferujemy nowoczesną flotę (Toyota, Skoda, Suzuki), pełne wsparcie rozliczeń, szkolenia i atrakcyjne zarobki powyżej 7000 zł miesięcznie.",
+    "description": "Dołącz do Mida Polska – największego partnera Uber, Bolt i FREENOW. Rekrutujemy kierowców w ponad 50 miastach (Warszawa, Kraków, Wrocław, Lublin, Opole i inne). Oferujemy nowoczesną flotę, pełne wsparcie i atrakcyjne zarobki.",
     "datePosted": "2026-05-01",
     "validThrough": "2026-12-31",
     "employmentType": "CONTRACTOR",
@@ -54,16 +54,13 @@ const MidaSeoSchema = () => {
       "@type": "Organization",
       "name": "Mida Polska",
       "sameAs": "https://www.mida-polska.pl",
-      "logo": `${domain}/images/logo.png`
+      "logo": `${domain}/images/logo.png`,
+      "areaServed": [
+        "Warszawa", "Kraków", "Wrocław", "Łódź", "Poznań", "Gdańsk", "Szczecin", "Bydgoszcz", "Lublin", "Białystok", "Katowice", "Gdynia", "Częstochowa", "Radom", "Rzeszów", "Toruń", "Olsztyn", "Bielsko-Biała", "Gorzów Wielkopolski", "Zielona Góra", "Elbląg", "Wałbrzych", "Opole", "Legnica", "Płock", "Ostrołęka", "Jelenia Góra", "Tychy", "Stalowa Wola", "Słupsk", "Łomża", "Ełk", "Tarnów", "Suwałki", "Chełm", "Kędzierzyn-Koźle", "Zamość", "Leszno", "Świdnica", "Nysa", "Biała Podlaska", "Puławy", "Augustów", "Sopot", "Grudziądz", "Świdnik", "Rybnik", "Mielno", "Karpacz", "Szklarska Poręba", "Zakopane", "Rumia", "Dobrzeń Wielki", "Łubniany", "Prószków", "Koszalin", "Kalisz"
+      ]
     },
     "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lublin",
-        "addressRegion": "Lubelskie",
-        "addressCountry": "PL"
-      }
+      "@id": "https://www.mida-polska.pl/#business"
     },
     "baseSalary": {
       "@type": "MonetaryAmount",

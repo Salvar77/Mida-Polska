@@ -52,7 +52,7 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
           >
             <div className={styles.mapWrapper}>
               <img
-                src="/images/mapa.svg"
+                src="/images/mapa.webp"
                 alt="Mapa zasięgu Mida Polska"
                 className={styles.mapSvg}
               />

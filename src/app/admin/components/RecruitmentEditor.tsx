@@ -97,8 +97,9 @@ const RecruitmentEditor = () => {
   };
 
   const addCity = () => {
-    if (newCity.trim() && !data.cities.includes(newCity.trim())) {
-      setData({ ...data, cities: [...data.cities, newCity.trim()] });
+    const trimmed = newCity.trim();
+    if (trimmed && !data.cities.some(c => c.toLowerCase() === trimmed.toLowerCase())) {
+      setData({ ...data, cities: [...data.cities, trimmed] });
       setNewCity("");
     }
   };
@@ -153,24 +154,14 @@ const RecruitmentEditor = () => {
 
         {/* PRAWA KOLUMNA: MIASTA */}
         <div className={styles.citiesColumn}>
-          <h3 className={styles.sectionLabel}>Obsługiwane Miasta</h3>
-          <div className={styles.cityTags}>
-            {data.cities.map((city) => (
-              <span key={city} className={styles.cityTag}>
-                {city}
-                <button 
-                  onClick={() => removeCity(city)}
-                  className={styles.removeCityBtn}
-                >
-                  ×
-                </button>
-              </span>
-            ))}
+          <div className={styles.citiesHeader}>
+            <h3 className={styles.sectionLabel}>Obsługiwane Miasta ({data.cities.length})</h3>
           </div>
+
           <div className={styles.addCityForm}>
             <input 
               type="text" 
-              placeholder="Dodaj miasto..." 
+              placeholder="Dodaj nowe miasto..." 
               value={newCity}
               onChange={(e) => setNewCity(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && addCity()}
@@ -182,6 +173,22 @@ const RecruitmentEditor = () => {
             >
               Dodaj
             </button>
+          </div>
+
+          <div className={styles.cityTagsScroll}>
+            <div className={styles.cityTags}>
+              {data.cities.map((city) => (
+                <span key={city} className={styles.cityTag}>
+                  {city}
+                  <button 
+                    onClick={() => removeCity(city)}
+                    className={styles.removeCityBtn}
+                  >
+                    ×
+                  </button>
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
