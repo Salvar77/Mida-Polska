@@ -9,7 +9,7 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
   const shouldAnimate = useShouldAnimate();
 
   const contact = {
-    address1: data?.addressLine1 || "Nałęczowska 30, lok 12, Piętro I",
+    address1: data?.addressLine1 || "Nałęczowska 30, lok 12, Piętro\u00A0I",
     address2: data?.addressLine2 || "20-701 Lublin",
     phone: data?.phone || "+48 787 611 115",
     hoursTitle: data?.hoursTitle || "Poniedziałek - Piątek",
@@ -56,9 +56,6 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
                 alt="Mapa zasięgu Mida Polska"
                 className={styles.mapSvg}
               />
-              <div className={styles.mapOverlay}>
-                <span>Mida Polska</span>
-              </div>
             </div>
           </motion.div>
 
