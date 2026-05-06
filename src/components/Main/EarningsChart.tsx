@@ -1,24 +1,22 @@
 "use client";
-import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { motion, Variants } from "framer-motion";
+import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import IndustrialButton from "../More/IndustrialButton";
 import styles from "./EarningsChart.module.scss";
-
-
-
-
-
 
 const EarningsChart = () => {
   const shouldAnimate = useShouldAnimate();
 
   return (
     <section id="zarobki" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.content}>
           <div className={styles.left}>
-            <motion.span 
+            <motion.span
               className={styles.subtitle}
               {...(shouldAnimate && {
                 variants: textVariant(0.1),
@@ -29,7 +27,7 @@ const EarningsChart = () => {
             >
               MAKSYMALIZUJ ZYSKI
             </motion.span>
-            <motion.h2 
+            <motion.h2
               className={styles.title}
               {...(shouldAnimate && {
                 variants: textVariant(0.2),
@@ -40,7 +38,7 @@ const EarningsChart = () => {
             >
               Pracując z nami <span>zarabiasz więcej</span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               className={styles.description}
               {...(shouldAnimate && {
                 variants: fadeIn("right", "tween", 0.3, 0.6),
@@ -52,7 +50,7 @@ const EarningsChart = () => {
               Nasi kierowcy to prawdziwi profesjonaliści! Cechują się wysoką
               kulturą osobistą i świetnymi umiejętnościami prowadzenia pojazdów.
             </motion.p>
-            <motion.p 
+            <motion.p
               className={styles.description}
               {...(shouldAnimate && {
                 variants: fadeIn("right", "tween", 0.4, 0.6),
@@ -67,7 +65,7 @@ const EarningsChart = () => {
               zarobków każdego dnia!
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className={styles.cta}
               {...(shouldAnimate && {
                 variants: fadeIn("up", "tween", 0.8, 0.6),
@@ -76,16 +74,13 @@ const EarningsChart = () => {
                 viewport: { once: true },
               })}
             >
-              <IndustrialButton 
-                variant="bolt"
-                href="tel:+48787611115"
-              >
+              <IndustrialButton variant="bolt" href="tel:+48787611115">
                 Masz pytanie? Zadzwoń
               </IndustrialButton>
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             className={styles.right}
             {...(shouldAnimate && {
               variants: fadeIn("left", "tween", 0.5, 0.8),

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { fadeIn } from "@/lib/animations";
 import {
   FiClock,
   FiMapPin,
@@ -13,9 +13,6 @@ import {
 } from "react-icons/fi";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import styles from "./AdOnCar.module.scss";
-
-
-
 
 const carImageVariants = {
   initial: { opacity: 0, scale: 0.95 },
@@ -66,7 +63,8 @@ const usp = [
 type FormState = "idle" | "loading" | "success" | "error";
 
 export default function AdOnCar() {
-  const shouldAnimate = useShouldAnimate(); // Prawda tylko na desktop (>= 768px)
+  const shouldAnimate = useShouldAnimate();
+
   const [activeCarIdx, setActiveCarIdx] = useState(0);
   const [form, setForm] = useState({
     firstName: "",
