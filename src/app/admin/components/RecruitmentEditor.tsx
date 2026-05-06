@@ -24,11 +24,14 @@ const RecruitmentEditor = () => {
   const [newCity, setNewCity] = useState("");
 
   useEffect(() => {
-    fetch("/api/content?sectionId=recruitment")
+    fetch(`/api/content?sectionId=recruitment&t=${Date.now()}`)
       .then((res) => res.json())
       .then((json) => {
         if (json && json.data && Array.isArray(json.data.steps)) {
-          setData(json.data);
+          setData({
+            ...json.data,
+            cities: Array.isArray(json.data.cities) ? json.data.cities : [],
+          });
         } else {
           setData({
             steps: [
@@ -62,9 +65,12 @@ const RecruitmentEditor = () => {
       if (res.ok) {
         setMessage("✅ Zapisano pomyślnie!");
         setTimeout(() => setMessage(""), 3000);
+      } else {
+        const errorData = await res.json().catch(() => ({}));
+        setMessage(`❌ Błąd: ${errorData.error || res.statusText}`);
       }
     } catch (err) {
-      setMessage("❌ Błąd połączenia.");
+      setMessage("❌ Błąd połączenia z serwerem.");
     } finally {
       setSaving(false);
     }
@@ -98,8 +104,13 @@ const RecruitmentEditor = () => {
 
   const addCity = () => {
     const trimmed = newCity.trim();
-    if (trimmed && !data.cities.some(c => c.toLowerCase() === trimmed.toLowerCase())) {
-      setData({ ...data, cities: [...data.cities, trimmed] });
+    if (
+      trimmed && 
+      !(data.cities || []).some(
+        (c) => typeof c === "string" && c.toLowerCase() === trimmed.toLowerCase()
+      )
+    ) {
+      setData({ ...data, cities: [...(data.cities || []), trimmed] });
       setNewCity("");
     }
   };
