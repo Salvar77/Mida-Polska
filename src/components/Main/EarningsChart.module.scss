@@ -6,8 +6,6 @@
   color: $white-100;
   position: relative;
   overflow: hidden;
-  
-  // Reverse Diagonal Cut
   clip-path: polygon(0 0, 100% 5rem, 100% 100%, 0 calc(100% - 5rem));
   margin: -5rem 0;
   z-index: 2;
@@ -32,7 +30,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: 
+    background:
       linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
     background-size: 30px 30px;
@@ -92,7 +90,7 @@
     color: $white-smooth-3;
     line-height: 1.6;
     margin-bottom: 2rem;
-    
+
     strong {
       color: white;
     }
@@ -142,9 +140,9 @@
 }
 
 .svg {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 86, 0, 0.2));
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(255, 86, 0, 0.2));
 }
 
 .gridLine {

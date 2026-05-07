@@ -2,7 +2,7 @@
 
 .wrapper {
   @include container;
-  margin: -40px auto 40px; // Negative margin relative to Hero
+  margin: -40px auto 40px;
   position: relative;
   z-index: 20;
 }
@@ -42,7 +42,7 @@
   text-transform: uppercase;
 
   span {
-    color: $new-black; // Contrast color
+    color: $new-black;
   }
 
   @media (min-width: 768px) {

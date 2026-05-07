@@ -107,7 +107,6 @@ export default function AdOnCar() {
 
   return (
     <section id="reklama" className={styles.wrapper}>
-      {/* KEY FIX: Wymusza przeładowanie sekcji po hydratacji flagi shouldAnimate */}
       <div
         key={shouldAnimate ? "desktop" : "mobile"}
         className={styles.container}
