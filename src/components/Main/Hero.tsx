@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
@@ -29,19 +28,32 @@ const Hero = ({ data }: HeroProps) => {
 
   return (
     <section className={styles.hero}>
-      {/* Background Image - Local */}
       <div className={styles.imageWrapper}>
-        <Image
-          src="/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.webp"
-          alt="Mida Polska - Praca jako kierowca Bolt, Uber, FREENOW"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
+        <div className={styles.desktopImage}>
+          <Image
+            src="/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska.png"
+            alt="Mida Polska - Praca jako kierowca Bolt, Uber, FREENOW"
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
+        <div className={styles.mobileImage}>
+          <Image
+            src="/images/najlepszy-partner-flotowy-bolt-uber-freenow-polska-mobile.png"
+            alt="Mida Polska - Praca jako kierowca Bolt, Uber, FREENOW"
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center" }}
+          />
+        </div>
         <div className={styles.overlay} />
       </div>
 
-      {/* Content */}
       <div className={styles.container}>
         <motion.div
           className={styles.content}
@@ -67,7 +79,6 @@ const Hero = ({ data }: HeroProps) => {
             </AnimatedButton>
           </div>
 
-          {/* Partner Logos - Local */}
           <motion.div
             className={styles.partners}
             {...(shouldAnimate && {

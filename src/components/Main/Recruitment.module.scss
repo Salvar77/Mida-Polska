@@ -6,8 +6,6 @@
   color: $white-100;
   position: relative;
   overflow: hidden;
-
-  // Diagonal Transition
   clip-path: polygon(0 0, 100% 5rem, 100% 100%, 0 calc(100% - 5rem));
   margin: -5rem 0;
   z-index: 5;
@@ -32,7 +30,10 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 86, 0, 0.03) 1px, transparent 1px);
+    background-image: radial-gradient(
+      rgba(255, 86, 0, 0.03) 1px,
+      transparent 1px
+    );
     background-size: 25px 25px;
     mask-image: linear-gradient(to bottom, black, transparent);
     pointer-events: none;
@@ -72,7 +73,7 @@
     font-size: 3rem;
     font-weight: 900;
     text-transform: uppercase;
-    
+
     span {
       color: $brand-orange;
     }
@@ -91,32 +92,32 @@
 }
 
 .citiesWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 8rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 8rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cityTag {
-    background: rgba(255, 86, 0, 0.05);
-    border: 1px solid rgba(255, 86, 0, 0.2);
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: $white-smooth;
-    transition: all 0.3s ease;
+  background: rgba(255, 86, 0, 0.05);
+  border: 1px solid rgba(255, 86, 0, 0.2);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $white-smooth;
+  transition: all 0.3s ease;
 
-    &:hover {
-        background: $brand-orange;
-        color: white;
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(255, 86, 0, 0.3);
-    }
+  &:hover {
+    background: $brand-orange;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 86, 0, 0.3);
+  }
 }
 
 .steps {
@@ -132,15 +133,15 @@
   padding: 4rem 3rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  width: 100%; // Default mobile: 1 col
+  width: 100%;
   @include transition-standard;
 
   @media (min-width: 768px) {
-    width: calc(50% - 1.5rem); // Tablet: 2 cols
+    width: calc(50% - 1.5rem);
   }
 
   @media (min-width: 1024px) {
-    width: calc(33.333% - 2rem); // Desktop: 3 cols (4th & 5th will naturally center!)
+    width: calc(33.333% - 2rem);
   }
 
   &:hover {
@@ -180,20 +181,20 @@
 }
 
 .ctaBottom {
-    @include flex-center;
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
 
-    .ctaButton {
-        font-size: 1.6rem;
-        padding: 1.6rem 3.5rem;
-        height: auto;
-    }
+  .ctaButton {
+    font-size: 1.6rem;
+    padding: 1.6rem 3.5rem;
+    height: auto;
+  }
 }
 
 .ctaSubtext {
-    font-size: 1.4rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 500;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
 }

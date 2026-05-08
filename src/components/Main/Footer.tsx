@@ -52,7 +52,6 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
       <div className={styles.footerMain}>
         <div className={styles.container}>
           <div className={styles.grid}>
-            {/* Column 1: Logo & Tagline */}
             <motion.div className={styles.logoSection} {...fadeInUp}>
               <Logo />
               <p className={styles.tagline}>
@@ -61,7 +60,6 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
               </p>
             </motion.div>
 
-            {/* Column 2: Quick Links */}
             <motion.div
               className={styles.linksSection}
               {...fadeInUp}
@@ -79,7 +77,6 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
               </ul>
             </motion.div>
 
-            {/* Column 3: Contact Info */}
             <motion.div
               className={styles.contactSection}
               {...fadeInUp}
@@ -145,7 +142,6 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
               </div>
             </motion.div>
 
-            {/* Column 4: Hours */}
             <motion.div
               className={styles.hoursSection}
               {...fadeInUp}

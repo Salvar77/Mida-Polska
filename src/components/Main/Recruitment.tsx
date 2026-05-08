@@ -1,26 +1,29 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
-import { recruitmentSteps as defaultSteps, citiesList as defaultCities } from "@/constants";
+import {
+  recruitmentSteps as defaultSteps,
+  citiesList as defaultCities,
+} from "@/constants";
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./Recruitment.module.scss";
-
-
-
-
-
 
 const Recruitment = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();
   const formLink = "https://forms.gle/2jpFc7AEk1HAcufA6";
 
-  const displaySteps = data?.steps && data.steps.length > 0 ? data.steps : defaultSteps;
-  const displayCities = data?.cities && data.cities.length > 0 ? data.cities : defaultCities;
+  const displaySteps =
+    data?.steps && data.steps.length > 0 ? data.steps : defaultSteps;
+  const displayCities =
+    data?.cities && data.cities.length > 0 ? data.cities : defaultCities;
 
   return (
     <section id="rekrutacja" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.header}>
           <motion.span
             className={styles.subtitle}
@@ -103,8 +106,8 @@ const Recruitment = ({ data }: { data?: any }) => {
             viewport: { once: true, amount: 0.2 },
           })}
         >
-          <SecondaryButton 
-            variant="default" 
+          <SecondaryButton
+            variant="default"
             href={formLink}
             className={styles.ctaButton}
           >

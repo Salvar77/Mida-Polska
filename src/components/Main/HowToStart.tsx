@@ -1,14 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import GlassButton from "../More/GlassButton";
 import styles from "./HowToStart.module.scss";
-
-
-
-
-
 
 const steps = [
   {
@@ -43,7 +38,10 @@ const HowToStart = () => {
 
   return (
     <section id="jak-zaczac" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.header}>
           <motion.span
             className={styles.subtitle}
@@ -97,8 +95,8 @@ const HowToStart = () => {
         </div>
 
         <div className={styles.timelineContainer}>
-          <motion.div 
-            className={styles.line} 
+          <motion.div
+            className={styles.line}
             {...(shouldAnimate && {
               variants: fadeIn("down", "tween", 0.5, 1),
               initial: "hidden",
@@ -112,7 +110,12 @@ const HowToStart = () => {
                 key={step.id}
                 className={styles.step}
                 {...(shouldAnimate && {
-                  variants: fadeIn(index % 2 === 0 ? "right" : "left", "tween", 0.6 + index * 0.15, 0.6),
+                  variants: fadeIn(
+                    index % 2 === 0 ? "right" : "left",
+                    "tween",
+                    0.6 + index * 0.15,
+                    0.6,
+                  ),
                   initial: "hidden",
                   whileInView: "show",
                   viewport: { once: true, amount: 0.2 },
@@ -143,7 +146,11 @@ const HowToStart = () => {
             viewport: { once: true, amount: 0.2 },
           })}
         >
-          <GlassButton variant="bolt" href="https://forms.gle/2jpFc7AEk1HAcufA6" className={styles.ctaButton}>
+          <GlassButton
+            variant="bolt"
+            href="https://forms.gle/2jpFc7AEk1HAcufA6"
+            className={styles.ctaButton}
+          >
             Zadaj pytanie
           </GlassButton>
         </motion.div>

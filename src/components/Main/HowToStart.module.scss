@@ -6,8 +6,6 @@
   color: $white-100;
   position: relative;
   overflow: hidden;
-  
-  // Diagonal cut
   clip-path: polygon(0 5rem, 100% 0, 100% calc(100% - 5rem), 0 100%);
   margin: -5rem 0;
   z-index: 1;
@@ -32,7 +30,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -189,11 +187,11 @@
     z-index: 10;
     box-shadow: 0 0 20px rgba(255, 86, 0, 0.5);
     position: absolute;
-    left: 0.1rem; // Align with mobile line
+    left: 0.1rem;
 
     @media (max-width: 768px) {
-        width: 3.5rem;
-        height: 3.5rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
 
     .innerDot {
@@ -240,12 +238,12 @@
 }
 
 .footer {
-    padding-top: 8rem;
-    text-align: center;
+  padding-top: 8rem;
+  text-align: center;
 
-    .ctaButton {
-        font-size: 1.6rem;
-        padding: 1.6rem 3.5rem;
-        height: auto;
-    }
+  .ctaButton {
+    font-size: 1.6rem;
+    padding: 1.6rem 3.5rem;
+    height: auto;
+  }
 }

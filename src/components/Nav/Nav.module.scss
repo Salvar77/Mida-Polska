@@ -20,7 +20,7 @@
 
 .container {
   @include container;
-  max-width: 1280px; // Compact and tight
+  max-width: 1280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -40,12 +40,12 @@
 }
 
 .links {
-  display: none; // Hidden on mobile
-  gap: 2.2rem; // Tight and compact
+  display: none;
+  gap: 2.2rem;
   align-items: center;
   white-space: nowrap;
-  grid-column: 2; // Center column
-  margin-left: -4rem; // Very close to logo
+  grid-column: 2;
+  margin-left: -4rem;
 
   @media (min-width: 992px) {
     display: flex;
@@ -53,10 +53,10 @@
 }
 
 .buttonWrapper {
-  display: none; // Hidden on mobile
+  display: none;
   justify-self: end;
   white-space: nowrap;
-  grid-column: 3; // Right column
+  grid-column: 3;
 
   @media (min-width: 992px) {
     display: flex;
@@ -96,7 +96,6 @@
   }
 }
 
-// Mobile Menu
 .mobileMenu {
   position: fixed;
   top: 0;

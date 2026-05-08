@@ -8,7 +8,7 @@ const AdminUserSchema = new Schema(
       unique: true,
     },
     password: {
-      type: String, // bcrypt hashed
+      type: String,
       required: true,
     },
     role: {

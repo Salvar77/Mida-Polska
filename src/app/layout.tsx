@@ -22,11 +22,9 @@ export const metadata: Metadata = {
   },
   publisher: "Mida Polska",
 
-  // ─── Description: kluczowe frazy + call-to-action (do 155 znaków) ───
   description:
     "Mida Polska - autoryzowany partner flotowy Uber, Bolt, FREENOW. Działamy w Polsce: Warszawa, Kraków, Wrocław, Lublin, Opole i w 50+ innych miastach.",
 
-  // ─── Keywords (pomocnicze dla innych wyszukiwarek niż Google) ───
   keywords: [
     "partner flotowy uber",
     "partner flotowy bolt",
@@ -95,11 +93,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // ── Structured Data: graph z trzema schematami ──────────────────────────
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      // 1. LocalBusiness – podstawa SEO lokalnego
       {
         "@type": ["LocalBusiness", "EmploymentAgency", "TaxiService"],
         "@id": "https://www.mida-polska.pl/#business",
@@ -203,7 +199,7 @@ export default function RootLayout({
           { "@type": "City", name: "Łubniany" },
           { "@type": "City", name: "Prószków" },
           { "@type": "City", name: "Koszalin" },
-          { "@type": "City", name: "Kalisz" }
+          { "@type": "City", name: "Kalisz" },
         ],
         sameAs: [
           "https://www.facebook.com/midapartnerbolt",

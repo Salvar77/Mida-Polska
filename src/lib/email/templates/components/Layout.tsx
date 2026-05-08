@@ -9,7 +9,6 @@ import {
   Link,
   Hr,
   Img,
-  Button,
 } from "@react-email/components";
 
 interface LayoutProps {
@@ -26,7 +25,6 @@ export const Layout = ({ previewText, children }: LayoutProps) => {
       <Preview>{previewText}</Preview>
       <Body style={main}>
         <Container style={container}>
-          {/* HEADER */}
           <Section style={header}>
             <Img
               src="https://www.mida-polska.pl/images/logo-mida-polska.webp"
@@ -36,15 +34,12 @@ export const Layout = ({ previewText, children }: LayoutProps) => {
             />
           </Section>
 
-          {/* ORANGE BAR */}
           <Section style={orangeBar} />
 
-          {/* CONTENT */}
           <Section style={content}>{children}</Section>
 
           <Hr style={hr} />
 
-          {/* FOOTER */}
           <Section style={footer}>
             <Text style={footerText}>
               Wiadomość wygenerowana automatycznie ze strony{" "}

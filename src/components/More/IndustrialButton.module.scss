@@ -16,8 +16,14 @@
   text-decoration: none;
   border: none;
   background: transparent;
-  // Double notch asymmetrical hyper-drive shape
-  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  clip-path: polygon(
+    15px 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 15px
+  );
   @include transition-standard;
 
   .layers {
@@ -35,7 +41,10 @@
     .pattern {
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-image: radial-gradient(
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      );
       background-size: 15px 15px;
       opacity: 0.3;
     }
@@ -137,54 +146,87 @@
 
   /* VARIANTS */
   &.bolt {
-    .layers .bg { background: #000; }
-    .frame .corner, .frame .energyLine, .indicator {
+    .layers .bg {
+      background: #000;
+    }
+    .frame .corner,
+    .frame .energyLine,
+    .indicator {
       border-color: #32bb78;
       background-color: #32bb78;
       box-shadow: 0 0 15px rgba(50, 187, 120, 0.6);
     }
     .layers .flare {
-      background: linear-gradient(90deg, transparent, rgba(50, 187, 120, 0.3), rgba(50, 187, 120, 0.6), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(50, 187, 120, 0.3),
+        rgba(50, 187, 120, 0.6),
+        transparent
+      );
     }
     &:hover {
       box-shadow: 0 0 30px rgba(50, 187, 120, 0.2);
-      .layers .bg { background: #050505; }
+      .layers .bg {
+        background: #050505;
+      }
     }
   }
 
   &.uber {
-    .layers .bg { background: #030303; }
-    .frame .corner, .frame .energyLine, .indicator {
+    .layers .bg {
+      background: #030303;
+    }
+    .frame .corner,
+    .frame .energyLine,
+    .indicator {
       border-color: #fff;
       background-color: #fff;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
     }
     &:hover {
-      .layers .bg { background: #fff; }
+      .layers .bg {
+        background: #fff;
+      }
       color: #000;
-      .frame .corner, .frame .energyLine, .indicator { border-color: #000; background-color: #000; box-shadow: none; }
+      .frame .corner,
+      .frame .energyLine,
+      .indicator {
+        border-color: #000;
+        background-color: #000;
+        box-shadow: none;
+      }
     }
   }
 
   &.freenow {
-    .layers .bg { background: #110000; }
-    .frame .corner, .frame .energyLine, .indicator {
+    .layers .bg {
+      background: #110000;
+    }
+    .frame .corner,
+    .frame .energyLine,
+    .indicator {
       border-color: #e31e24;
       background-color: #e31e24;
       box-shadow: 0 0 15px rgba(227, 30, 36, 0.6);
     }
     .layers .flare {
-      background: linear-gradient(90deg, transparent, rgba(227, 30, 36, 0.3), rgba(227, 30, 36, 0.6), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(227, 30, 36, 0.3),
+        rgba(227, 30, 36, 0.6),
+        transparent
+      );
     }
     &:hover {
       box-shadow: 0 0 30px rgba(227, 30, 36, 0.2);
     }
   }
 
-  /* HOVER STATES */
   &:hover {
     padding: 0 5rem;
-    
+
     .layers .flare {
       left: 150%;
     }
@@ -213,6 +255,10 @@
 }
 
 @keyframes shift {
-  0% { background-position: -200% -200%; }
-  100% { background-position: 200% 200%; }
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
 }

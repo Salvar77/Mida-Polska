@@ -41,7 +41,6 @@ export const AdInquiryEmail = ({
 
       <Hr style={divider} />
 
-      {/* Imię i nazwisko */}
       <Section style={dataCard}>
         <Text style={dataLabel}>IMIĘ I NAZWISKO</Text>
         <Text style={dataValue}>
@@ -49,13 +48,11 @@ export const AdInquiryEmail = ({
         </Text>
       </Section>
 
-      {/* Firma */}
       <Section style={{ ...dataCard, marginTop: "12px" }}>
         <Text style={dataLabel}>NAZWA FIRMY</Text>
         <Text style={dataValue}>🏢 {company}</Text>
       </Section>
 
-      {/* Miasto + Telefon w dwóch kolumnach */}
       <Row style={{ marginTop: "12px" }}>
         <Column style={{ width: "50%", paddingRight: "6px" }}>
           <Section style={dataCard}>
@@ -72,7 +69,11 @@ export const AdInquiryEmail = ({
                 width="16"
                 height="16"
                 alt="phone"
-                style={{ display: "inline-block", verticalAlign: "middle", marginRight: "4px" }}
+                style={{
+                  display: "inline-block",
+                  verticalAlign: "middle",
+                  marginRight: "4px",
+                }}
               />
               {phone}
             </Text>
@@ -89,7 +90,11 @@ export const AdInquiryEmail = ({
             width="16"
             height="16"
             alt="phone"
-            style={{ display: "inline-block", verticalAlign: "middle", marginRight: "8px" }}
+            style={{
+              display: "inline-block",
+              verticalAlign: "middle",
+              marginRight: "8px",
+            }}
           />
           Zadzwoń do klienta
         </Button>

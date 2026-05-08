@@ -19,6 +19,28 @@
   height: 100%;
   z-index: 1;
 
+  .desktopImage,
+  .mobileImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .desktopImage {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  .mobileImage {
+    display: block;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
   .overlay {
     position: absolute;
     top: 0;
@@ -91,14 +113,14 @@
   .partnerItem {
     @include flex-center;
     transition: transform 0.3s ease;
-    
+
     &:hover {
       transform: scale(1.1);
       opacity: 1;
     }
 
     img {
-      filter: brightness(0) invert(1); // Standard for dark hero section
+      filter: brightness(0) invert(1);
       object-fit: contain;
     }
   }

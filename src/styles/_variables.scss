@@ -1,9 +1,7 @@
 @import "./_colors.scss";
 
-// Fonts
 $font-main: "Lato", sans-serif;
 
-// Mixins
 @mixin flex-center {
   display: flex;
   justify-content: center;

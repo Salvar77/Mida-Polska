@@ -16,8 +16,16 @@
   text-decoration: none;
   border: none;
   background: transparent;
-  // Symmetrical tech glass shape
-  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+  clip-path: polygon(
+    12px 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    12px 100%,
+    0 calc(100% - 12px),
+    0 12px
+  );
   @include transition-standard;
 
   .layers {
@@ -86,32 +94,53 @@
 
   /* VARIANTS */
   &.bolt {
-    .frame .edge { background: #32bb78; box-shadow: 0 0 10px #32bb78; }
+    .frame .edge {
+      background: #32bb78;
+      box-shadow: 0 0 10px #32bb78;
+    }
     &:hover {
-      .layers .blurLayer { background: rgba(50, 187, 120, 0.1); }
-      .frame .edge { width: 80%; }
+      .layers .blurLayer {
+        background: rgba(50, 187, 120, 0.1);
+      }
+      .frame .edge {
+        width: 80%;
+      }
     }
   }
 
   &.uber {
-    .frame .edge { background: #fff; box-shadow: 0 0 10px #fff; }
+    .frame .edge {
+      background: #fff;
+      box-shadow: 0 0 10px #fff;
+    }
     &:hover {
-      .layers .blurLayer { background: rgba(255, 255, 255, 0.1); }
-      .frame .edge { width: 80%; }
+      .layers .blurLayer {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .frame .edge {
+        width: 80%;
+      }
     }
   }
 
   &.freenow {
-    .frame .edge { background: #e31e24; box-shadow: 0 0 10px #e31e24; }
+    .frame .edge {
+      background: #e31e24;
+      box-shadow: 0 0 10px #e31e24;
+    }
     &:hover {
-      .layers .blurLayer { background: rgba(227, 30, 36, 0.1); }
-      .frame .edge { width: 80%; }
+      .layers .blurLayer {
+        background: rgba(227, 30, 36, 0.1);
+      }
+      .frame .edge {
+        width: 80%;
+      }
     }
   }
 
   &:hover {
     transform: translateY(-3px);
-    
+
     .layers .reflection {
       top: -50%;
       left: -50%;
