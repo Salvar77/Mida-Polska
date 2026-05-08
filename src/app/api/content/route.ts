@@ -6,7 +6,6 @@ import { auth } from "@/auth";
 
 export const dynamic = "force-dynamic";
 
-// POBIERANIE TREŚCI
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
@@ -43,8 +42,6 @@ export async function POST(req: Request) {
       { sectionId, data },
       { upsert: true, new: true }
     );
-
-    // Natychmiastowe unieważnienie cache strony głównej po zapisie w adminie
     revalidatePath("/");
 
     return NextResponse.json(updatedContent);

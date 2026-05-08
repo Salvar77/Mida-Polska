@@ -205,6 +205,9 @@ export default function RootLayout({
           "https://www.facebook.com/midapartnerbolt",
           "https://www.instagram.com/mida.polska/",
           "https://share.google/yLOmKNkh9sSli75e4",
+          "https://www.gowork.pl/opinie_czytaj,24021194",
+          "https://rejestr.io/krs/848316/mida",
+          "https://aleo.com/pl/firma/mida-sp-z-oo-lublin",
         ],
         hasMap: "https://share.google/yLOmKNkh9sSli75e4",
         hasOfferCatalog: {

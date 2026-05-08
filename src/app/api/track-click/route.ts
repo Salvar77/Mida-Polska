@@ -6,8 +6,7 @@ export async function POST(req: NextRequest) {
   try {
     const { source, target, page } = await req.json();
     await dbConnect();
-    
-    // Get IP reliably
+
     const forwarded = req.headers.get("x-forwarded-for");
     const ip = forwarded ? forwarded.split(',')[0] : "unknown";
 

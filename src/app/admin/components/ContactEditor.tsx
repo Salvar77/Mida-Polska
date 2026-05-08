@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ContactEditor.module.scss";
 
 interface ContactData {
@@ -61,25 +61,28 @@ const ContactEditor = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Edycja Sekcji Kontakt</h2>
-      
+
       <div className={styles.form}>
-        
         <div className={styles.grid}>
           <div className={styles.fieldGroup}>
             <label className={styles.label}>Ulica i numer:</label>
-            <input 
-              type="text" 
-              value={data.addressLine1} 
-              onChange={(e) => setData({ ...data, addressLine1: e.target.value })}
+            <input
+              type="text"
+              value={data.addressLine1}
+              onChange={(e) =>
+                setData({ ...data, addressLine1: e.target.value })
+              }
               className={styles.input}
             />
           </div>
           <div className={styles.fieldGroup}>
             <label className={styles.label}>Kod i miasto:</label>
-            <input 
-              type="text" 
-              value={data.addressLine2} 
-              onChange={(e) => setData({ ...data, addressLine2: e.target.value })}
+            <input
+              type="text"
+              value={data.addressLine2}
+              onChange={(e) =>
+                setData({ ...data, addressLine2: e.target.value })
+              }
               className={styles.input}
             />
           </div>
@@ -87,9 +90,9 @@ const ContactEditor = () => {
 
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Telefon kontaktowy:</label>
-          <input 
-            type="text" 
-            value={data.phone} 
+          <input
+            type="text"
+            value={data.phone}
             onChange={(e) => setData({ ...data, phone: e.target.value })}
             className={styles.input}
           />
@@ -98,18 +101,18 @@ const ContactEditor = () => {
         <div className={styles.grid}>
           <div className={styles.fieldGroup}>
             <label className={styles.label}>Dni pracy:</label>
-            <input 
-              type="text" 
-              value={data.hoursTitle} 
+            <input
+              type="text"
+              value={data.hoursTitle}
               onChange={(e) => setData({ ...data, hoursTitle: e.target.value })}
               className={styles.input}
             />
           </div>
           <div className={styles.fieldGroup}>
             <label className={styles.label}>Godziny pracy:</label>
-            <input 
-              type="text" 
-              value={data.hoursRange} 
+            <input
+              type="text"
+              value={data.hoursRange}
               onChange={(e) => setData({ ...data, hoursRange: e.target.value })}
               className={styles.input}
             />
@@ -117,17 +120,19 @@ const ContactEditor = () => {
         </div>
 
         <div className={styles.fieldGroup}>
-          <label className={styles.label}>Link do formularza / Google Maps:</label>
-          <input 
-            type="text" 
-            value={data.formLink} 
+          <label className={styles.label}>
+            Link do formularza / Google Maps:
+          </label>
+          <input
+            type="text"
+            value={data.formLink}
             onChange={(e) => setData({ ...data, formLink: e.target.value })}
             className={styles.input}
           />
         </div>
 
         <div className={styles.footer}>
-          <button 
+          <button
             onClick={handleSave}
             disabled={saving}
             className={styles.saveBtn}
@@ -140,6 +145,5 @@ const ContactEditor = () => {
     </div>
   );
 };
-
 
 export default ContactEditor;

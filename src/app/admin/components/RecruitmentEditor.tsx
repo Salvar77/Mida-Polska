@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./RecruitmentEditor.module.scss";
 
 interface Step {
@@ -35,16 +35,49 @@ const RecruitmentEditor = () => {
         } else {
           setData({
             steps: [
-              { id: 1, title: "Skontaktuj się z nami", description: "Wypełnij krótki formularz na stronie lub zadzwoń bezpośrednio do nas." },
-              { id: 2, title: "Przygotuj dokumenty", description: "Będziemy potrzebować Twojego prawa jazdy i zaświadczenia o niekaralności." },
-              { id: 3, title: "Podpisz umowę", description: "Zapraszamy Cię do naszego biura w celu podpisania umowy." },
-              { id: 4, title: "Odbierz wypis z licencji", description: "Przekażemy Ci wypis z licencji taxi na Twój samochód." },
-              { id: 5, title: "Zacznij zarabiać!", description: "Możesz już zalogować się do aplikacji i zacząć zarabiać." },
+              {
+                id: 1,
+                title: "Skontaktuj się z nami",
+                description:
+                  "Wypełnij krótki formularz na stronie lub zadzwoń bezpośrednio do nas.",
+              },
+              {
+                id: 2,
+                title: "Przygotuj dokumenty",
+                description:
+                  "Będziemy potrzebować Twojego prawa jazdy i zaświadczenia o niekaralności.",
+              },
+              {
+                id: 3,
+                title: "Podpisz umowę",
+                description:
+                  "Zapraszamy Cię do naszego biura w celu podpisania umowy.",
+              },
+              {
+                id: 4,
+                title: "Odbierz wypis z licencji",
+                description:
+                  "Przekażemy Ci wypis z licencji taxi na Twój samochód.",
+              },
+              {
+                id: 5,
+                title: "Zacznij zarabiać!",
+                description:
+                  "Możesz już zalogować się do aplikacji i zacząć zarabiać.",
+              },
             ],
             cities: [
-              "Opole", "Wałbrzych", "Kędzierzyn Koźle", "Leszno",
-              "Białystok", "Zielona Góra", "Bydgoszcz", "Nysa",
-              "Lublin", "Częstochowa", "Grudziądz"
+              "Opole",
+              "Wałbrzych",
+              "Kędzierzyn Koźle",
+              "Leszno",
+              "Białystok",
+              "Zielona Góra",
+              "Bydgoszcz",
+              "Nysa",
+              "Lublin",
+              "Częstochowa",
+              "Grudziądz",
             ],
           });
         }
@@ -79,19 +112,24 @@ const RecruitmentEditor = () => {
   const updateStep = (id: number, field: keyof Step, value: string) => {
     setData({
       ...data,
-      steps: data.steps.map((s) => (s.id === id ? { ...s, [field]: value } : s)),
+      steps: data.steps.map((s) =>
+        s.id === id ? { ...s, [field]: value } : s,
+      ),
     });
   };
 
   const addStep = () => {
-    const nextId = data.steps.length > 0
-      ? Math.max(...data.steps.map((s) => s.id)) + 1
-      : 1;
+    const nextId =
+      data.steps.length > 0 ? Math.max(...data.steps.map((s) => s.id)) + 1 : 1;
     setData({
       ...data,
       steps: [
         ...data.steps,
-        { id: nextId, title: "Nowy krok", description: "Opis nowego kroku rekrutacji." },
+        {
+          id: nextId,
+          title: "Nowy krok",
+          description: "Opis nowego kroku rekrutacji.",
+        },
       ],
     });
   };
@@ -105,9 +143,10 @@ const RecruitmentEditor = () => {
   const addCity = () => {
     const trimmed = newCity.trim();
     if (
-      trimmed && 
+      trimmed &&
       !(data.cities || []).some(
-        (c) => typeof c === "string" && c.toLowerCase() === trimmed.toLowerCase()
+        (c) =>
+          typeof c === "string" && c.toLowerCase() === trimmed.toLowerCase(),
       )
     ) {
       setData({ ...data, cities: [...(data.cities || []), trimmed] });
@@ -124,9 +163,8 @@ const RecruitmentEditor = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Zarządzanie Rekrutacją i Miastami</h2>
-      
+
       <div className={styles.mainGrid}>
-        
         {/* LEWA KOLUMNA: KROKI */}
         <div className={styles.stepsColumn}>
           <div className={styles.stepsHeader}>
@@ -139,9 +177,9 @@ const RecruitmentEditor = () => {
             <div key={step.id} className={styles.stepCard}>
               <div className={styles.stepHeader}>
                 <span className={styles.stepNumber}>{step.id}</span>
-                <input 
-                  type="text" 
-                  value={step.title} 
+                <input
+                  type="text"
+                  value={step.title}
                   onChange={(e) => updateStep(step.id, "title", e.target.value)}
                   className={styles.stepTitleInput}
                 />
@@ -153,10 +191,12 @@ const RecruitmentEditor = () => {
                   ×
                 </button>
               </div>
-              <textarea 
+              <textarea
                 rows={2}
                 value={step.description}
-                onChange={(e) => updateStep(step.id, "description", e.target.value)}
+                onChange={(e) =>
+                  updateStep(step.id, "description", e.target.value)
+                }
                 className={styles.stepDescription}
               />
             </div>
@@ -166,22 +206,21 @@ const RecruitmentEditor = () => {
         {/* PRAWA KOLUMNA: MIASTA */}
         <div className={styles.citiesColumn}>
           <div className={styles.citiesHeader}>
-            <h3 className={styles.sectionLabel}>Obsługiwane Miasta ({data.cities.length})</h3>
+            <h3 className={styles.sectionLabel}>
+              Obsługiwane Miasta ({data.cities.length})
+            </h3>
           </div>
 
           <div className={styles.addCityForm}>
-            <input 
-              type="text" 
-              placeholder="Dodaj nowe miasto..." 
+            <input
+              type="text"
+              placeholder="Dodaj nowe miasto..."
               value={newCity}
               onChange={(e) => setNewCity(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && addCity()}
               className={styles.cityInput}
             />
-            <button 
-              onClick={addCity}
-              className={styles.addBtn}
-            >
+            <button onClick={addCity} className={styles.addBtn}>
               Dodaj
             </button>
           </div>
@@ -191,7 +230,7 @@ const RecruitmentEditor = () => {
               {data.cities.map((city) => (
                 <span key={city} className={styles.cityTag}>
                   {city}
-                  <button 
+                  <button
                     onClick={() => removeCity(city)}
                     className={styles.removeCityBtn}
                   >
@@ -205,7 +244,7 @@ const RecruitmentEditor = () => {
       </div>
 
       <div className={styles.footer}>
-        <button 
+        <button
           onClick={handleSave}
           disabled={saving}
           className={styles.saveBtn}
@@ -217,6 +256,5 @@ const RecruitmentEditor = () => {
     </div>
   );
 };
-
 
 export default RecruitmentEditor;

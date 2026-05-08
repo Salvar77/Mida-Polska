@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./PartnerEditor.module.scss";
 
 interface PartnerData {
@@ -13,7 +13,7 @@ const PartnerEditor = () => {
     benefits: [
       "Wypłaty co 2 tygodnie — stały zastrzyk gotówki.",
       "Nowoczesna flota — komfortowe i oszczędne hybrydy.",
-      "Pełne wsparcie — karta paliwowa i opieka 24/7."
+      "Pełne wsparcie — karta paliwowa i opieka 24/7.",
     ],
   });
   const [loading, setLoading] = useState(true);
@@ -71,13 +71,13 @@ const PartnerEditor = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Edycja Sekcji Partnera (Baner)</h2>
-      
+
       <div className={styles.form}>
         <div className={styles.fieldGroup}>
           <label className={styles.label}>Główny Tytuł Banera:</label>
-          <input 
-            type="text" 
-            value={data.title} 
+          <input
+            type="text"
+            value={data.title}
             onChange={(e) => setData({ ...data, title: e.target.value })}
             className={styles.input}
           />
@@ -85,27 +85,36 @@ const PartnerEditor = () => {
 
         <div>
           <div className={styles.benefitsHeader}>
-            <label className={styles.benefitsLabel}>Lista Korzyści (Punktory):</label>
-            <button onClick={addBenefit} className={styles.addPointBtn}>+ Dodaj punkt</button>
+            <label className={styles.benefitsLabel}>
+              Lista Korzyści (Punktory):
+            </label>
+            <button onClick={addBenefit} className={styles.addPointBtn}>
+              + Dodaj punkt
+            </button>
           </div>
           <div className={styles.benefitsList}>
             {data.benefits.map((benefit, index) => (
               <div key={index} className={styles.benefitItem}>
                 <span className={styles.checkIcon}>✔️</span>
-                <input 
-                  type="text" 
-                  value={benefit} 
+                <input
+                  type="text"
+                  value={benefit}
                   onChange={(e) => updateBenefit(index, e.target.value)}
                   className={styles.benefitInput}
                 />
-                <button onClick={() => removeBenefit(index)} className={styles.removeBtn}>×</button>
+                <button
+                  onClick={() => removeBenefit(index)}
+                  className={styles.removeBtn}
+                >
+                  ×
+                </button>
               </div>
             ))}
           </div>
         </div>
 
         <div className={styles.footer}>
-          <button 
+          <button
             onClick={handleSave}
             disabled={saving}
             className={styles.saveBtn}
@@ -118,6 +127,5 @@ const PartnerEditor = () => {
     </div>
   );
 };
-
 
 export default PartnerEditor;

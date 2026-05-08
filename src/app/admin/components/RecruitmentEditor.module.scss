@@ -18,7 +18,6 @@
   }
 }
 
-/* LEWA KOLUMNA: KROKI */
 .stepsColumn {
   display: flex;
   flex-direction: column;
@@ -133,7 +132,6 @@
   }
 }
 
-/* PRAWA KOLUMNA: MIASTA */
 .citiesColumn {
   display: flex;
   flex-direction: column;
@@ -153,7 +151,6 @@
   border-radius: 5px;
   border: 1px solid #333;
 
-  /* Custom scrollbar */
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -230,7 +227,6 @@
   }
 }
 
-/* STOPKA */
 .footer {
   margin-top: 3rem;
   padding-top: 2rem;
