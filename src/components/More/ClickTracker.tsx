@@ -6,7 +6,6 @@ export const ClickTracker = () => {
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
 
-      // If it's a Google Form link
       if (target && target.href.includes("forms.gle")) {
         fetch("/api/track-click", {
           method: "POST",

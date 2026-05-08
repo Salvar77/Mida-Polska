@@ -1,22 +1,20 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
+import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import GlassButton from "../More/GlassButton";
 import styles from "./Flexibility.module.scss";
-
-
-
-
-
 
 const Flexibility = () => {
   const shouldAnimate = useShouldAnimate();
 
   return (
     <section id="elastycznosc" className={styles.wrapper}>
-      <div key={shouldAnimate ? "desktop" : "mobile"} className={styles.container}>
+      <div
+        key={shouldAnimate ? "desktop" : "mobile"}
+        className={styles.container}
+      >
         <div className={styles.grid}>
           <div className={styles.images}>
             <motion.div
@@ -59,7 +57,7 @@ const Flexibility = () => {
           </div>
 
           <div className={styles.text}>
-            <motion.span 
+            <motion.span
               className={styles.subtitle}
               {...(shouldAnimate && {
                 variants: textVariant(0.2),
@@ -70,7 +68,7 @@ const Flexibility = () => {
             >
               TWÓJ CZAS, TWOJE ZASADY
             </motion.span>
-            <motion.h2 
+            <motion.h2
               className={styles.title}
               {...(shouldAnimate && {
                 variants: textVariant(0.3),
@@ -81,7 +79,7 @@ const Flexibility = () => {
             >
               Elastyczne godziny pracy? <span>Tak, to możliwe!</span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               className={styles.description}
               {...(shouldAnimate && {
                 variants: fadeIn("left", "tween", 0.5, 0.8),
@@ -94,7 +92,7 @@ const Flexibility = () => {
               oczekiwaniom. U nas to Ty wybierasz czy pracujesz w dzień, czy w
               nocy. Pracę możesz dostosować do siebie i do swoich potrzeb.
             </motion.p>
-            <motion.p 
+            <motion.p
               className={styles.description}
               {...(shouldAnimate && {
                 variants: fadeIn("left", "tween", 0.7, 0.8),
@@ -108,7 +106,7 @@ const Flexibility = () => {
               zasadach, korzystając z najnowocześniejszej floty w Twoim mieście.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className={styles.cta}
               {...(shouldAnimate && {
                 variants: fadeIn("up", "tween", 1.0, 0.6),
@@ -117,7 +115,7 @@ const Flexibility = () => {
                 viewport: { once: true },
               })}
             >
-              <GlassButton 
+              <GlassButton
                 variant="freenow"
                 href="https://forms.gle/2jpFc7AEk1HAcufA6"
               >
