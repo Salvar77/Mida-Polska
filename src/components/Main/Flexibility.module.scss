@@ -6,8 +6,6 @@
   color: $white-100;
   position: relative;
   overflow: hidden;
-  
-  // Diagonal Slant
   clip-path: polygon(0 5rem, 100% 0, 100% calc(100% - 5rem), 0 100%);
   margin: -5rem 0;
   z-index: 4;
@@ -59,7 +57,7 @@
   @media (max-width: 768px) {
     min-height: 350px;
     width: 100%;
-    transform: scale(0.9); // Scale down the whole group for mobile
+    transform: scale(0.9);
   }
 }
 
@@ -146,8 +144,8 @@
     width: 150px;
     height: 150px;
     background: linear-gradient(135deg, $brand-orange 0%, #ff8c00 100%);
-    clip-path: polygon(0 15px, 100% 0, 100% 100%, 15px 100%); // Speed slant
-    border-radius: 4px; // Sharper look
+    clip-path: polygon(0 15px, 100% 0, 100% 100%, 15px 100%);
+    border-radius: 4px;
     z-index: -1;
 
     @media (max-width: 768px) {

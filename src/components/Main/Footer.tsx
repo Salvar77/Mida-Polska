@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '@/lib/animations';
 import Logo from "../Nav/Logo";
 import GoogleMap from "./GoogleMap";
 import styles from "./Footer.module.scss";
@@ -38,8 +37,14 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
       itemType="https://schema.org/LocalBusiness https://schema.org/TaxiService"
       aria-label="Stopka strony Mida Polska"
     >
-      <meta itemProp="name" content="MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW" />
-      <meta itemProp="description" content="Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy." />
+      <meta
+        itemProp="name"
+        content="MIDA AUTORYZOWANY PARTNER FLOTOWY Bolt, Uber, FREENOW"
+      />
+      <meta
+        itemProp="description"
+        content="Mida Polska to autoryzowany partner flotowy aplikacji Bolt, Uber oraz FREENOW. Działamy w wielu miastach Polski, między innymi w Lublinie, Białymstoku, Opolu, Wałbrzychu oraz Bydgoszczy."
+      />
       <div className={styles.googleMapSection}>
         <GoogleMap />
       </div>
@@ -129,7 +134,9 @@ const Footer: React.FC<FooterProps> = ({ variant = "default" }) => {
                     itemType="https://schema.org/PostalAddress"
                     style={{ fontStyle: "normal" }}
                   >
-                    <span itemProp="streetAddress">Nałęczowska 30, lok 12, Piętro I</span>
+                    <span itemProp="streetAddress">
+                      Nałęczowska 30, lok 12, Piętro I
+                    </span>
                     <br />
                     <span itemProp="postalCode">20-701</span>{" "}
                     <span itemProp="addressLocality">Lublin</span>

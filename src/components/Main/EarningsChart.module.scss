@@ -87,7 +87,7 @@
 
   .description {
     font-size: 1.8rem;
-    color: $white-smooth-3;
+    color: $white-100;
     line-height: 1.6;
     margin-bottom: 2rem;
 
@@ -150,6 +150,11 @@
   stroke-dasharray: 5, 5;
 }
 
+.standardLine {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 3;
+}
+
 .label {
   fill: $white-100;
   font-size: 16px;
@@ -158,8 +163,14 @@
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.9));
 }
 
-.glowLine {
+.premiumLine {
+  stroke: $brand-orange;
+  stroke-width: 5;
   filter: drop-shadow(0 0 8px rgba(255, 86, 0, 0.6));
+}
+
+.premiumPoint {
+  fill: $brand-orange;
 }
 
 .chartFooter {

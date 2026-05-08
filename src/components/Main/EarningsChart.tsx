@@ -99,41 +99,22 @@ const EarningsChart = () => {
 
               <svg className={styles.svg} viewBox="0 0 500 300">
                 {/* Grid Lines */}
-                <line
-                  x1="0"
-                  y1="280"
-                  x2="500"
-                  y2="280"
-                  className={styles.gridLine}
-                />
-                <line
-                  x1="0"
-                  y1="200"
-                  x2="500"
-                  y2="200"
-                  className={styles.gridLine}
-                />
-                <line
-                  x1="0"
-                  y1="120"
-                  x2="500"
-                  y2="120"
-                  className={styles.gridLine}
-                />
-                <line
-                  x1="0"
-                  y1="40"
-                  x2="500"
-                  y2="40"
-                  className={styles.gridLine}
-                />
+                {[280, 200, 120, 40].map((y) => (
+                  <line
+                    key={y}
+                    x1="0"
+                    y1={y}
+                    x2="500"
+                    y2={y}
+                    className={styles.gridLine}
+                  />
+                ))}
 
                 {/* Standard Line */}
                 <motion.path
                   d="M 0 280 L 150 240 L 300 220 L 500 200"
                   fill="none"
-                  stroke="rgba(255, 255, 255, 0.2)"
-                  strokeWidth="3"
+                  className={styles.standardLine}
                   {...(shouldAnimate && {
                     initial: { pathLength: 0 },
                     whileInView: { pathLength: 1 },
@@ -146,9 +127,7 @@ const EarningsChart = () => {
                 <motion.path
                   d="M 0 280 L 100 200 L 250 120 L 400 40"
                   fill="none"
-                  stroke="#FF5600"
-                  strokeWidth="5"
-                  className={styles.glowLine}
+                  className={styles.premiumLine}
                   {...(shouldAnimate && {
                     initial: { pathLength: 0 },
                     whileInView: { pathLength: 1 },
@@ -162,7 +141,7 @@ const EarningsChart = () => {
                   cx="400"
                   cy="40"
                   r="8"
-                  fill="#FF5600"
+                  className={styles.premiumPoint}
                   {...(shouldAnimate && {
                     initial: { scale: 0 },
                     whileInView: { scale: 1 },

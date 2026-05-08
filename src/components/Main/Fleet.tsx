@@ -85,14 +85,13 @@ const Fleet = ({ data }: FleetProps) => {
         </div>
 
         <div className={styles.showcase}>
-          {/* Central Decorative Orb (Geometric Base) */}
           <div className={styles.orbDecor}>
             <div className={styles.glow}></div>
           </div>
 
           {displayFleet.map((car, index) => {
             const carKey =
-              (car.name || "car").split(" ")[1]?.toLowerCase() || "car"; // fabia, swace, corolla
+              (car.name || "car").split(" ")[1]?.toLowerCase() || "car";
 
             return (
               <motion.div

@@ -8,7 +8,6 @@
   overflow: hidden;
   z-index: 1;
 
-  // Diagonal Transition (Bottom cut to interlock with AdOnCar)
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5rem));
   margin-bottom: -5rem;
 
@@ -21,7 +20,6 @@
     margin-bottom: -3rem;
   }
 
-  // Top Rim Lighting
   &::before {
     content: "";
     position: absolute;
@@ -89,7 +87,7 @@
 .showcase {
   position: relative;
   width: 100%;
-  max-width: 1200px; // Mandatory boundary to keep Suzuki/Toyota on screen
+  max-width: 1200px;
   margin: 0 auto;
 
   /* Mobile: Clean Vertical Stack */
@@ -99,7 +97,7 @@
 
   /* Desktop: Absolute Positioned Orbit */
   @media (min-width: 1024px) {
-    height: 950px; // Compacted for better composition
+    height: 950px;
     display: block;
   }
 }
@@ -165,7 +163,6 @@
       justify-content: center;
       transform: none;
 
-      // Ensure image container keeps standard width
       .imageContainer {
         width: 480px;
       }
@@ -174,14 +171,14 @@
 
   &.swace {
     @media (min-width: 1024px) {
-      top: 50%; // Final ultra-tight alignment
+      top: 50%;
       right: 0px;
     }
   }
 
   &.corolla {
     @media (min-width: 1024px) {
-      top: 50%; // Final ultra-tight alignment
+      top: 50%;
       left: 0px;
     }
   }
@@ -192,7 +189,7 @@
   width: 100%;
   background: #111;
   overflow: hidden;
-  border: 4px solid rgba(255, 255, 255, 0.05); // High-premium border
+  border: 4px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   @include transition-standard;
 
@@ -217,7 +214,7 @@
 
 .label {
   padding: 2.5rem 0;
-  text-align: center; // Anchored under the car for stability
+  text-align: center;
 
   .carName {
     font-size: 2.2rem;

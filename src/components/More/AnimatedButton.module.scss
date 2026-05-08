@@ -11,6 +11,8 @@
 }
 
 .btn31 {
+  display: inline-block;
+  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
   appearance: none;
   -webkit-appearance: button;
@@ -24,13 +26,12 @@
   line-height: 1.5;
   margin: 0;
 
-  mask-image: radial-gradient(circle, #000 0%, #fff 100%);
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
   padding: 0;
   border: none;
   padding: 1.2rem 3.5rem;
   position: relative;
   text-transform: uppercase;
+  -webkit-clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
   clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
 }
 
