@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
@@ -13,6 +13,7 @@ import styles from "./Recruitment.module.scss";
 import { useLeadModal } from "../More/LeadContext";
 
 const Recruitment = ({ data }: { data?: any }) => {
+  const [showAllCities, setShowAllCities] = useState(false);
   const shouldAnimate = useShouldAnimate();
   const { openLeadModal } = useLeadModal();
   const formLink = "https://forms.gle/2jpFc7AEk1HAcufA6";
@@ -24,8 +25,25 @@ const Recruitment = ({ data }: { data?: any }) => {
 
   const displaySteps =
     data?.steps && data.steps.length > 0 ? data.steps : defaultSteps;
-  const displayCities =
+
+  const topCities = [
+    "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", 
+    "Katowice", "Łódź", "Szczecin", "Lublin", "Bydgoszcz", 
+    "Rzeszów", "Białystok"
+  ];
+
+  const displayCitiesRaw =
     data?.cities && data.cities.length > 0 ? data.cities : defaultCities;
+
+  const displayCities = [...displayCitiesRaw].sort((a, b) => {
+    const aIsTop = topCities.includes(a);
+    const bIsTop = topCities.includes(b);
+    if (aIsTop && !bIsTop) return -1;
+    if (!aIsTop && bIsTop) return 1;
+    return a.localeCompare(b);
+  });
+
+  const visibleCities = showAllCities ? displayCities : displayCities.slice(0, 12);
 
   return (
     <section id="rekrutacja" className={styles.wrapper}>
@@ -69,7 +87,7 @@ const Recruitment = ({ data }: { data?: any }) => {
 
         {/* CITIES LIST */}
         <div className={styles.citiesWrapper}>
-          {displayCities.map((city: string, index: number) => (
+          {visibleCities.map((city: string, index: number) => (
             <motion.span
               key={city}
               className={styles.cityTag}
@@ -83,6 +101,20 @@ const Recruitment = ({ data }: { data?: any }) => {
               {city}
             </motion.span>
           ))}
+          {displayCities.length > 12 && (
+            <motion.button
+              onClick={() => setShowAllCities(!showAllCities)}
+              className={styles.showMoreBtn}
+              {...(shouldAnimate && {
+                variants: fadeIn("up", "tween", 0.3 + visibleCities.length * 0.05, 0.5),
+                initial: "hidden",
+                whileInView: "show",
+                viewport: { once: true, amount: 0.1 },
+              })}
+            >
+              {showAllCities ? "Zwiń ▲" : `+ ${displayCities.length - 12} miast`}
+            </motion.button>
+          )}
         </div>
 
         <div className={styles.steps}>

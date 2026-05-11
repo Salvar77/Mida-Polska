@@ -2,11 +2,14 @@
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
+import { useState } from "react";
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./ContactMap.module.scss";
 import { useLeadModal } from "../More/LeadContext";
+import { citiesList } from "@/constants";
 
 const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
+  const [showAllCities, setShowAllCities] = useState(false);
   const shouldAnimate = useShouldAnimate();
   const { openLeadModal } = useLeadModal();
 
@@ -24,22 +27,24 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
     formLink: data?.formLink || "https://forms.gle/2jpFc7AEk1HAcufA6",
   };
 
-  const displayCities =
-    cities && cities.length > 0
-      ? cities
-      : [
-          "Opole",
-          "Wałbrzych",
-          "Kędzierzyn-Koźle",
-          "Leszno",
-          "Białystok",
-          "Zielona Góra",
-          "Bydgoszcz",
-          "Nysa",
-          "Lublin",
-          "Częstochowa",
-          "Grudziądz",
-        ];
+  const topCities = [
+    "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", 
+    "Katowice", "Łódź", "Szczecin", "Lublin", "Bydgoszcz", 
+    "Rzeszów", "Białystok"
+  ];
+
+  const displayCitiesRaw = cities && cities.length > 0 ? cities : citiesList;
+  
+  const displayCities = [...displayCitiesRaw].sort((a, b) => {
+    const aIsTop = topCities.includes(a);
+    const bIsTop = topCities.includes(b);
+    if (aIsTop && !bIsTop) return -1;
+    if (!aIsTop && bIsTop) return 1;
+    // Jeśli oba są top, albo żaden, sortuj alfabetycznie
+    return a.localeCompare(b);
+  });
+
+  const visibleCities = showAllCities ? displayCities : displayCities.slice(0, 12);
 
   return (
     <section id="kontakt" className={styles.wrapper}>
@@ -122,24 +127,50 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
               </div>
             </motion.div>
 
-            <motion.div
-              className={styles.cities}
-              {...(shouldAnimate && {
-                variants: fadeIn("up", "tween", 0.5, 0.6),
-                initial: "hidden",
-                whileInView: "show",
-                viewport: { once: true },
-              })}
-            >
-              <h3>Gdzie jeździmy?</h3>
+            <div className={styles.cities}>
+              <motion.h3
+                {...(shouldAnimate && {
+                  variants: fadeIn("up", "tween", 0.4, 0.6),
+                  initial: "hidden",
+                  whileInView: "show",
+                  viewport: { once: true },
+                })}
+              >
+                Gdzie jeździmy?
+              </motion.h3>
               <div className={styles.cityGrid}>
-                {displayCities.map((city, index) => (
-                  <span key={index} className={styles.cityTag}>
+                {visibleCities.map((city, index) => (
+                  <motion.span
+                    key={index}
+                    className={styles.cityTag}
+                    {...(shouldAnimate && {
+                      variants: fadeIn("up", "tween", 0.5 + index * 0.05, 0.4),
+                      initial: "hidden",
+                      whileInView: "show",
+                      viewport: { once: true, amount: 0.1 },
+                    })}
+                  >
                     {city}
-                  </span>
+                  </motion.span>
                 ))}
+                {displayCities.length > 12 && (
+                  <motion.button
+                    onClick={() => setShowAllCities(!showAllCities)}
+                    className={styles.showMoreBtn}
+                    {...(shouldAnimate && {
+                      variants: fadeIn("up", "tween", 0.5 + visibleCities.length * 0.05, 0.4),
+                      initial: "hidden",
+                      whileInView: "show",
+                      viewport: { once: true, amount: 0.1 },
+                    })}
+                  >
+                    {showAllCities
+                      ? "Zwiń ▲"
+                      : `+ ${displayCities.length - 12} miast`}
+                  </motion.button>
+                )}
               </div>
-            </motion.div>
+            </div>
 
             <motion.div
               className={styles.cta}
