@@ -80,7 +80,6 @@ const Hero = ({ data }: HeroProps) => {
 
           <div className={styles.ctaWrapper}>
             <AnimatedButton
-              href="https://forms.gle/2jpFc7AEk1HAcufA6"
               className={styles.mainCta}
               onClick={handleCtaClick}
             >

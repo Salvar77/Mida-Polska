@@ -125,7 +125,6 @@ const Flexibility = () => {
             >
               <GlassButton
                 variant="freenow"
-                href="https://forms.gle/2jpFc7AEk1HAcufA6"
                 onClick={handleCtaClick}
               >
                 Dowiedz się więcej

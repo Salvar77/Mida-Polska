@@ -4,6 +4,7 @@ import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import GlassButton from "../More/GlassButton";
 import styles from "./HowToStart.module.scss";
+import { useLeadModal } from "../More/LeadContext";
 
 const steps = [
   {
@@ -35,6 +36,12 @@ const steps = [
 
 const HowToStart = () => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal("https://forms.gle/2jpFc7AEk1HAcufA6", "howToStart");
+  };
 
   return (
     <section id="jak-zaczac" className={styles.wrapper}>
@@ -148,8 +155,8 @@ const HowToStart = () => {
         >
           <GlassButton
             variant="bolt"
-            href="https://forms.gle/2jpFc7AEk1HAcufA6"
             className={styles.ctaButton}
+            onClick={handleCtaClick}
           >
             Zadaj pytanie
           </GlassButton>

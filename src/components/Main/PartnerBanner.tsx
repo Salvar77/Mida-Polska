@@ -4,9 +4,16 @@ import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import AnimatedButton from "../More/AnimatedButton";
 import styles from "./PartnerBanner.module.scss";
+import { useLeadModal } from "../More/LeadContext";
 
 const PartnerBanner = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal("https://forms.gle/2jpFc7AEk1HAcufA6", "partnerBanner");
+  };
 
   const title = data?.title || "Szukasz pracy jako KIEROWCA?";
   const benefits =
@@ -48,7 +55,7 @@ const PartnerBanner = ({ data }: { data?: any }) => {
           </ul>
 
           <div className={styles.ctaWrapper}>
-            <AnimatedButton href="https://forms.gle/2jpFc7AEk1HAcufA6">
+            <AnimatedButton onClick={handleCtaClick}>
               Aplikuj do floty
             </AnimatedButton>
           </div>

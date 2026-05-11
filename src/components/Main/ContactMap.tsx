@@ -4,9 +4,16 @@ import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./ContactMap.module.scss";
+import { useLeadModal } from "../More/LeadContext";
 
 const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal("https://forms.gle/2jpFc7AEk1HAcufA6", "contact");
+  };
 
   const contact = {
     address1: data?.addressLine1 || "Nałęczowska 30, lok 12, Piętro\u00A0I",
@@ -143,7 +150,7 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
                 viewport: { once: true },
               })}
             >
-              <SecondaryButton variant="default" href={contact.formLink}>
+              <SecondaryButton variant="default" onClick={handleCtaClick}>
                 Wyślij wiadomość
               </SecondaryButton>
             </motion.div>
