@@ -53,7 +53,7 @@ const cars = [
 ];
 
 const usp = [
-  { icon: <FiClock />, text: "Auta jeżdżą 24/7 po mieście" },
+  { icon: <FiClock />, text: "Samochody jeżdżą 24/7 po mieście" },
   { icon: <FiMapPin />, text: "Obecność w wielu miastach Polski" },
   { icon: <FiEye />, text: "Tysiące wyświetleń dziennie" },
   { icon: <FiTarget />, text: "Targetowanie lokalne – Twój rynek" },
