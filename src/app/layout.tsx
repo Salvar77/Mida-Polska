@@ -235,7 +235,6 @@ export default function RootLayout({
           ],
         },
       },
-      // 2. FAQPage – zajmuje dodatkowe miejsce w Google (rich snippet)
       {
         "@type": "FAQPage",
         "@id": "https://www.mida-polska.pl/#faq",
@@ -282,7 +281,6 @@ export default function RootLayout({
           },
         ],
       },
-      // 3. WebSite – umożliwia SearchAction (pole wyszukiwania w SERP)
       {
         "@type": "WebSite",
         "@id": "https://www.mida-polska.pl/#website",
