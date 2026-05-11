@@ -5,7 +5,7 @@ import clsx from "clsx";
 interface AnimatedButtonProps {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   href?: string;
   type?: "button" | "submit" | "reset";
 }

@@ -5,7 +5,7 @@ import clsx from "clsx";
 interface SecondaryButtonProps {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   href?: string;
   variant?: "default" | "bolt" | "uber" | "freenow";
 }

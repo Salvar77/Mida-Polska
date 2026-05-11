@@ -1,9 +1,11 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import styles from "./Hero.module.scss";
 import AnimatedButton from "../More/AnimatedButton";
+import { useLeadModal } from "../More/LeadContext";
 
 interface HeroProps {
   data?: {
@@ -16,6 +18,7 @@ interface HeroProps {
 
 const Hero = ({ data }: HeroProps) => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
 
   const content = {
     title: data?.title || "Oficjalny Partner Flotowy",
@@ -24,6 +27,11 @@ const Hero = ({ data }: HeroProps) => {
       data?.description ||
       "Zacznij zarabiać jako kierowca – szkolenie gratis, wsparcie 7 dni w tygodniu, najlepsza flota w Twoim mieście. Lublin i cała Polska.",
     buttonText: data?.buttonText || "Aplikuj teraz",
+  };
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal("https://forms.gle/2jpFc7AEk1HAcufA6", "hero");
   };
 
   return (
@@ -74,6 +82,7 @@ const Hero = ({ data }: HeroProps) => {
             <AnimatedButton
               href="https://forms.gle/2jpFc7AEk1HAcufA6"
               className={styles.mainCta}
+              onClick={handleCtaClick}
             >
               {content.buttonText}
             </AnimatedButton>

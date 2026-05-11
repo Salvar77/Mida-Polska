@@ -1,13 +1,21 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
 import GlassButton from "../More/GlassButton";
 import styles from "./Flexibility.module.scss";
+import { useLeadModal } from "../More/LeadContext";
 
 const Flexibility = () => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal("https://forms.gle/2jpFc7AEk1HAcufA6", "flexibility");
+  };
 
   return (
     <section id="elastycznosc" className={styles.wrapper}>
@@ -118,6 +126,7 @@ const Flexibility = () => {
               <GlassButton
                 variant="freenow"
                 href="https://forms.gle/2jpFc7AEk1HAcufA6"
+                onClick={handleCtaClick}
               >
                 Dowiedz się więcej
               </GlassButton>

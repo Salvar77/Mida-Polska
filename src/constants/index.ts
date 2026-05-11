@@ -32,9 +32,19 @@ export const recruitmentSteps = [
 ];
 
 export const citiesList = [
-  "Opole", "Wałbrzych", "Kędzierzyn-Koźle", "Leszno", "Białystok",
-  "Zielona Góra", "Bydgoszcz", "Nysa", "Lublin", "Częstochowa", "Grudziądz"
-];
+  "Augustów", "Biała Podlaska", "Białystok", "Bielsko-Biała", "Bydgoszcz", 
+  "Chełm", "Częstochowa", "Dobrzeń Wielki", "Elbląg", "Ełk", 
+  "Gdańsk", "Gdynia", "Gorzów Wielkopolski", "Grudziądz", "Jelenia Góra", 
+  "Kalisz", "Karpacz", "Katowice", "Kędzierzyn-Koźle", "Koszalin", 
+  "Kraków", "Legnica", "Leszno", "Lublin", "Łomża", 
+  "Łubniany", "Łódź", "Mielno", "Nysa", "Olsztyn", 
+  "Opole", "Ostrołęka", "Płock", "Poznań", "Prószków", 
+  "Puławy", "Radom", "Rumia", "Rybnik", "Rzeszów", 
+  "Słupsk", "Sopot", "Stalowa Wola", "Suwałki", "Szczecin", 
+  "Szklarska Poręba", "Świdnica", "Świdnik", "Tarnów", "Toruń", 
+  "Tychy", "Wałbrzych", "Warszawa", "Wrocław", "Zakopane", 
+  "Zamość", "Zielona Góra"
+].sort();
 
 export const bonusInfo = {
   amount: "250 PLN",

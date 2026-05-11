@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, textVariant } from "@/lib/animations";
 import { useShouldAnimate } from "@/hooks/useShouldAnimate";
@@ -9,9 +10,17 @@ import {
 import SecondaryButton from "../More/SecondaryButton";
 import styles from "./Recruitment.module.scss";
 
+import { useLeadModal } from "../More/LeadContext";
+
 const Recruitment = ({ data }: { data?: any }) => {
   const shouldAnimate = useShouldAnimate();
+  const { openLeadModal } = useLeadModal();
   const formLink = "https://forms.gle/2jpFc7AEk1HAcufA6";
+
+  const handleCtaClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    openLeadModal(formLink, "recruitment");
+  };
 
   const displaySteps =
     data?.steps && data.steps.length > 0 ? data.steps : defaultSteps;
@@ -110,6 +119,7 @@ const Recruitment = ({ data }: { data?: any }) => {
             variant="default"
             href={formLink}
             className={styles.ctaButton}
+            onClick={handleCtaClick}
           >
             Złóż wniosek online
           </SecondaryButton>
