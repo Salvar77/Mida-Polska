@@ -28,23 +28,33 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
   };
 
   const topCities = [
-    "Warszawa", "Kraków", "Wrocław", "Poznań", "Gdańsk", 
-    "Katowice", "Łódź", "Szczecin", "Lublin", "Bydgoszcz", 
-    "Rzeszów", "Białystok"
+    "Warszawa",
+    "Kraków",
+    "Wrocław",
+    "Poznań",
+    "Gdańsk",
+    "Katowice",
+    "Łódź",
+    "Szczecin",
+    "Lublin",
+    "Bydgoszcz",
+    "Rzeszów",
+    "Białystok",
   ];
 
   const displayCitiesRaw = cities && cities.length > 0 ? cities : citiesList;
-  
+
   const displayCities = [...displayCitiesRaw].sort((a, b) => {
     const aIsTop = topCities.includes(a);
     const bIsTop = topCities.includes(b);
     if (aIsTop && !bIsTop) return -1;
     if (!aIsTop && bIsTop) return 1;
-    // Jeśli oba są top, albo żaden, sortuj alfabetycznie
     return a.localeCompare(b);
   });
 
-  const visibleCities = showAllCities ? displayCities : displayCities.slice(0, 12);
+  const visibleCities = showAllCities
+    ? displayCities
+    : displayCities.slice(0, 12);
 
   return (
     <section id="kontakt" className={styles.wrapper}>
@@ -158,7 +168,12 @@ const ContactMap = ({ data, cities }: { data?: any; cities?: string[] }) => {
                     onClick={() => setShowAllCities(!showAllCities)}
                     className={styles.showMoreBtn}
                     {...(shouldAnimate && {
-                      variants: fadeIn("up", "tween", 0.5 + visibleCities.length * 0.05, 0.4),
+                      variants: fadeIn(
+                        "up",
+                        "tween",
+                        0.5 + visibleCities.length * 0.05,
+                        0.4,
+                      ),
                       initial: "hidden",
                       whileInView: "show",
                       viewport: { once: true, amount: 0.1 },

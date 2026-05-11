@@ -32,12 +32,11 @@ const LeadModal: React.FC<LeadModalProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, city, role, source }),
+        body: JSON.stringify({ name, phone, email, city, role, source, consent }),
       });
 
       if (response.ok) {

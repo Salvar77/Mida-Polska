@@ -117,7 +117,6 @@ const Fleet = ({ data }: FleetProps) => {
                   />
                 </div>
 
-                {/* Clean Label underneath image for spatial stability */}
                 <div className={styles.label}>
                   <h3 className={styles.carName}>
                     {car.name || "Nowy pojazd"}

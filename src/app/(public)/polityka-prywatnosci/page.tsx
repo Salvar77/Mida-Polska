@@ -36,9 +36,9 @@ export default function PrivacyPolicy() {
                 <strong>Mida Polska</strong>.
               </p>
               <p>
-                Administratorem danych osobowych zawartych w serwisie jest Mida
-                Polska z siedzibą w Lublinie (20-701) przy ul. Nałęczowskiej 30
-                lok. 12.
+                Administratorem danych osobowych zawartych w serwisie jest{" "}
+                <strong>Mida Sp. z o.o.</strong> z siedzibą w Lublinie (20-701)
+                przy ul. Nałęczowskiej 30 lok. 12.
               </p>
             </section>
 
@@ -59,12 +59,14 @@ export default function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2>3. Rodzaj przetwarzanych danych</h2>
+              <h2>3. Rodzaj przetwarzanych danych i podstawa prawna</h2>
               <p>
                 Serwis zbiera informacje podane dobrowolnie przez użytkownika w
                 formularzach (np. imię i nazwisko, adres e-mail, numer telefonu,
-                miasto). Serwis może zapisać ponadto informacje o parametrach
-                połączenia (oznaczenie czasu, adres IP).
+                miasto). Podstawą prawną przetwarzania tych danych jest zgoda
+                Użytkownika (art. 6 ust. 1 lit. a RODO), w tym na kontakt 
+                telefoniczny, oraz działania zmierzające do podjęcia współpracy 
+                (art. 6 ust. 1 lit. b RODO).
               </p>
             </section>
 
@@ -72,9 +74,11 @@ export default function PrivacyPolicy() {
               <h2>4. Udostępnianie danych</h2>
               <p>
                 Dane podlegają udostępnieniu podmiotom zewnętrznym wyłącznie w
-                granicach prawnie dozwolonych. W procesie rekrutacji dane mogą
-                być przekazywane operatorom aplikacji (Uber, Bolt, FREENOW) w
-                celu weryfikacji kierowcy.
+                granicach prawnie dozwolonych. Odbiorcami danych mogą być
+                podmioty dostarczające infrastrukturę IT i oprogramowanie chmurowe 
+                (np. Google Workspace/Forms do obsługi zgłoszeń). W procesie rekrutacji 
+                dane mogą być również przekazywane operatorom aplikacji (Uber, Bolt, FREENOW) 
+                w celu weryfikacji kierowcy.
               </p>
             </section>
 

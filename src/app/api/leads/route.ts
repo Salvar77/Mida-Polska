@@ -4,9 +4,9 @@ import Lead from "@/models/Lead";
 
 export async function POST(req: Request) {
   try {
-    const { name, phone, email, city, role, source } = await req.json();
+    const { name, phone, email, city, role, source, consent } = await req.json();
 
-    if (!name || !phone || !email || !city || !role) {
+    if (!name || !phone || !email || !city || !role || consent === undefined) {
       return NextResponse.json(
         { error: "Wszystkie pola są wymagane" },
         { status: 400 }
@@ -15,7 +15,6 @@ export async function POST(req: Request) {
 
     await dbConnect();
 
-    // 1. Zapis do własnej bazy MongoDB
     const newLead = await Lead.create({
       name,
       phone,
@@ -23,21 +22,19 @@ export async function POST(req: Request) {
       city,
       role,
       source: source || "website",
-      consent: true,
+      consent: consent,
     });
 
-    // 2. "Ciche" wysłanie do Google Forms w tle
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdSB57q44yGqiwr-sp_zqYAvbObJUPUSrTrtRMitvBm_vkjbA/formResponse";
-    
-    const formData = new URLSearchParams();
-    formData.append("entry.1839200097", role);        // Chcesz rozpocząć pracę jako
-    formData.append("entry.2121493421", name);        // Imię nazwisko
-    formData.append("entry.891338267", phone);        // Numer telefonu
-    formData.append("entry.435777645", email);        // Adres e-mail
-    formData.append("entry.278861156", city);         // Miasto pracy
-    formData.append("entry.1074255916", "TAK");       // Zgoda
 
-    // Wysyłamy bez czekania na odpowiedź (fire and forget)
+    const formData = new URLSearchParams();
+    formData.append("entry.1839200097", role);
+    formData.append("entry.2121493421", name);
+    formData.append("entry.891338267", phone);
+    formData.append("entry.435777645", email);
+    formData.append("entry.278861156", city);
+    formData.append("entry.1074255916", consent ? "TAK" : "NIE");
+
     fetch(GOOGLE_FORM_URL, {
       method: "POST",
       mode: "no-cors",

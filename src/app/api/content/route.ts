@@ -25,7 +25,6 @@ export async function GET(req: Request) {
   }
 }
 
-// AKTUALIZACJA TREŚCI (Tylko dla zalogowanych)
 export async function POST(req: Request) {
   try {
     const session = await auth();

@@ -98,7 +98,6 @@ const EarningsChart = () => {
               </div>
 
               <svg className={styles.svg} viewBox="0 0 500 300">
-                {/* Grid Lines */}
                 {[280, 200, 120, 40].map((y) => (
                   <line
                     key={y}
@@ -110,7 +109,6 @@ const EarningsChart = () => {
                   />
                 ))}
 
-                {/* Standard Line */}
                 <motion.path
                   d="M 0 280 L 150 240 L 300 220 L 500 200"
                   fill="none"
@@ -123,7 +121,6 @@ const EarningsChart = () => {
                   })}
                 />
 
-                {/* Mida Premium Line (Orange Glow) */}
                 <motion.path
                   d="M 0 280 L 100 200 L 250 120 L 400 40"
                   fill="none"
@@ -150,7 +147,6 @@ const EarningsChart = () => {
                   })}
                 />
 
-                {/* Labels - moved to end to be on top */}
                 <text x="15" y="265" className={styles.label}>
                   START
                 </text>

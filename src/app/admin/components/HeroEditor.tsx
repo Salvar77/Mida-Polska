@@ -21,7 +21,6 @@ const HeroEditor = () => {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Pobieramy aktualne dane z bazy
   useEffect(() => {
     fetch("/api/content?sectionId=hero")
       .then((res) => res.json())

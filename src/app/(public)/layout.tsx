@@ -11,7 +11,8 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: "Mida Polska | Autoryzowany partner flotowy Bolt, Uber, FREENOW",
-  description: "Dołącz do grona zadowolonych kierowców. Pracuj z najlepszym partnerem flotowym w Polsce.",
+  description:
+    "Dołącz do grona zadowolonych kierowców. Pracuj z najlepszym partnerem flotowym w Polsce.",
 };
 
 export default function PublicLayout({
@@ -19,9 +20,5 @@ export default function PublicLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className={`${lato.variable}`}>
-        {children}
-    </div>
-  );
+  return <div className={`${lato.variable}`}>{children}</div>;
 }

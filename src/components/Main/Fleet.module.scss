@@ -90,19 +90,16 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  /* Mobile: Clean Vertical Stack */
   display: flex;
   flex-direction: column;
   gap: 8rem;
 
-  /* Desktop: Absolute Positioned Orbit */
   @media (min-width: 1024px) {
     height: 950px;
     display: block;
   }
 }
 
-/* Central Decorative Orb (Fixed base) */
 .orbDecor {
   position: absolute;
   top: 50%;
@@ -151,7 +148,6 @@
     }
   }
 
-  /* ABSOLUTE GEOMETRIC POSITIONS (SCREEN-SAFE) */
   &.fabia {
     @media (min-width: 1024px) {
       top: 50px;
